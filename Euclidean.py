@@ -39,4 +39,3 @@ def crt(b,m):
 if __name__ =="__main__":
     print(extgcd(10000,14))#(2,-3,2143) -> 10000*-3 + 14*2143 = 2(=gcd(10000,14))
     print(extgcd(4,-4))
-    
