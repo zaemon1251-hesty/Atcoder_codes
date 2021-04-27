@@ -17,9 +17,9 @@ for i in range(h):
       x[j]="."
     elif x[j]=="G":
       g=(i,j)
-     
+
     elif x[j]!='.' and x[j]!='#':
-      
+
       dic[x[j]].append((i,j))
   grid.append(x)
 
