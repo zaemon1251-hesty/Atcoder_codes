@@ -11,7 +11,7 @@ seen=[False]*n
 
 def dfs(G,v):
     seen[v]=True
-    
+
     for next_v in G[v]:
         if seen[next_v]=True:continue
         dfs(G,next_v)
