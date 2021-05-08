@@ -37,7 +37,7 @@ def dfs(G,v,p,d,x):
         subtree[v]+=subtree[c]
 	'''
 G = [[] for _ in range(n)]
-for i in range(n-1): 
+for i in range(n-1):
     a,b=map(lambda x:int(x)-1,input().split())
     G[a].append(b)
     G[b].append(a)

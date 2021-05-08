@@ -31,4 +31,5 @@ for i in range(R):
         colomn += [y, x]
         data += [1, 0]
 g = csr_matrix((data, (row, colomn)))
-print(int(shortest_path(g, indices=0)[R * C - 1]))
+#indicesを指定するとshortest_pathの戻り値はベクトル、指定しないと行列
+print(int(shortest_path(g, indices = 0)[R*C - 1]))
