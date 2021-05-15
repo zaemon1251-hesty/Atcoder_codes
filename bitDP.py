@@ -44,7 +44,6 @@ for s in range(1,2**k):
     if s==(1<<i):dp[s][i]=1
     elif (s>>i)&1:
       dp[s][i]=min([dp[s^(1<<i)][j] + dist[i][j] for j in range(k)])
-      
 ans=min(dp[-1])
 if ans==inf:
   ans=-1
