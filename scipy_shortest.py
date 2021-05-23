@@ -1,5 +1,25 @@
 #ZONe プログラミングコンテスト　E
 #最短経路問題はこの解法を基本にした方がよさそう
+
+def shortest_from_root(G):
+    from scipy.sparse.csgraph import shortest_path
+    from scipy.sparse import csr_matrix
+
+    data = []
+    row = []
+    colomn = []
+    for i in range(len(G)):
+        for j in G[i]:
+            row.append(i)
+            colomn.append(j)
+            data.append(1)
+
+    g = csr_matrix((data, (row, colomn)))
+    #indicesを指定するとshortest_pathの戻り値はベクトル、指定しないと行列
+    return shortest_path(g, indices = 0)
+
+
+
 from scipy.sparse.csgraph import shortest_path
 from scipy.sparse import csr_matrix
 

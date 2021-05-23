@@ -53,3 +53,29 @@ root=0
 dfs(G,root,-1,0,0)
 
 print(*counter, sep=' ')
+
+
+#行きがけ、帰りがけに使う変数
+now = 0
+
+def in_out(G, n):
+    from sys import setrecursionlimit
+    setrecursionlimit(10**6)
+    seen=[False] * n
+    before = [0] * n
+    after = [0] * n
+
+    def dfs(v):
+        global now
+        seen[v] = True
+        before[v] = now
+        now += 1
+        for next_v in G[v]:
+            if seen[next_v] == True:continue
+            dfs(next_v)
+        after[v] = now
+        now += 1
+    #global変数の初期化
+    global now
+    now = 0
+    return before, after
