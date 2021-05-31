@@ -1,3 +1,36 @@
+def one_cumsum(arr):
+    """
+    [l, r)の区間和が
+    f(r) - f(l)　で求められるデータ構造 (0-index)
+    """
+    from itertools import accumulate
+
+    return [0] + list(accumulate(arr))
+
+
+def two_cumsum(arr, x):
+    """
+    [x1,x2) × [y1,y2) の区間和が
+    f(x2,y2) - f(x1,y2) - f(x2,y1) + f(x1,y1)　で求められるデータ構造 (0-index)
+    """
+    s = [[0] * (len(arr[0]) + 1) for _ in range(len(arr) + 1)]
+    for i in range(len(arr)):
+        for j in range(len(arr[0])):
+            s[i+1][j+1] = s[i][j+1] + s[i+1][j] - s[i][j] + (arr[i][j] > x)
+    return s
+
+
+def check(f, k, n):
+    for i in range(k, n + 1):
+        for j in range(k, n + 1):
+            # [i-k, i) × [j-k, j)
+            s = f[i][j] - f[i-k][j] - f[i][j-k] + f[i-k][j-k]
+            if int(k**2 / 2) + 1 > s:
+                return True
+    else:
+        return False
+
+
 def maina():
     a, b, c = map(int, input().split())
     if len(set([a,b,c])) == 3:
@@ -38,9 +71,26 @@ def mainc():
 def maind():
     n, k = map(int, input().split())
     A = []
-    for i in range(n):
+    ok = 0
+    ng = -1
+    for _ in range(n):
         a = list(map(int, input().split()))
+        ok = max(ok, max(a))
         A.append(a)
+    #import numpy as np
+    #print(np.array(A))
+
+    while ok - ng > 1:
+        #print('--------------------')
+        cen = (ok + ng) // 2
+        #print(cen)
+        f = two_cumsum(A, cen)
+        #print(check(f, k, n))
+        if check(f, k, n):
+            ok = cen
+        else:
+            ng = cen
+    print(ok)
 
 
 def maine():
@@ -91,6 +141,6 @@ if __name__ == '__main__':
     #maina()
     #mainb()
     #mainc()
-    #maind()
-    maine()
+    maind()
+    #maine()
     mori = True
