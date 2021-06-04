@@ -29,6 +29,9 @@ def two_cumsum(arr):
     return tmp, s
 
 
+
+
+
 if __name__ == "__main__":
     tmp, f = two_cumsum([[1,2,3,4,5], [2,4,6,8,10]])
 
