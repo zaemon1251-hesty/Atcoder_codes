@@ -28,7 +28,21 @@ def two_cumsum(arr):
 
     return tmp, s
 
-
+def interval(A, K):
+    #尺取り法
+    #和がKとなる区間のうち最大の長さを求める
+    ans = 0
+    N = len(A)
+    _sum = 0
+    right = 0
+    for left in range(N):
+        while right < N and _sum + A[right] <= K:
+            _sum += A[right]
+            right += 1
+            ans = max(ans, right - left + 1)
+        if left == right:right += 1
+        _sum -= A[left]
+    return ans
 
 
 
