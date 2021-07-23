@@ -46,9 +46,8 @@ class UnionFind():
         return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
 
 
-
 def maina():
-    a,b = map(int, input().split())
+    a, b = map(int, input().split())
     print(b-a+1)
 
 
@@ -66,7 +65,7 @@ def mainc():
     dic = defaultdict(int)
     ans = 0
     for i in range(K):
-        if dic[i] ==0:
+        if dic[i] == 0:
             ans += 1
         dic[i] += 1
     ma = ans
@@ -82,21 +81,22 @@ def mainc():
         ma = max(ma, ans)
     print(ma)
 
+
 def maind():
-    inf = 1<<60
+    inf = 1 << 60
     H, W, C = map(int, input().split())
     G = []
     dp = [[inf]*W for _ in range(H)]
     X = [[inf]*W for _ in range(H)]
 
     for _ in range(H):
-        w = list(map(int,input().split()))
+        w = list(map(int, input().split()))
         G.append(w)
 
     ans = inf
     for i in range(H):
         for j in range(W):
-            if i == 0  and j == 0:
+            if i == 0 and j == 0:
                 dp[i][j] = G[i][j]
                 X[i][j] = inf
             elif i == 0:
@@ -107,18 +107,20 @@ def maind():
                 X[i][j] = min(dp[i-1][j] + C + G[i][j], X[i][j])
             else:
                 dp[i][j] = min(dp[i-1][j] + C, dp[i][j-1] + C, G[i][j])
-                X[i][j] = min(dp[i][j-1] + C + G[i][j],  dp[i-1][j] + C + G[i][j], X[i][j])
+                X[i][j] = min(dp[i][j-1] + C + G[i][j],  dp[i-1]
+                              [j] + C + G[i][j], X[i][j])
 
     print(X[-1][-1])
+
 
 def maine():
     from math import gcd
     N, M = map(int, input().split())
     D = []
     for i in range(M):
-        a,c = map(int, input().split())
-        D.append((a,c))
-    D.sort(key = lambda x:x[1])
+        a, c = map(int, input().split())
+        D.append((a, c))
+    D.sort(key=lambda x: x[1])
 
     ans = 0
     X = N
@@ -132,10 +134,10 @@ def maine():
     print(ans if X == 1 else -1)
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     mori = 20
-    #maina()
-    #mainb()
-    #mainc()
+    # maina()
+    # mainb()
+    # mainc()
     maind()
-    #maine()
+    # maine()

@@ -1,15 +1,17 @@
-#区間最小値を求める
+# 区間最小値を求める
 # ABC-185-Fの改題
 
 
 #####segfunc#####
 def segfunc(x, y):
-    return min(x,y)
+    return min(x, y)
 #################
+
 
 #####ide_ele#####
 ide_ele = float('inf')
 #################
+
 
 class SegTree:
     """
@@ -20,6 +22,7 @@ class SegTree:
     find_leftest(a, b, x): [a,b)区間のx以下となる一番左のインデックスを取り出す O(logN)
     get region(i): iを含み、区間積が tree[num + i - 1] となる区間 [l, r) を取り出す O(logN)
     """
+
     def __init__(self, init_val, segfunc, ide_ele):
         """
         init_val: 配列の初期値
@@ -92,7 +95,7 @@ class SegTree:
         [参考サイト]
         https://algo-logic.info/segment-tree/
         """
-        if self.tree[k] > x or r <= a or l>=b:
+        if self.tree[k] > x or r <= a or l >= b:
             return max(a - 1, 0)
         elif k >= self.num - 1:
             return k - self.n - 1
@@ -109,7 +112,7 @@ class SegTree:
         [参考サイト]
         https://algo-logic.info/segment-tree/
         """
-        if self.tree[k] > x or r <= a or l>=b:
+        if self.tree[k] > x or r <= a or l >= b:
             return min(b, self.n - 1)
         elif k >= self.num - 1:
             return k - self.n - 1
@@ -131,8 +134,10 @@ def routine_1():
     tree = SegTree(a, segfunc, ide_ele)
     for _ in range(q):
         t, x, y = map(int, input().split())
-        if t == 1:tree.update(x-1, y)
-        else:print(tree.query(x-1, y))
+        if t == 1:
+            tree.update(x-1, y)
+        else:
+            print(tree.query(x-1, y))
 
 
 def routine_2():
@@ -141,8 +146,8 @@ def routine_2():
     tree = SegTree(a, segfunc, ide_ele)
     for i in range(n):
         r = tree.find_rightest(i + 1, n, a[i])
-        l = tree.find_leftest(0, i , a[i])
-        print("r:%s, l:%s, ans:%s"%(r, l, r - l + 1))
+        l = tree.find_leftest(0, i, a[i])
+        print("r:%s, l:%s, ans:%s" % (r, l, r - l + 1))
 
 
 if __name__ == "__main__":
