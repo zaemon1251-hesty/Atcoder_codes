@@ -1,10 +1,26 @@
 from collections import deque
 from collections import defaultdict
-inf = 10 ** 20
+inf = 1 << 60
 #from collections import deque
 
 
-def bfs(G, s, g):
+def BFS(G, N, p):
+    inf = 1 << 60
+    dist = [inf]*N
+    todo = deque([p])
+    dist[p] = 0
+    while todo:
+        v = todo.popleft()
+        # 何らかの処理
+        for next_v in G[v]:
+            if dist[next_v] != inf:
+                continue
+            # 何らかの処理
+            todo.append(next_v)
+    return dist
+
+
+def gridBFS(G, s, g):
     """
     道と壁があって、上下左右に移動できるグリッドグラフについて、
     スタートからゴールの最小移動回数を求める
