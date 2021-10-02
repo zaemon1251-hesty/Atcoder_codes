@@ -1,6 +1,7 @@
 *.ipynb
 .ipynb_checkpoints/
 .vscode
+*.pyc
 #挙げるまでもないコードをignoreに
 ignore/
 venv/
