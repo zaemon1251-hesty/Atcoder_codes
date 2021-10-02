@@ -36,6 +36,7 @@ def dfs(G, v, p, d, x):
     '''
     subtree[v]=1
     for c in G[v]:
+        if c == p:continue
         subtree[v]+=subtree[c]
 	'''
 
@@ -85,3 +86,33 @@ def in_out(G, n):
     global now
     now = 0
     return before, after
+
+
+def topologicalSort() -> list:
+    """
+    DAGを前提としたトポロジカルソート
+    """
+    N, M = map(int, input().split())
+    G = [[]for _ in range(N)]
+    seen = [False]*N
+    order = []
+    for _ in range(M-1):
+        a, b = map(lambda x: int(x)-1, input().split())
+        G[a].append(b)
+
+    # 参照渡しするための策
+    t = [0]
+
+    def dfs(G, v):
+        seen[v] = True
+        for next_v in G[v]:
+            if seen[next_v]:
+                continue
+            dfs(G, next_v)
+        order.append(v)
+    for i in range(N):
+        if seen[i]:
+            continue
+        dfs(G, i)
+    order.reverse()
+    return order
