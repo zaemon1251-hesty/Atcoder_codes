@@ -95,7 +95,7 @@ def maine():
     inf = 1 << 60
 
     def leftIsBigger(l, r):
-        return l[0] * r[1] >= r[0] * l[1]
+        return l[0] * r[1] - r[0] * l[1]
 
     def compare(x, y):
         print(x, y)
