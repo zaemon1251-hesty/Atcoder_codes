@@ -1,0 +1,5 @@
+def maina():
+    pass
+
+
+maina()
