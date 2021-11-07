@@ -1,6 +1,28 @@
 from collections import defaultdict, deque
 
 
+def maina():
+    x = int(input())
+    print("Yes" if x % 100 == 0 and x != 0 else "No")
+
+
+def mainb():
+    from collections import defaultdict, deque
+
+    x = deque(input())
+    s = []
+    for i in range(len(x)):
+        s.append("".join(x))
+        r = x.popleft()
+        x.append(r)
+    s.sort()
+    print(s[0])
+    print(s[-1])
+
+
+mainb()
+
+
 def mainc():
     N = int(input())
     S = []
@@ -71,5 +93,4 @@ def maine():
     print("No")
 
 
-if __name__ == "__main__":
-    maine()
+#

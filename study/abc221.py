@@ -1,4 +1,48 @@
+from collections import defaultdict
 from typing import OrderedDict
+
+
+def maina():
+    a, b = map(int, input().split())
+    print(pow(32, a-b))
+
+
+def mainb():
+    s = input()
+    t = input()
+    cnt = []
+    for i in range(len(s)):
+        if s[i] != t[i]:
+            cnt.append((s[i], t[i], i))
+    if len(cnt) == 2:
+        a, b = cnt[0], cnt[1]
+        if a[0] == b[1] and a[1] == b[0] and abs(a[2]-b[2]) == 1:
+            cnt = []
+    print("Yes" if len(cnt) == 0 else "No")
+
+
+def mainc():
+    t = list(input())
+    N = len(t)
+    ans = 0
+    for i in range(1 << N):
+        a = []
+        b = []
+        for j in range(N):
+            if (i >> j) & 1:
+                a.append(int(t[j]))
+            else:
+                b.append(int(t[j]))
+        a = "".join(list(map(str, sorted(a, reverse=True))))
+        b = "".join(list(map(str, sorted(b, reverse=True))))
+        #print(a, b)
+        if a == "" or b == "":
+            continue
+        ans = max(ans, int(a) * int(b))
+    print(ans)
+
+
+mainc()
 
 
 def mainc():
@@ -115,4 +159,5 @@ class BIT:
 
 
 if __name__ == "__main__":
-    maine()
+    pass
+    # maine()
