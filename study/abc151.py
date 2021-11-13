@@ -121,7 +121,6 @@ def maine():
         if i == K-2:
             r = 1
         rr.append(r)
-    #print(ll, rr, sep="\n")
     for i in range(N):
         ans -= ll[i] * A[i]
         ans += rr[i] * A[i]
