@@ -24,7 +24,7 @@ def make_divisors(n):
     return lower_divisors + upper_divisors[::-1]
 
 
-# 因数分解
+# 素因数分解
 def prime_factorize(n):
     a = []
     while n % 2 == 0:
