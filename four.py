@@ -1,5 +1,6 @@
 from fractions import Fraction
-from itertools import permutations
+from itertools import permutations, product
+from collections import deque
 
 
 class FourDigitsToTen:
@@ -39,10 +40,11 @@ class FourDigitsToTen:
         return result
 
     def isTenizable(self, A) -> bool:
-        x = self.operate_all(A[0], A[1])
-        y = self.operate_all(A[2], A[3])
-        if any(i == Fraction(10) for i in self.operate_all(x, y)):
-            return True
+        for i, j, k in permutations(range(3), 3):
+            x = self.operate_all(A[i], A[i+1])
+            y = self.operate_all(A[2], A[3])
+            if any(i == Fraction(10) for i in self.operate_all(x, y)):
+                return True
         x = self.operate_all(A[1], A[2])
         y = self.operate_all(A[0], x)
         if any(i == Fraction(10) for i in self.operate_all(A[3], y)):
@@ -66,5 +68,42 @@ class FourDigitsToTen:
 
 
 if __name__ == "__main__":
-    four2ten = FourDigitsToTen()
-    four2ten.main()
+    # four2ten = FourDigitsToTen()
+    # four2ten.main()
+
+    inputArr = list(map(str, input().split()))
+    for nums in permutations(inputArr, 4):
+        for ops in product(["+", "-", "*", "/"], repeat=3):
+            for order in permutations(range(3), 3):
+                arr = list(nums)
+                stack = deque([])
+                fst = order.index(0)
+                snd = order.index(1)
+                trd = order.index(2)
+                stack.extend([arr[fst], arr[fst+1], ops[fst]])
+                arr.pop(fst+1)
+                arr.pop(fst)
+                if abs(snd-fst) > 1:
+                    stack.extend([*arr, ops[snd], ops[trd]])
+                else:
+                    sndNum = int(snd > trd)
+                    trdNum = 1 - sndNum
+                    stack.extend(
+                        [arr[sndNum], ops[snd], arr[trdNum], ops[trd]])
+                buff = deque([])
+                while stack:
+                    s = stack.popleft()
+                    if s in ["+", "-", "*", "/"]:
+                        a = buff.pop()
+                        b = buff.pop()
+                        buff.append(f"({a}{s}{b})")
+                    else:
+                        buff.append(s)
+                query = buff[-1]
+                try:
+                    if Fraction(eval(query)) == Fraction(10):
+                        print("Found!!: %s" % query)
+                        exit()
+                except ZeroDivisionError:
+                    pass
+    print("Not Found")
