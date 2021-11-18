@@ -9,7 +9,7 @@ def count_strict_vals(n, a, b):
     A(最上位桁の数字a, 最下位桁の数字b)の桁数がNの桁数と同じであるとき、
     制約を満たすAの総数を求める。
     """
-    n =str(n)
+    n = str(n)
     a = str(a)
     b = str(b)
     if a > n[0] or len(n) == 1:
@@ -26,7 +26,6 @@ def count_strict_vals(n, a, b):
             ans += int(int(n[:-1]+b) <= int(n))
 
         return ans
-
 
 
 def maina():
@@ -63,26 +62,49 @@ def maind():
         cnt[x][y] += 1
 
     ans = 0
-    for i in range(1,10):
-        for j in range(1,10):
+    for i in range(1, 10):
+        for j in range(1, 10):
             ans += cnt[i][j]*cnt[j][i]
     print(ans)
 
 
+def prime_factorize(n):
+    a = []
+    while n % 2 == 0:
+        a.append(2)
+        n //= 2
+    f = 3
+    while f * f <= n:
+        if n % f == 0:
+            a.append(f)
+            n //= f
+        else:
+            f += 2
+    if n != 1:
+        a.append(n)
+    return a
+
 
 def maine():
-    h, n = map(int, input().split())
-    A, B = [], []
-    for i in range(n):
-        a, b = map(int, input().split())
-        A.append(a)
-        B.append(b)
-
+    import math
+    N = int(input())
+    A = list(map(int, input().split()))
+    mod = 10 ** 9 + 7
+    lcm = 1
+    for i in range(N):
+        lcm = lcm // math.gcd(lcm, A[i]) * A[i]
+    lcm %= mod
+    ans = 0
+    for i in range(N):
+        ie = pow(A[i], mod - 2, mod)
+        ans += lcm * ie
+        ans %= mod
+    print(ans)
 
 
 if __name__ == '__main__':
-    #maina()
-    #mainb()
-    #mainc()
-    maind()
-    #maine()
+    # maina()
+    # mainb()
+    # mainc()
+    # maind()
+    maine()
