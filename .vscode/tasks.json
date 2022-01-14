@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "test_atcoder_sample",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\test\\cptest.bat",
+            "args": [
+                "${relativeFileDirname}_${fileBasenameNoExtension}",
+                "${file}",
+                "${relativeFileDirname}",
+                "${workspaceFolder}\\venv\\Scripts\\activate.bat",
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
