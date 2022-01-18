@@ -1,7 +1,8 @@
 *.ipynb
 .ipynb_checkpoints/
-.vscode
 *.pyc
+__pycache__/
+AtCoder/onlinejudge/test/
 #挙げるまでもないコードをignoreに
 ignore/
 venv/

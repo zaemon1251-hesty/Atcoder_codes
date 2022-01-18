@@ -3,9 +3,9 @@ chcp 65001
 rem activate virtual environment
 call %4
 
-
+echo %1
 set problem_name=%~n1
-set test_dir=AtCoder\onlinejudge\test\%problem_name%\
+set test_dir="%5\\AtCoder\\onlinejudge\\test\\%problem_name%\\"
 set base_url=%~n3
 set code_path=%2
 
