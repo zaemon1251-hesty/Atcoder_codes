@@ -7,12 +7,13 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\test\\cptest.bat",
+            "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\cptest.bat",
             "args": [
                 "${relativeFileDirname}_${fileBasenameNoExtension}",
                 "${file}",
                 "${relativeFileDirname}",
                 "${workspaceFolder}\\venv\\Scripts\\activate.bat",
+                "${workspaceFolder}",
             ],
             "problemMatcher": []
         }
