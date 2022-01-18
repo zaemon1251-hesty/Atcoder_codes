@@ -1,9 +1,20 @@
 {
-  "python.pythonPath": "c:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Scripts\\python.exe",
+  "python.pythonPath": "${workspaceFolder}/venv/bin/python3",
   "python.autoComplete.extraPaths": [
-    "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+    "${workspaceFolder}/venv/python3.6/site-packages"
   ],
   "python.analysis.extraPaths": [
-    "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+    "${workspaceFolder}/venv/python3.6/site-packages"
   ]
 }
+
+// windowsなら上記をコメントアウトし、以下をアンコメントする
+// {
+//   "python.pythonPath": "c:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Scripts\\python.exe",
+//   "python.autoComplete.extraPaths": [
+//     "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+//   ],
+//   "python.analysis.extraPaths": [
+//     "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+//   ]
+// }

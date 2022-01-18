@@ -7,13 +7,14 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\cptest.bat",
+            "command": "${workspaceFolder}/AtCoder/onlinejudge/cptest.sh",
+            // "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\cptest.bat", #windowsなら上をコメントアウトして、この行をアンコメントする
             "args": [
                 "${relativeFileDirname}_${fileBasenameNoExtension}",
                 "${file}",
-                "${relativeFileDirname}",
-                "${workspaceFolder}\\venv\\Scripts\\activate.bat",
-                "${workspaceFolder}",
+                // "${relativeFileDirname}",　 #windowsならこの3行をアンコメントする
+                // "${workspaceFolder}\\venv\\Scripts\\activate.bat",
+                // "${workspaceFolder}",
             ],
             "problemMatcher": []
         }
