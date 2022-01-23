@@ -1,0 +1,9 @@
+{
+	"main": {
+		"prefix": "map",
+		"body": [
+            "map(int, input().split())"
+		],
+		"description": ""
+	},
+}
