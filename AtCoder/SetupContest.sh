@@ -1,8 +1,12 @@
 projectDir=/home/zaemon1251/workspace/Atcoder_codes
-contest=AtCoder/abc/abc$1
+contest=AtCoder/$1/$1$2
 targetDir="${projectDir}/$contest"
 if [ -z $1 ];then
-echo "invalid argment"
+echo "invalid argment pos 1"
+exit 0
+fi
+if [ -z $2 ];then
+echo "invalid argment pos 2"
 exit 0
 fi
 
