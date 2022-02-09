@@ -1,4 +1,5 @@
 import heapq
+from collections import defaultdict
 from sys import exit
 
 
@@ -12,30 +13,28 @@ class HeapDict:
     """
 
     def __init__(self):
+        """
+        h : 最小値を保持すするヒープ
+        d : (値:重複個数) の連想配列
+        """
         self.h = []
-        self.d = dict()
+        self.d = defaultdict(int)
 
     def insert(self, x):
         heapq.heappush(self.h, x)
-        if x not in self.d:
-            self.d[x] = 1
-        else:
-            self.d[x] += 1
+        self.d[x] += 1
 
     def erase(self, x):
-        if x not in self.d or self.d[x] == 0:
-            return str(x) + " Not Found"
-        else:
-            self.d[x] -= 1
+        if not self.is_exist(x):
+            raise Exception(str(x) + " Not Found")
 
-        while len(self.h) != 0:
-            if self.d[self.h[0]] == 0:
-                heapq.heappop(self.h)
-            else:
-                break
+        self.d[x] -= 1
+        # 最小値を更新
+        while len(self.h) != 0 and self.d[self.h[0]] > 0:
+            heapq.heappop(self.h)
 
     def is_exist(self, x):
-        if x in self.d and self.d[x] != 0:
+        if self.d[x] != 0:
             return True
         else:
             return False
