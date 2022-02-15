@@ -17,7 +17,7 @@ H_relates = set(h for h, w in BOM if w in W_maxes)
 
 for h in range(H):
     _m = Hs[h] + Wmax
-    if h in H_relates and (len(W_maxes) < 2 or all((h, w) in BOM for w in W_maxes)):
+    if h in H_relates and all((h, w) in BOM for w in W_maxes):
         _m -= 1
     ans = max(_m, ans)
 
