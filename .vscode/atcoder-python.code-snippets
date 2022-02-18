@@ -1,6 +1,6 @@
 {
 	"main": {
-		"prefix": "main",
+		"prefix": "snippet",
 		"body": [
             "def main():",
 			"    N = int(input())",
