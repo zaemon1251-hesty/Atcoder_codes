@@ -11,14 +11,13 @@ class BIT:
         self.func = func
         self.bit = [ele]*(n+1)
 
-    def add(self, i, x, mod=1) -> None:
+    def add(self, i, x) -> None:
         i += 1
         while i <= self.n:
             self.bit[i] = self.func(self.bit[i], x)
-            self.bit[i] %= mod
             i += i & -i
 
-    def get(self, l, r, mod=1) -> int:
+    def get(self, l, r) -> int:
         # [l+1,r]の区間で演算される
         res = self.ele
         while l:
@@ -27,7 +26,7 @@ class BIT:
         while r:
             res = self.func(res, self.bit[r])
             r -= r & -r
-        return res % mod
+        return res
 
     def sum(self, i):
         # [0, i] での演算
