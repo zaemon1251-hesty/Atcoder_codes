@@ -5,6 +5,7 @@ problem_name=${problem_name##*/}
 test_dir=AtCoder/onlinejudge/test/${problem_name}
 base_url=${problem_name%_*}
 code_path=$2
+source $3/venv/bin/activate
 
 # make test directory
 if [ ! -e ${test_dir} ]; then

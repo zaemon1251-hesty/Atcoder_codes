@@ -8,7 +8,7 @@
         "isDefault": true
       },
       "command": "${workspaceFolder}/AtCoder/onlinejudge/cptest.sh",
-      "args": ["${relativeFileDirname}_${fileBasenameNoExtension}", "${file}"],
+      "args": ["${relativeFileDirname}_${fileBasenameNoExtension}", "${file}", "${workspaceFolder}"],
       "problemMatcher": []
     }
   ]
