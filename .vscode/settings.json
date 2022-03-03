@@ -1,13 +1,26 @@
 {
-  "python.pythonPath": "${workspaceFolder}/venv/bin/python3",
+  // zaemon1251 は 個人の設定に合わせて変更してください
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python3.9",
   "python.autoComplete.extraPaths": [
-    "${workspaceFolder}/venv/python3.6/site-packages"
+      "${workspaceFolder}/.venv/lib/python3.9/site-packages/"
   ],
   "python.analysis.extraPaths": [
-    "${workspaceFolder}/venv/python3.6/site-packages"
-  ]
+      "${workspaceFolder}/.venv/lib/python3.9/site-packages/"
+  ],
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.flake8Args": [
+      "--ignore=W293, W504",
+      "--max-line-length=160"
+  ],
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": [
+          "--aggressive"
+      ],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 10000
 }
-
 // windowsなら上記をコメントアウトし、以下をアンコメントする
 // {
 //   "python.pythonPath": "c:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Scripts\\python.exe",
