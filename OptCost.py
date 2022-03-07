@@ -6,7 +6,7 @@ from typing import List
 
 def optcost(A):
     N = len(A)
-    dp = [[0]*N for _ in range(N)]
+    dp = [[0] * N for _ in range(N)]
     from itertools import accumulate
     F = [0] + list(accumulate(A))
 
@@ -24,19 +24,11 @@ def optcost(A):
     return dp[0][-1]
 
 
-def compress(A: List[int]) -> None:
-    # 座標圧縮 参照渡し
-    res = list(enumerate(A))
-    res.sort(key=lambda x: x[1])
-    t = min(A) - 1
-    dst = -1
-    for ord in range(len(A)):
-        i, a = res[ord]
-        if t < a:
-            t = a
-            dst += 1
-        A[i] = dst
-    return None
+def compress(A: List[int]):
+    # 座標圧縮
+    x_to_i = {x: i for i, x in enumerate(sorted(A), 1)}
+    i_to_x = {i: x for i, x in enumerate(sorted(A), 1)}
+    return x_to_i, i_to_x
 
 
 if __name__ == "__main__":
