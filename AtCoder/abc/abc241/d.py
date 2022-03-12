@@ -64,12 +64,6 @@ for i in range(Q):
         if tmp < k:
             ans.append(-1)
         else:
-            # print("tmp:%s, tg:%s, lb:%s, i_to_x:%s" % (
-            #     tmp,
-            #     tmp - k,
-            #     bit.lower_bound(tmp - k),
-            #     i_to_x[bit.lower_bound(tmp - k)]
-            # ))
             ans.append(i_to_x[bit.lower_bound(tmp - k)])
     else:
         x, k = L[i][1], L[i][2]
@@ -80,12 +74,6 @@ for i in range(Q):
         if total - l < k:
             ans.append(-1)
         else:
-            # print("l:%s, tg:%s, lb:%s, i_to_x:%s" % (
-            #     l,
-            #     l + k - 1,
-            #     bit.lower_bound(l + k - 1),
-            #     i_to_x[bit.lower_bound(l + k - 1)]
-            # ))
             ans.append(i_to_x[bit.lower_bound(l + k - 1)])
 
 print(*ans, sep="\n")
