@@ -1,6 +1,6 @@
 # Binary Indexed Tree (Fenwick Tree)
 # 1-index のインターフェース
-class BIT:
+class Fenwick:
     def __init__(self, n):
         self.n = n
         self.n0 = 2**(n - 1).bit_length()
@@ -53,7 +53,7 @@ for i in range(Q):
 x_to_i = {x: i for i, x in enumerate(sorted(S), 1)}
 i_to_x = {i: x for i, x in enumerate(sorted(S), 1)}
 N = len(S)
-bit = BIT(N)
+bit = Fenwick(N)
 ans = []
 for i in range(Q):
     if L[i][0] == 1:
