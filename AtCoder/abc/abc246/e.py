@@ -31,7 +31,7 @@ def main():
         x, y, t = todo.popleft()
         for k, v in to.items():
             nx, ny = x + v[0], y + v[1]
-            nd = dist[x][y] + (1 - int(t == k))
+            nd = dist[x][y] + (0 if t == k else 1)
             op = todo.appendleft if t == k else todo.append
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue
