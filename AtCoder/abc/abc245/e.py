@@ -49,20 +49,37 @@ def main():
     B = list(map(int, input().split()))
     C = list(map(int, input().split()))
     D = list(map(int, input().split()))
-    wdt = enumerate(sorted(set(B) + set(D)), 1)
+    wdt = enumerate(sorted(set(B) | set(D)), 1)
     x_to_i = {x: i for i, x in wdt}
-    i_to_x = {i: x for i, x in wdt}
-    B = list(map(lambda x: x_to_i(x), B))
-    D = list(map(lambda x: x_to_i(x), D))
-    buf = list(zip("b" * M, C, D)) + list(zip("c" * N, A, B))
-    buf.sort(lambda x: x[1])
-    bt = Fenwick(N + M + 1)
+    # i_to_x = {i: x for i, x in wdt}
+    B = list(map(lambda x: x_to_i[x], B))
+    D = list(map(lambda x: x_to_i[x], D))
+    buf = list(zip([1] * M, C, D)) + list(zip([0] * N, A, B))
+    buf.sort(key=lambda x: (x[1], x[0]))
+    bt = Fenwick(N + M)
     while buf:
-        q, h, w = buf.pop()
-        if q == "b":
+        q, _, w = buf.pop()
+        if q == 1:
             bt.add(w, 1)
-        else:
-            pass
+
+        elif q == 0:
+            if bt.get(w - 1, bt.n) == 0:
+                # (横幅) in [w, N+M] の箱が存在しないなら終了
+                print("No")
+                exit()
+
+            # 二分探索で横幅が w 以上の箱のうち、最小の横幅のものを取得する
+            # ちなみにwはインデックス
+            ok = bt.n
+            ng = w - 1
+            while ok - ng > 1:
+                mid = (ng + ok) // 2
+                if bt.get(w - 1, mid) > 0:
+                    ok = mid
+                else:
+                    ng = mid
+            bt.add(ok, -1)
+    print("Yes")
 
 
 if __name__ == '__main__':
