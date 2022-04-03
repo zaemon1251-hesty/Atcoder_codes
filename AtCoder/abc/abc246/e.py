@@ -18,29 +18,31 @@ def main():
         print(0)
         exit()
 
-    dist = [[inf] * N for _ in range(N)]
+    dist = [[[inf] * 4 for _ in range(N)] for _ in range(N)]
     to = {
         0: (1, 1),
         1: (1, -1),
-        2: (-1, 1),
-        3: (-1, -1)
+        2: (-1, -1),
+        3: (-1, 1)
     }
-    todo = deque([(*S, i) for i in range(4)])
-    dist[S[0]][S[1]] = 1
+    todo = deque([])
+    for i in range(4):
+        todo.append((*S, i))
+        dist[S[0]][S[1]][i] = 1
     while todo:
         x, y, t = todo.popleft()
         for k, v in to.items():
             nx, ny = x + v[0], y + v[1]
-            nd = dist[x][y] + (0 if t == k else 1)
-            op = todo.appendleft if t == k else todo.append
+            nd = dist[x][y][t] + (0 if t % 2 == k % 2 else 1)
+            op = todo.appendleft if t % 2 == k % 2 else todo.append
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue
             if G[nx][ny] == '#':
                 continue
-            if dist[nx][ny] > nd:
-                dist[nx][ny] = nd
+            if dist[nx][ny][k] > nd:
+                dist[nx][ny][k] = nd
                 op((nx, ny, k))
-    print(dist[T[0]][T[1]] if dist[T[0]][T[1]] < inf else -1)
+    print(min(dist[T[0]][T[1]]) if min(dist[T[0]][T[1]]) < inf else -1)
 
 
 if __name__ == '__main__':
