@@ -18,6 +18,7 @@ def main():
         print(0)
         exit()
 
+    # dist[x][y][dir] = (sx,sy)から(x,y)に, dir向きで入る最短経路の長さ
     dist = [[[inf] * 4 for _ in range(N)] for _ in range(N)]
     to = {
         0: (1, 1),
