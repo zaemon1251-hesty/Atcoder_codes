@@ -1,14 +1,14 @@
 """
-オンラインジャッジを利用するためのスクリプトです。
+オンラインジャッジを利用するために利用したスクリプトです。
 
-"WORKSPACE/AtCodert/(abc|arc)%3d.py"
+"${workspaceFolder}/AtCoder/(abc|arc)%3d.py"
 に存在する
 ```
 def main(a-f)(...):
     # solutions...
 ```
 のコードから、
-"WORKSPACE/AtCodert/(abc|arc)/(abc|arc)%3d/(a-f).py"
+"${workspaceFolder}/AtCoder/(abc|arc)/(abc|arc)%3d/(a-f).py"
 ファイルを作成します。
 """
 
