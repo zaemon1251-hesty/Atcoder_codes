@@ -18,6 +18,7 @@ def e_takahashi_and_animals(INF=float('inf')):
 
         if t == 0:
             ans = min(ans, dp[N][1])
+            
         if t == 1:
             ans = min(ans, min(dp[N][0], dp[N][1]))
     return ans
