@@ -39,7 +39,7 @@ class RollingHash():
             r (int): right index
 
         Returns:
-            Tuple[int, int]: redundantized hash value
+            Tuple[int]: redundantized hash value
         """
         hs = (self.h[r] - self.h[l] * self.pw[r - l]) % self.mod
         hs_sub = (self.h_sub[r] - self.h_sub[l] *
