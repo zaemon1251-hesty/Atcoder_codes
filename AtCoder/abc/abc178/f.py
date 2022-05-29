@@ -7,7 +7,7 @@ def main():
     n = int(input())
     A = [int(i) for i in input().split()]
     B = [int(i) for i in input().split()]
-    C = [0]*(n+1)
+    C = [0] * (n + 1)
     for i in range(n):
         C[A[i]] += 1
         C[B[i]] += 1

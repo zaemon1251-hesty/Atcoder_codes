@@ -1,6 +1,5 @@
 import heapq
 from collections import defaultdict
-from sys import exit
 
 
 class HeapDict:
@@ -46,3 +45,31 @@ class HeapDict:
             return self.h[0]
         else:
             return default
+
+
+def main():
+    Q = int(input())
+    q = [list(map(str, input().split())) for _ in range(Q)]
+    mins = HeapDict()
+    maxs = HeapDict()
+    outputs = []
+    for k in q:
+        if k[0] == "1":
+            _, x = k
+            x = int(x)
+            mins.insert(x)
+            maxs.insert(-x)
+        elif k[0] == "2":
+            _, x, c = k
+            x, c = int(x), int(c)
+            for _ in range(min(c, mins.d[x])):
+                mins.erase(x)
+                maxs.erase(-x)
+        elif k[0] == "3":
+            outputs.append(-maxs.get_min() - mins.get_min())
+
+    print(*outputs, sep="\n")
+
+
+if __name__ == '__main__':
+    main()
