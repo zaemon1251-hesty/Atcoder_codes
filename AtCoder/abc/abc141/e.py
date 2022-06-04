@@ -4,6 +4,7 @@ from collections import defaultdict
 
 class RollingHash():
     """get substring hash
+    In ordet to prevent relatively frequently collision of word's hashes, two different hash value are used.
     """
     mod = 10**9 + 7
     base = 1007

@@ -1,9 +1,9 @@
 # 素数列挙
 def get_prime(n, get_sieve=False):
-    prime = [False] * 2 + [True] * (n-2)
+    prime = [False] * 2 + [True] * (n - 2)
     for i in range(2, n):
         if prime[i]:
-            for j in range(i*2, n, i):
+            for j in range(i * 2, n, i):
                 prime[j] = False
     if get_sieve:
         return [i for i in range(2, n) if prime[i]]
@@ -15,11 +15,11 @@ def get_prime(n, get_sieve=False):
 def make_divisors(n):
     lower_divisors, upper_divisors = [], []
     i = 1
-    while i*i <= n:
+    while i * i <= n:
         if n % i == 0:
             lower_divisors.append(i)
             if i != n // i:
-                upper_divisors.append(n//i)
+                upper_divisors.append(n // i)
         i += 1
     return lower_divisors + upper_divisors[::-1]
 
