@@ -1,48 +1,33 @@
-from itertools import product
+#!/usr/bin/env python3
+from bisect import bisect, bisect_left, bisect_right
+from collections import defaultdict, deque
+import math
+import sys
+sys.setrecursionlimit(4100000)
+def error(*args, end="\n"): print("[stderr]", *args, end=end, file=sys.stderr)
 
 
-def main():
-    N = int(input())
-    A = [list(map(int, list(input()))) for _ in range(N)]
-    ma = max(max(a) for a in A)
-    sts = []
-    cand = ""
-    ng = {(-1, -1), (N, -1), (-1, N), (N, N)}
-    for i in range(N):
-        for j in range(N):
-            if A[i][j] == ma:
-                sts.append([i, j])
+MOD = 998244353
+INF = float("inf")
+MINF = -float("inf")
 
-    for st in sts:
-        ans = str(ma)
-        prev = set()
-        while len(ans) < N:
-            i, j = st
-            res = -1
-            for dx, dy in product(range(-1, 2), repeat=2):
-                if dx == dy == 0:
-                    continue
+N = int(input())
+A = []
+for ii in range(N):
+    l = input()
+    A.append(list(l))
 
-                nx, ny = i + dx, j + dy
-
-                if (nx, ny) in ng:
-                    continue
-
-                nx, ny = (N + nx) % N, (N + ny) % N
-
-                if (nx, ny) in prev:
-                    continue
-
-                if A[nx][ny] > res:
-                    res = A[nx][ny]
-                    st = [nx, ny]
-
-            prev.add((i, j))
-            ans += str(res)
-
-        cand = max(ans, cand)
-    print(cand)
-
-
-if __name__ == '__main__':
-    main()
+dy = [-1, -1, 0, 1, 1, 1, 0, -1]
+dx = [0, 1, 1, 1, 0, -1, -1, -1]
+ans = []
+for ii in range(N):
+    for jj in range(N):
+        for dd in range(8):
+            # 8方向に探索
+            str = ""
+            for kk in range(N):
+                y = (ii + dy[dd] * kk) % N
+                x = (jj + dx[dd] * kk) % N
+                str = str + A[y][x]
+            ans.append(int(str))
+print(max(ans))
