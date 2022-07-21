@@ -104,7 +104,8 @@ class SegTree:
             if vr != a - 1:
                 return vr
             else:
-                return self.find_rightest_sub(a, b, x, 2 * k + 1, l, (l + r) // 2)
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 1, l, (l + r) // 2)
 
     def find_leftest_sub(self, a, b, x, k, l, r):
         """
@@ -121,7 +122,8 @@ class SegTree:
             if vr != b:
                 return vr
             else:
-                return self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 2, (l + r) // 2, r)
 
     def get_region(self, i):
         idx = i + self.num - 1
@@ -135,9 +137,9 @@ def routine_1():
     for _ in range(q):
         t, x, y = map(int, input().split())
         if t == 1:
-            tree.update(x-1, y)
+            tree.update(x - 1, y)
         else:
-            print(tree.query(x-1, y))
+            print(tree.query(x - 1, y))
 
 
 def routine_2():
