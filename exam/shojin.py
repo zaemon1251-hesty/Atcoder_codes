@@ -577,5 +577,130 @@ def abc057_c():
     print(cnt)
 
 
+def diverta2019_b():
+    R, G, B, N = map(int, input().split())
+    ans = 0
+    for r in range(N // R + 1):
+        for g in range(N // G + 1):
+            b = N - R * r - G * g
+            if b >= 0 and b % B == 0:
+                ans += 1
+    print(ans)
+
+
+def abc073_c():
+    N = int(input())
+    A = [input() for _ in range(N)]
+    bow = set()
+    for w in A:
+        if w in bow:
+            bow.remove(w)
+        else:
+            bow.add(w)
+    print(len(bow))
+
+
+def abc126_c():
+    N, K = map(int, input().split())
+    ans = 0
+    for i in range(1, N + 1):
+        if i >= K:
+            ans += 1
+            continue
+        cnt = 0
+        while pow(2, cnt) * i < K:
+            cnt += 1
+        ans += 1 / 2**cnt
+    print(ans / N)
+
+
+def abc125_d():
+    N = int(input())
+    A = list(map(int, input().split()))
+    cnt = sum(a < 0 for a in A)
+    A = [abs(a) for a in A]
+    if cnt % 2 == 0:
+        print(sum(A))
+    else:
+        print(sum(A) - 2 * min(A))
+
+
+def diverta2019_c():
+    N = int(input())
+    S = [input() for _ in range(N)]
+    STA_ENB = 0
+    EN_A = 0
+    ST_B = 0
+    ans = 0
+
+    for s in S:
+        ans += s.count("AB")
+        sb = s[0] == "B"
+        sa = s[-1] == "A"
+        if sb and sa:
+            STA_ENB += 1
+        elif sb:
+            ST_B += 1
+        elif sa:
+            EN_A += 1
+    ans += max(STA_ENB - 1, 0)
+    if STA_ENB > 0 and ST_B > 0:
+        ans += 1
+        ST_B -= 1
+    if STA_ENB > 0 and EN_A > 0:
+        ans += 1
+        EN_A -= 1
+    ans += min(EN_A, ST_B)
+
+    print(ans)
+
+
+def abc051_c():
+    sx, sy, tx, ty = map(int, input().split())
+    ans = []
+
+    ans.append("U" * (ty - sy))
+    ans.append("R" * (tx - sx))
+    ans.append("D" * (ty - sy))
+    ans.append("L" * (tx - sx + 1))
+
+    ans.append("U" * (ty - sy + 1))
+    ans.append("R" * (tx - sx + 1))
+    ans.append("DR")
+    ans.append("D" * (ty - sy + 1))
+    ans.append("L" * (tx - sx + 1))
+    ans.append("U")
+    print(*ans, sep="")
+
+
+def arc080_b():
+    H, W = map(int, input().split())
+    N = int(input())
+    A = list(map(int, input().split()))
+    c = [[0] * W for _ in range(H)]
+
+    k = 0
+    cnt = 0
+    end = H * W - 1 if H % 2 == 1 else (H - 1) * W
+    col_i = 0
+    op = 1
+    while cnt <= H * W - 1:
+        cnt += 1
+        c[k // W][k % W] = col_i + 1
+
+        A[col_i] -= 1
+        if A[col_i] == 0:
+            col_i += 1
+
+        if (k % W == 0 and op == -1) or (k % W == W - 1 and op == 1):
+            op *= -1
+            k += W
+        else:
+            k = k + op
+
+    for i in range(H):
+        print(*c[i], sep=" ")
+
+
 if __name__ == '__main__':
-    abc057_c()
+    arc080_b()

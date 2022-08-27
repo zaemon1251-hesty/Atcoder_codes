@@ -1,23 +1,19 @@
 {
   // zaemon1251 は 個人の設定に合わせて変更してください
-  "python.pythonPath": "${workspaceFolder}/.venv/bin/python3.9",
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python3.10",
+  "python.linting.mypyEnabled": true,
   "python.autoComplete.extraPaths": [
-      "${workspaceFolder}/.venv/lib/python3.9/site-packages/"
+    "${workspaceFolder}/.venv/lib/python3.10/site-packages/"
   ],
   "python.analysis.extraPaths": [
-      "${workspaceFolder}/.venv/lib/python3.9/site-packages/"
+    "${workspaceFolder}/.venv/lib/python3.10/site-packages/"
   ],
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
-  "python.linting.flake8Args": [
-      "--ignore=W293, W504",
-      "--max-line-length=160"
-  ],
+  "python.linting.flake8Args": ["--ignore=W293, W504", "--max-line-length=160"],
   "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": [
-          "--aggressive"
-      ],
+  "python.formatting.autopep8Args": ["--aggressive"],
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 10000
 }

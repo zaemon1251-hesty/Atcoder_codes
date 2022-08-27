@@ -5,7 +5,7 @@ description = "project for atcoder practice"
 authors = ["zaemon1251-hesty <hisakawa1251@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 online-judge-tools = "^11.5.1"
 autopep8 = "^1.6.0"
 flake8 = "^4.0.1"
