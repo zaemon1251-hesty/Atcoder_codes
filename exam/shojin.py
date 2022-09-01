@@ -1,3 +1,50 @@
+class UnionFind():
+    def __init__(self, n):
+        self.n = n
+        self.parents = [-1] * n
+
+    def find(self, x):
+        if self.parents[x] < 0:
+            return x
+        else:
+            self.parents[x] = self.find(self.parents[x])
+            return self.parents[x]
+
+    def union(self, x, y):
+        x = self.find(x)
+        y = self.find(y)
+
+        if x == y:
+            return
+
+        if self.parents[x] > self.parents[y]:
+            x, y = y, x
+
+        self.parents[x] += self.parents[y]
+        self.parents[y] = x
+
+    def size(self, x):
+        return -self.parents[self.find(x)]
+
+    def same(self, x, y):
+        return self.find(x) == self.find(y)
+
+    def members(self, x):
+        root = self.find(x)
+        return [i for i in range(self.n) if self.find(i) == root]
+
+    def roots(self):
+        return [i for i, x in enumerate(self.parents) if x < 0]
+
+    def group_count(self):
+        return len(self.roots())
+
+    def all_group_members(self):
+        return {r: self.members(r) for r in self.roots()}
+
+    def __str__(self):
+        return '\n'.join('{}: {}'.format(r, self.members(r))
+                         for r in self.roots())
 
 
 def main():
@@ -702,5 +749,166 @@ def arc080_b():
         print(*c[i], sep=" ")
 
 
+def abc113_c():
+    from heapq import heappop, heappush
+    N, M = map(int, input().split())
+    pref = [[] for _ in range(N + 1)]
+    ans = [-1] * M
+    CITY = [list(map(int, input().split())) for _ in range(M)]
+
+    for city_i, (p, y) in enumerate(CITY):
+        heappush(pref[p], (y, city_i))
+
+    for pref_i in range(1, N + 1):
+        rank = 1
+        while pref[pref_i]:
+            _, city_i = heappop(pref[pref_i])
+            ans[city_i] = "%06d" % pref_i + "%06d" % rank
+            rank += 1
+
+    print(*ans, sep="\n")
+
+
+def arc095_b():
+    from bisect import bisect_left
+    N = int(input())
+    A = sorted(map(int, input().split()))
+
+    idx = bisect_left(A, A[-1] // 2)
+    ideal = A[-1] // 2 + 1
+    cand = [A[idx], A[min(idx + 1, N - 1)], A[max(0, idx - 1)]]
+    cand.sort(key=lambda x: abs(min(x, A[-1] - x) - ideal))
+    for cd in cand:
+        if cd != A[-1]:
+            print(A[-1], cd)
+            exit()
+
+
+def abc110_c():
+    from collections import defaultdict
+    S, T = input(), input()
+    N = len(S)
+    base = ord("a")
+    swapto = [set() for _ in range(26)]
+    swapfrom = [set() for _ in range(26)]
+
+    for i in range(N):
+        swapto[ord(T[i]) - base].add(ord(S[i]) - base)
+        swapfrom[ord(S[i]) - base].add(ord(T[i]) - base)
+    for chi in range(26):
+        if len(swapto[chi]) > 1 or len(swapfrom[chi]) > 1:
+            print("No")
+            exit()
+    print("Yes")
+
+
+def abc110_d():
+    from collections import Counter
+
+    def prime_factorize(n):
+        a = []
+        while n % 2 == 0:
+            a.append(2)
+            n //= 2
+        f = 3
+        while f * f <= n:
+            if n % f == 0:
+                a.append(f)
+                n //= f
+            else:
+                f += 2
+        if n != 1:
+            a.append(n)
+        return a
+
+    class ModCmb:
+        """calc combinations on the conditions of a certain mod
+        """
+
+        def __init__(self, N, mod=10**9 + 7):
+            # 二項係数テーブル
+            fact = [1, 1]
+            factinv = [1, 1]
+            inv = [0, 1]
+            for i in range(2, N + 1):
+                fact.append((fact[-1] * i) % mod)
+                inv.append((mod - inv[mod % i] * (mod // i)) % mod)
+                factinv.append((factinv[i - 1] * inv[-1]) % mod)
+
+            # 初期化
+            self.MOD = mod
+            self.N = N
+            self.fact = fact
+            self.factinv = factinv
+            self.inv = inv
+
+        def cmb(self, n, k):
+            if n < k:
+                return 0
+            if n < 0 or k < 0:
+                return 0
+            return self.fact[n] * \
+                (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+
+    N, M = map(int, input().split())
+    MOD = 10**9 + 7
+    factos = Counter(prime_factorize(M))
+    md = ModCmb(2 * 10**5, mod=MOD)
+    ans = 0
+
+    ans = 1
+    for a in factos.values():
+        ans *= md.cmb(N - 1 + a, a)
+        ans %= MOD
+
+    print(ans)
+
+
+def keyence2020_b():
+    inf = 1 << 60
+    N = int(input())
+    robo = []
+    for _ in range(N):
+        X, L = map(int, input().split())
+        robo.append((X - L, X + L))
+    robo.sort(key=lambda x: (x[1], x[0]))
+    ans = 0
+    Redge = -inf
+    for l, r in robo:
+        if Redge <= l:
+            ans += 1
+            Redge = r
+    print(ans)
+
+
+def abc084_c():
+    def ceil(x, y):
+        return (x + y - 1) // y
+    N = int(input())
+    G = [list(map(int, input().split())) for _ in range(N - 1)]
+    ans = [0] * (N)
+    for st in range(N - 1):
+        # st + 1 駅
+        c, s, f = G[st]
+        clk = s + c
+        curst = st + 1
+        while curst < N - 1:
+            c, s, f = G[curst]
+            if s >= clk:
+                clk = s + c
+            else:
+                clk = s + ceil(clk - s, f) * f + c
+            curst += 1
+        ans[st] = clk
+
+    print(*ans, sep="\n")
+
+
+def codefestival_2016_qualC_b():
+    K, T = map(int, input().split())
+    A = sorted(map(int, input().split()), reverse=True)
+    print(max(A[0] - 1 - (K - A[0]), 0))
+
+
 if __name__ == '__main__':
-    arc080_b()
+    codefestival_2016_qualC_b()

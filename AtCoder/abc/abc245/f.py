@@ -1,7 +1,8 @@
-import pypyjit
+from typing import Union
+# import pypyjit
 import sys
 input = sys.stdin.readline
-pypyjit.set_param('max_unroll_recursion=-1')
+# pypyjit.set_param('max_unroll_recursion=-1')
 sys.setrecursionlimit(2000000)
 
 
@@ -15,11 +16,11 @@ def main():
             self.g = [[] for _ in range(n)]
             self.gr = [[] for _ in range(n)]  # graph rev
 
-        def addEdge(self, u, v):
+        def addEdge(self, u, v) -> None:
             self.g[u].append(v)
             self.gr[v].append(u)
 
-        def dfs(self, v):
+        def dfs(self, v) -> None:
             # 正方向のDFS
             self.visited[v] = True
             for nxt in self.g[v]:
@@ -28,11 +29,11 @@ def main():
                 self.dfs(nxt)
             self.vs.append(v)
 
-        def solve(self):
+        def solve(self) -> int:
             self.vs = []  # かえりがけ
             self.visited = [False] * self.n
             k = 0
-            self.cmp = [None] * self.n
+            self.cmp: list[Union[None, int]] = [None] * self.n
             # DFS1
 
             for i in range(self.n):
@@ -101,11 +102,11 @@ def main():
         scc.addEdge(u, v)
     scc.solve()  # 強連結成分分解する
     cmp = scc.cmp  # cmp[i] = iの所属する強連結成分の番号
-    sccnodes = max(cmp) + 1  # 強連結成分の数
+    sccnodes: int = max(cmp) + 1  # 強連結成分の数
     cmpSize = [0] * (sccnodes)  # 各強連結成分のサイズ
     for x in cmp:
         cmpSize[x] += 1  # を計算
-    g = [set() for _ in range(sccnodes)]  # 強連結成分で表したグラフGscc
+    g: list[set] = [set() for _ in range(sccnodes)]  # 強連結成分で表したグラフGscc
     for u, v in edges:
         ucmp = cmp[u]
         vcmp = cmp[v]
