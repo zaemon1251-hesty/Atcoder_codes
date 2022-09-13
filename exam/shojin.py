@@ -910,5 +910,76 @@ def codefestival_2016_qualC_b():
     print(max(A[0] - 1 - (K - A[0]), 0))
 
 
+def agc015_a():
+    N, A, B = map(int, input().split())
+    print(max(0, (N - 1) * B + A - (N - 1) * A - B + 1))
+
+
+def arc086_a():
+    from collections import Counter
+    from heapq import heapify, heappop
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+
+    N, K = mi()
+    A = li()
+    C = Counter(A)
+    cur = len(C.keys())
+    ans = 0
+    F = map(lambda x: (x[1], x[0]), C.items())
+    F = list(F)
+    heapify(F)
+    while A and cur > K:
+        rew, _ = heappop(F)
+        cur -= 1
+        ans += rew
+    print(ans)
+
+
+def agc013_a():
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+
+    N = ii()
+    A = li()
+    dA = [A[i + 1] - A[i] for i in range(N - 1)]
+    if N <= 2:
+        print(1)
+        exit()
+
+    ans = 1
+    now = 0
+    for d in dA:
+        if d == 0:
+            continue
+        elif now < 0 and d > 0:
+            ans += 1
+            now = 0
+        elif now > 0 and d < 0:
+            ans += 1
+            now = 0
+        else:
+            now = d
+    print(ans)
+
+
+def agc006_a():
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+    N = ii()
+    s = input()
+    t = input()
+    L_t = len(t)
+    L_s = len(s)
+
+    for k in range(L_t, -1, -1):
+        if k <= L_s and s[-k:] == t[:k]:
+            break
+    print(L_s + L_t - k)
+
+
 if __name__ == '__main__':
-    codefestival_2016_qualC_b()
+    agc006_a()

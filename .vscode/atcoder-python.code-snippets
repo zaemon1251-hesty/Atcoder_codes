@@ -1,17 +1,21 @@
 {
-	"main": {
-		"prefix": "snippet",
-		"body": [
-            "def main():",
-			"    N = int(input())",
-			"    H, W = map(int, input().split())",
-			"    A = list(map(int, input().split()))",
-			"",
-			"",
-			"",
-			"if __name__ == '__main__':",
-			"    main()",
-		],
-		"description": ""
-	},
+  "main": {
+    "prefix": "snippet",
+    "body": [
+      "def li(): return list(map(int, input().split()))",
+      "def mi(): return map(int, input().split())",
+      "def ii(): return int(input())",
+
+      "def main():",
+      "    N = ii()",
+      "    H, W = mi()",
+      "    A = li()",
+      "",
+      "",
+      "",
+      "if __name__ == '__main__':",
+      "    main()"
+    ],
+    "description": ""
+  }
 }
