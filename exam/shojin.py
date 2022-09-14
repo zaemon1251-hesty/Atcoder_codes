@@ -1,3 +1,8 @@
+from functools import reduce
+from itertools import accumulate
+from math import inf
+
+
 class UnionFind():
     def __init__(self, n):
         self.n = n
@@ -981,5 +986,89 @@ def agc006_a():
     print(L_s + L_t - k)
 
 
+def arc101_a():
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+
+    N, K = mi()
+    X = li()
+    pls, mis = [], []
+    for x in X:
+        if x >= 0:
+            pls.append(x)
+        else:
+            mis.append(-x)
+
+    pls.sort()
+    mis.sort()
+
+    Np, Nm = len(pls), len(mis)
+    Sp = [0] + pls
+    Sm = [0] + mis
+
+    ans = 1 << 60
+    for ip in range(min(Np, K) + 1):
+        im = K - ip
+        if im <= Nm:
+            ans = min(ans, 2 * Sm[im] + Sp[ip])
+
+    for im in range(min(Nm, K) + 1):
+        ip = K - im
+        if ip <= Np:
+            ans = min(ans, Sm[im] + 2 * Sp[ip])
+
+    print(ans)
+
+
+def agc011_b():
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+
+    N = ii()
+    A = sorted(li())
+
+    def check(x):
+        K = sum(A[:x + 1])
+        for enem in range(x + 1, N):
+            if A[enem] <= 2 * K:
+                K += A[enem]
+            else:
+                return False
+        return True
+
+    ok = N - 1
+    ng = -1
+    while ok - ng > 1:
+        cen = (ok + ng) // 2
+        if check(cen):
+            ok = cen
+        else:
+            ng = cen
+    print(N - ok)
+
+
+def agc018_a():
+    from math import gcd
+    from functools import reduce
+
+    def gcd2(A):
+        return reduce(gcd, A)
+
+    def li(): return list(map(int, input().split()))
+    def mi(): return map(int, input().split())
+    def ii(): return int(input())
+
+    N, K = mi()
+    A = li()
+    if max(A) < K:
+        print("IMPOSSIBLE")
+    elif (gcd2(A) == 1) or (K % gcd2(A) == 0):
+        print("POSSIBLE")
+    else:
+        print("IMPOSSIBLE")
+
+
 if __name__ == '__main__':
-    agc006_a()
+    agc018_a()
