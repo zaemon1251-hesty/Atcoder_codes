@@ -2,6 +2,9 @@
   "main": {
     "prefix": "snippet",
     "body": [
+      "import sys",
+      "def input(): return sys.stdin.readline().rstrip()",
+      "",
       "def main():",
       "    def li(): return list(map(int, input().split()))",
       "    def mi(): return map(int, input().split())",
