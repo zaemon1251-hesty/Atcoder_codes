@@ -14,10 +14,3 @@ for i in range(M):
     ans += c * (X - tmp)
     X = tmp
 print(ans if X == 1 else -1)
-_name__ == "__main__":
-mori = 20
-# maina()
-# mainb()
-# mainc()
-maind()
-# maine()
