@@ -15,6 +15,7 @@ def main(a-f)(...):
 
 import glob
 import os
+from typing import Dict, List
 
 abc = {}
 arc = {}
@@ -30,7 +31,7 @@ for path in glob.glob(python_files):
     f = open(path, "r")
     print(path, ": read")
     basename = os.path.basename(path).split(".")[0]
-    newDir = {prob: [] for prob in probs}
+    newDir: Dict[str, List] = {prob: [] for prob in probs}
     readlines = f.readlines()
     line_num = len(readlines)
     i = 0

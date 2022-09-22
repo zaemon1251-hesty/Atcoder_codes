@@ -19,7 +19,7 @@ class BalancingTree:
                         v = mi
                     else:
                         p = nd.pivot
-                        nd.left = self.node(mi, p - (p & -p)//2)
+                        nd.left = self.node(mi, p - (p & -p) // 2)
                         break
                 else:
                     nd.value = mi
@@ -28,7 +28,7 @@ class BalancingTree:
                         v = ma
                     else:
                         p = nd.pivot
-                        nd.right = self.node(ma, p + (p & -p)//2)
+                        nd.right = self.node(ma, p + (p & -p) // 2)
                         break
 
     def leftmost(self, nd):
@@ -81,7 +81,7 @@ class BalancingTree:
 
     @property
     def max(self):
-        return self.find_l((1 << self.N)-1)
+        return self.find_l((1 << self.N) - 1)
 
     @property
     def min(self):
@@ -139,7 +139,8 @@ class BalancingTree:
 
     def debug(self):
         def debug_info(nd_):
-            return (nd_.value - 1, nd_.pivot - 1, nd_.left.value - 1 if nd_.left else -1, nd_.right.value - 1 if nd_.right else -1)
+            return (nd_.value - 1, nd_.pivot - 1, nd_.left.value -
+                    1 if nd_.left else -1, nd_.right.value - 1 if nd_.right else -1)
 
         def debug_node(nd):
             re = []
