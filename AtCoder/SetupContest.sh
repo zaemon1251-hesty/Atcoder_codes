@@ -1,4 +1,4 @@
-projectDir=/home/zaemon1251/workspace/Atcoder_codes
+projectDir=~/workspace/Atcoder_codes
 contest=AtCoder/$1/$1$2
 targetDir="${projectDir}/$contest"
 if [ -z $1 ];then
