@@ -1,6 +1,5 @@
 import heapq
 from collections import defaultdict
-from sys import exit
 
 
 class HeapDict:
@@ -26,7 +25,7 @@ class HeapDict:
 
     def erase(self, x):
         if not self.is_exist(x):
-            return
+            raise RuntimeError(f"{x} not in Dict.")
         self.d[x] -= 1
         # 最小値を更新
         while len(self.h) != 0:
@@ -36,7 +35,7 @@ class HeapDict:
                 break
 
     def is_exist(self, x):
-        if x not in self.d or self.d[x] != 0:
+        if x in self.d and self.d[x] != 0:
             return True
         else:
             return False
