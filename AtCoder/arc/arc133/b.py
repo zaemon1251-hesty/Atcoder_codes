@@ -10,14 +10,14 @@ n = int(readline())
 p = list(map(int, readline().split()))
 q = list(map(int, readline().split()))
 
-pos = [0]*(n+1)
+pos = [0] * (n + 1)
 for i in range(n):
     pos[q[i]] = i
 
-z = [10**9]*n
+z = [10**9] * n
 for i in p:
     ls = []
-    for j in range(i, n+1, i):
+    for j in range(i, n + 1, i):
         ls.append(pos[j])
     ls.sort()
     ls.reverse()
