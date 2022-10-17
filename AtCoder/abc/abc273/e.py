@@ -22,8 +22,5 @@ for i in range(Q):
         note[a] = idx
     elif x[0] == "LOAD":
         a = int(x[1])
-        if a not in note.keys():
-            idx = 0
-        else:
-            idx = note[a]
+        idx = note.get(a, 0)
     print(A[idx], end=" ")
