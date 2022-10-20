@@ -58,16 +58,16 @@ def agc027_a():
 
     N, x = mi()
     A = sorted(li(), reverse=True)
-    resid = []
-    ans = 0
-    while A and x >= A[-1]:
-        ans += 1
-        m = A.pop()
-        x -= m
-        resid.append(m)
-    if x:
-        ans -= 1
-    print(ans)
+    if sum(A) == x:
+        print(N)
+    elif sum(A) < x:
+        print(N - 1)
+    else:
+        ans = 0
+        while x >= A[-1]:
+            x -= A.pop()
+            ans += 1
+        print(ans)
 
 
 def arc067_a():
@@ -228,5 +228,112 @@ def arc136_b():
     return
 
 
+def abc092_b():
+    N = int(input())
+    D, X = map(int, input().split())
+    A = [int(input()) for _ in range(N)]
+    days = [0] * (D + 1)
+    for a in A:
+        for k in range(1, D + 1, a):
+            days[k] += 1
+    print(X + sum(days))
+
+
+def hitachi2020_b():
+    from math import inf
+    A, B, M = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    ans = inf
+    for _ in range(M):
+        x, y, c = map(int, input().split())
+        ans = min(ans, a[x - 1] + b[y - 1] - c)
+    a.sort()
+    b.sort()
+    ans = min(ans, a[0] + b[0])
+    print(ans)
+
+
+def abc114_b():
+    from math import inf
+    s = input()
+    n = len(s)
+    ans = inf
+    for i in range(n - 2):
+        ans = min(ans, abs(int(s[i:i + 3]) - 753))
+    print(ans)
+
+
+def abc108_b():
+    x1, y1, x2, y2 = map(int, input().split())
+    vec = (x2 - x1, y2 - y1)
+    x3, y3 = x2 - vec[1], y2 + vec[0]
+    vec = (x3 - x2, y3 - y2)
+    x4, y4 = x3 - vec[1], y3 + vec[0]
+    print(x3, y3, x4, y4)
+
+
+def abc063_b():
+    s = list(input())
+    print("yes" if len(s) == len(set(s)) else "no")
+
+
+def abc052_b():
+    from itertools import accumulate
+    N = int(input())
+    S = map(lambda x: 1 if x == "I" else -1, input())
+    S = accumulate([0] + list(S))
+    print(max(list(S)))
+
+
+def abc084_b():
+    A, B = map(int, input().split())
+    S = input()
+    S = S.split("-")
+    if len(S) == 2 and len(S[0]) == A and len(S[1]) == B:
+        print("Yes")
+    else:
+        print("No")
+
+
+def abc087_b():
+    from itertools import product
+    ans = 0
+    A, B, C, X = int(input()), int(input()), int(input()), int(input())
+    for a, b, c in product(range(A + 1), range(B + 1), range(C + 1)):
+        if 500 * a + 100 * b + 50 * c == X:
+            ans += 1
+    print(ans)
+
+
+def abc071_b():
+    from string import ascii_lowercase
+    cnt = {a: 0 for a in ascii_lowercase}
+    s = input()
+    for w in s:
+        cnt[w] += 1
+    for a in ascii_lowercase:
+        if cnt[a] == 0:
+            print(a)
+            exit()
+    else:
+        print("None")
+
+
+def abc127_c():
+    N, M = map(int, input().split())
+    cards = [0] * (N + 1)
+    for _ in range(M):
+        l, r = map(int, input().split())
+        cards[l - 1] += 1
+        cards[r] -= 1
+
+    for i in range(1, N):
+        cards[i] += cards[i - 1]
+
+    ans = sum(card >= M for card in cards)
+    print(ans)
+
+
 if __name__ == '__main__':
-    arc136_b()
+    abc127_c()
