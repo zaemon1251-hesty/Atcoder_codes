@@ -1,3 +1,6 @@
+from cgitb import reset
+
+
 def agc014_a():
     def li(): return list(map(int, input().split()))
     def mi(): return map(int, input().split())
@@ -335,5 +338,61 @@ def abc127_c():
     print(ans)
 
 
+def agc036_a():
+    S = int(input())
+    x1, y1 = 0, 0
+    x2, y2 = 10**9, 1
+    y3, x3 = divmod(S, x2)
+    if x3 != 0:
+        y3 += 1
+        x3 = 10**9 - x3
+    print(x1, y1, x2, y2, x3, y3)
+
+
+def ddcc2020_qual_c():
+    H, W, K = map(int, input().split())
+    S = [input() for _ in range(H)]
+    ans = [[-1] * W for _ in range(H)]
+
+    row_divides = []
+    for x in range(H):
+        if "#" in S[x]:
+            row_divides.append(x)
+
+    cols = []
+    for x in row_divides:
+        col_divides = []
+        for y in range(W):
+            if S[x][y] == "#":
+                col_divides.append(y)
+        col_divides.append(W)  # 門番
+
+        cols.append(col_divides)
+
+    colors = 1
+    x = 0
+    for sx, coldivs in zip(row_divides, cols):
+        y = 0
+        for sy in coldivs[1:]:
+            while y < W and y < sy:
+                ans[sx][y] = colors
+                y += 1
+            colors += 1
+
+        while x < sx:
+            for y in range(W):
+                ans[x][y] = ans[sx][y]
+            x += 1
+        x += 1
+
+    if x < H:
+        for i in range(x, H):
+            for y in range(W):
+                ans[i][y] = ans[sx][y]
+
+    for row in ans:
+        print(*row)
+
+
 if __name__ == '__main__':
-    abc127_c()
+    ddcc2020_qual_c()
