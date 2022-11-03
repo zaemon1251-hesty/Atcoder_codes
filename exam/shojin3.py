@@ -143,7 +143,7 @@ def arc037_b():
     print(sum((uf.parents[i] < 0 and i not in bad_roots) for i in range(N)))
 
 
-def main():
+def arc097_a():
     def li():
         return list(map(int, input().split()))
 
@@ -165,5 +165,34 @@ def main():
     print(ans_set[K - 1])
 
 
+def caddi2018_b():
+    N = int(input())
+    a = [int(input()) for _ in range(N)]
+    print('second' if all(a[i] % 2 == 0 for i in range(N)) else 'first')
+
+
+def panasonic2020_d():
+    import sys
+    sys.setrecursionlimit(10**6)
+
+    N = int(input())
+    base = ord("a")
+    buf = ["a"]
+    ans = []
+
+    def dfs(max_code):
+        if len(buf) == N:
+            ans.append("".join(buf))
+            return
+        for c in range(base, max_code + 2):
+            buf.append(chr(c))
+            dfs(max(c, max_code))
+            buf.pop()
+
+    dfs(base)
+
+    print(*ans, sep="\n")
+
+
 if __name__ == '__main__':
-    main()
+    panasonic2020_d()
