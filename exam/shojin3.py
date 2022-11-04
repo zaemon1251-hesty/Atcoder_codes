@@ -194,5 +194,106 @@ def panasonic2020_d():
     print(*ans, sep="\n")
 
 
+def arc091_b():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, K = mi()
+    ans = 0
+
+    if K == 0:
+        print(N * N)
+        exit()
+
+    for b in range(K + 1, N + 1):
+        k = 0
+        while k * b + K <= N:
+            ans += min(k * b + b - 1, N) - (k * b + K) + 1
+            k += 1
+    print(ans)
+
+
+def abc099_c():
+    import sys
+    from functools import lru_cache
+    sys.setrecursionlimit(10**6)
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+
+    @lru_cache(None)
+    def dfs(k: int) -> int:
+        if k == 0:
+            return 0
+
+        res = k
+        a, b = 6, 9
+
+        while a <= k:
+            res = min(res, dfs(k - a) + 1)
+            a *= 6
+
+        while b <= k:
+            res = min(res, dfs(k - b) + 1)
+            b *= 9
+
+        return res
+
+    s = dfs(N)
+    print(s)
+
+
+def abc080_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    F = [li() for _ in range(N)]
+
+    P = [li() for _ in range(N)]
+
+    ans = -inf
+    for s in range(1 << 10):
+        if s == 0:
+            continue
+        joisino = [0] * 10
+        for i in range(10):
+            if s >> i & 1:
+                joisino[i] = 1
+
+        res = 0
+        for shop_i in range(N):
+            with_cnt = sum(
+                joisino_on * shop_on
+                for joisino_on, shop_on
+                in zip(joisino, F[shop_i])
+            )
+            res += P[shop_i][with_cnt]
+
+        ans = max(ans, res)
+
+    print(ans)
+
+
 if __name__ == '__main__':
-    panasonic2020_d()
+    abc080_c()
