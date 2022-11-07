@@ -295,5 +295,34 @@ def abc080_c():
     print(ans)
 
 
+def agc058_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    P = li()
+
+    cnt = 0
+    history = []
+    for i in range(0, 2 * N - 1, 2):
+        if P[i] > P[i + 1]:
+            cnt += 1
+            history.append(i + 1)
+            P[i], P[i + 1] = P[i + 1], P[i]
+    for i in range(1, 2 * N - 1, 2):
+        if P[i] < P[i + 1]:
+            cnt += 1
+            history.append(i + 1)
+            P[i], P[i + 1] = P[i + 1], P[i]
+    print(cnt)
+    print(*history)
+
+
 if __name__ == '__main__':
-    abc080_c()
+    agc058_a()

@@ -1,12 +1,12 @@
 from collections import deque
-from collections import defaultdict
+# from collections import defaultdict
+# from collections import deque
 inf = 1 << 60
-#from collections import deque
 
 
 def BFS(G, N, p):
     inf = 1 << 60
-    dist = [inf]*N
+    dist = [inf] * N
     todo = deque([p])
     dist[p] = 0
     while todo:
@@ -28,8 +28,8 @@ def gridBFS(G, s, g):
     h, w = len(G), len(G[0])
     dx = [0, 1, -1, 0]
     dy = [1, 0, 0, -1]
-    dist = [[0]*(w) for i in range(h)]
-    seen = [[False]*(w) for i in range(h)]
+    dist = [[0] * (w) for i in range(h)]
+    seen = [[False] * (w) for i in range(h)]
     d = 1
 
     todo = set()
@@ -40,7 +40,7 @@ def gridBFS(G, s, g):
         fl = True
         for x, y in todo:
             for i in range(4):
-                nx, ny = x+dx[i], y+dy[i]
+                nx, ny = x + dx[i], y + dy[i]
                 # 0-indexで考える
                 if nx < 0 or nx >= h or ny < 0 or ny >= w:
                     continue
@@ -62,7 +62,7 @@ def gridBFS(G, s, g):
         else:
             todo = qq
             d += 1
-    #if dist[g[0]][g[1]] == inf:print(f"inf: {s}, {g}")
+    # if dist[g[0]][g[1]] == inf:print(f"inf: {s}, {g}")
     return dist
 
 
@@ -73,11 +73,11 @@ def grid01BFS(G):
     """
     h, w = len(G), len(G[0])
     s = [0, 0]
-    g = [h-1, w-1]
+    g = [h - 1, w - 1]
     dx = [0, 1, -1, 0]
     dy = [1, 0, 0, -1]
-    dist = [[inf]*(w) for _ in range(h)]
-    d = 1
+    dist = [[inf] * (w) for _ in range(h)]
+    # d = 1
 
     todo = deque([])
     todo.appendleft(s)
@@ -87,7 +87,7 @@ def grid01BFS(G):
         if x == g[0] and y == g[1]:
             break
         for i in range(4):
-            nx, ny = x+dx[i], y+dy[i]
+            nx, ny = x + dx[i], y + dy[i]
             # 0-indexで考える
             if nx < 0 or nx >= h or ny < 0 or ny >= w:
                 continue
@@ -99,9 +99,10 @@ def grid01BFS(G):
             todo.appendleft([nx, ny])
         for i in range(-2, 3):
             for j in range(-2, 3):
-                if (i == -2 and j == -2) or (i == 2 and j == -2) or (i == -2 and j == 2) or (i == 2 and j == 2):
+                if (i == -2 and j == -2) or (i == 2 and j == -
+                                             2) or (i == -2 and j == 2) or (i == 2 and j == 2):
                     continue
-                nx, ny = x+i, y+j
+                nx, ny = x + i, y + j
                 # 0-indexで考える
                 if nx < 0 or nx >= h or ny < 0 or ny >= w:
                     continue
