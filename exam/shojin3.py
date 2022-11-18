@@ -324,5 +324,167 @@ def agc058_a():
     print(*history)
 
 
+def nikkei2019_qual_c():
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    S = [li() + [i] for i in range(N)]
+    S.sort(key=lambda x: (x[0] + x[1], -x[0]))
+
+    s = 0
+    i = 1
+    while S:
+        s += i * S.pop()[i - 1]
+        i *= -1
+    print(s)
+
+
+def abc124_d():
+    from itertools import groupby
+
+    def runLengthEncode(S: str):
+        # ランレングス符号化
+        grouped = groupby(S)
+        res = []
+        for k, v in grouped:
+            res.append((k, int(len(list(v)))))
+        return res
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, K = mi()
+    S = runLengthEncode(input())
+    M = len(S)
+    S.append(('X', 1))
+    ans = 0
+    R = 0
+    cur = 0
+    res = 0
+    for L in range(M):
+        while R < M and (cur < K or S[R][0] == "1"):
+            res += S[R][1]
+            if S[R][0] == "0":
+                cur += 1
+            ans = max(res, ans)
+            R += 1
+
+        res -= S[L][1]
+        if S[L][0] == "0":
+            cur -= 1
+    print(ans)
+
+
+def agc034_b():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    s = input().replace("BC", "D")
+    cur_a = 0
+    ans = 0
+    for w in s:
+        if w == "A":
+            cur_a += 1
+        elif w == "D":
+            ans += cur_a
+        else:
+            cur_a = 0
+    print(ans)
+
+
+def arc111_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, M = mi()
+    a = pow(10, N, M**2)
+
+    for r in range(M):
+        if r * M <= a < (r + 1) * M:
+            print(r)
+            exit()
+
+
+def diverta2019_d():
+    def make_divisors(n):
+        lower_divisors, upper_divisors = [], []
+        i = 1
+        while i * i <= n:
+            if n % i == 0:
+                lower_divisors.append(i)
+                if i != n // i:
+                    upper_divisors.append(n // i)
+            i += 1
+        return lower_divisors + upper_divisors[::-1]
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    ans = 0
+    for d in make_divisors(N)[1:]:
+        m = d - 1
+        if N // m == N % m:
+            ans += m
+    print(ans)
+
+
+def arc084_a():
+    from bisect import bisect_left, bisect_right
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = sorted(li())
+    B = sorted(li())
+    C = sorted(li())
+
+    ans = 0
+    for i, b in enumerate(B):
+        c_l = N - bisect_right(C, b)
+        a_l = bisect_left(A, b)
+        ans += c_l * a_l
+    print(ans)
+
+
 if __name__ == '__main__':
-    agc058_a()
+    arc084_a()
