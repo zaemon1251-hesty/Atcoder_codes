@@ -486,5 +486,59 @@ def arc084_a():
     print(ans)
 
 
+def arc118_c():
+    N = int(input())
+    cards = [6, 15, 10]
+
+    for i in range(16, 10001):
+        if len(cards) == N:
+            break
+        if any(i % card == 0 for card in [6, 15, 10]):
+            cards.append(i)
+
+    print(*cards)
+
+
+def abc112_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    S = [li() for _ in range(N)]
+
+    def height(x, y, cx, cy, h):
+        return max(h - abs(x - cx) - abs(y - cy), 0)
+
+    def check(h_, cx, cy):
+        return all(
+            height(s[0], s[1], cx, cy, h_) >= s[2]
+            for s in S
+        )
+
+    for cx in range(101):
+        for cy in range(101):
+            ok = 10**12
+            ng = -1
+            while ok - ng > 1:
+                cen = (ok + ng) // 2
+                if check(cen, cx, cy):
+                    ok = cen
+                else:
+                    ng = cen
+            if all(
+                height(s[0], s[1], cx, cy, ok) == s[2]
+                for s in S
+            ):
+                print(cx, cy, ok)
+                exit()
+    print(-1)
+
+
 if __name__ == '__main__':
-    arc084_a()
+    abc112_c()
