@@ -540,5 +540,202 @@ def abc112_c():
     print(-1)
 
 
+def agc033_a():
+    from collections import deque
+    from math import inf
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    dx = [0, 1, -1, 0]
+    dy = [1, 0, 0, -1]
+
+    H, W = mi()
+    A = [input() for _ in range(H)]
+    true_ans = 0
+    ans = [[inf] * W for _ in range(H)]
+    todos = [(i, j, 0) for i in range(H) for j in range(W) if A[i][j] == "#"]
+    for t in todos:
+        todo = deque([(t[0], t[1], 0)])
+        while todo:
+            x, y, t = todo.popleft()
+            if ans[x][y] < t:
+                continue
+            ans[x][y] = t
+            true_ans = max(true_ans, t)
+
+            for i in range(4):
+                nx, ny = x + dx[i], y + dy[i]
+                # 0-indexで考える
+                if nx < 0 or nx >= H or ny < 0 or ny >= W:
+                    continue
+                if A[nx][ny] == '#':
+                    continue
+                if ans[nx][ny] < t + 1:
+                    continue
+                todo.append((nx, ny, t + 1))
+    print(true_ans)
+
+
+def arc121_b():
+    import sys
+    readline = sys.stdin.readline
+
+    N = int(readline())
+    R, G, B = [], [], []
+    for _ in range(2 * N):
+        a, c = readline().rstrip().split()
+        a = int(a)
+        if c == 'R':
+            R.append(a)
+        if c == 'B':
+            B.append(a)
+        if c == 'G':
+            G.append(a)
+    r, g, b = len(R) % 2, len(G) % 2, len(B) % 2
+    if r == g == b == 0:
+        ans = 0
+    else:
+        def f(A, B):
+            if not A or not B:
+                return float('inf')
+            a = len(A)
+            b = len(B)
+            i = 0
+            j = 0
+            ans = abs(A[0] - B[0])
+            while i != a - 1 or j != b - 1:
+                if i == a - 1:
+                    j += 1
+                elif j == b - 1:
+                    i += 1
+                else:
+                    if A[i] < B[j]:
+                        i += 1
+                    else:
+                        j += 1
+                ans = min(ans, abs(A[i] - B[j]))
+            return ans
+        if r == 0:
+            R, B = B, R
+        elif g == 0:
+            B, G = G, B
+        R.sort()
+        G.sort()
+        B.sort()
+        r = len(R)
+        g = len(G)
+        b = len(B)
+        ans = min(f(R, G), f(R, B) + f(B, G))
+    print(ans)
+
+
+def tenka1_2017_c():
+    from itertools import product
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    for h, w in product(range(1, 3501), repeat=2):
+        a = 4 * h * w - N * (h + w)
+        b = N * h * w
+        if a > 0 and b % a == 0:
+            print(h, b // a, w)
+            return
+
+
+def arc109_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    n, k = mi()
+    s = input()
+    s = s
+
+    battles = {
+        ("R", "P"): "P",
+        ("P", "R"): "P",
+        ("P", "P"): "P",
+        ("S", "P"): "S",
+        ("P", "S"): "S",
+        ("S", "S"): "S",
+        ("R", "S"): "R",
+        ("S", "R"): "R",
+        ("R", "R"): "R"
+    }
+
+    for _ in range(k):
+        ss = s + s
+        t = []
+        for i in range(len(ss) // 2):
+            t.append(battles[ss[2 * i], ss[2 * i + 1]])
+        s = t
+    print(s[0])
+
+
+def tenka1_2018_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = [ii() for _ in range(N)]
+    i = 0
+    f = 1
+    coef, coef2 = [], []
+    while i < N:
+        if i == 0:
+            coef.append((f, i))
+            coef2.append((-f, i))
+        elif i == N - 1:
+            coef.append((f, i))
+            coef2.append((-f, i))
+        else:
+            coef.append((2 * f, i))
+            coef2.append((-2 * f, i))
+        i += 1
+        f *= -1
+    ans = [-1] * N
+    ans2 = [-1] * N
+
+    coef.sort(key=lambda x: x[0])
+    coef2.sort(key=lambda x: x[0])
+    A.sort()
+
+    for a, (_, i) in zip(A, coef):
+        ans[i] = a
+    solve1 = sum(abs(ans[i + 1] - ans[i]) for i in range(N - 1))
+
+    for a, (_, i) in zip(A, coef2):
+        ans2[i] = a
+    solve2 = sum(abs(ans2[i + 1] - ans2[i]) for i in range(N - 1))
+
+    print(max(solve1, solve2))
+
+
 if __name__ == '__main__':
-    abc112_c()
+    tenka1_2018_c()
