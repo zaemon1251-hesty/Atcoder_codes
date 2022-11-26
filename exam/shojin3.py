@@ -737,5 +737,118 @@ def tenka1_2018_c():
     print(max(solve1, solve2))
 
 
+def arc081_b():
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    S = [input(), input()]
+    prev = -1
+    MOD = 10**9 + 7
+    loc = 0
+
+    while loc < N:
+        if S[0][loc] == S[1][loc]:
+            if prev < 0:
+                ans = 3
+            elif prev == 0:
+                ans *= 2
+            else:
+                ans *= 1
+
+            prev = 0
+            loc += 1
+        else:
+            if prev < 0:
+                ans = 6
+            elif prev == 0:
+                ans *= 2
+            else:
+                ans *= 3
+
+            prev = 1
+            loc += 2
+
+        ans %= MOD
+
+    print(ans)
+
+
+def abc121_d():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    A, B = mi()
+
+    def f_get(i: int):
+        """return reduce(xor, [0, 1, ..., i])
+
+        Args:
+            i (int):
+
+        Returns:
+            int:
+        """
+        if i % 2 == 0:
+            if i % 4 == 0:
+                return i
+
+            return 1 ^ i
+
+        if i % 4 == 1:
+            return 1
+
+        return 0
+
+    if A == 0:
+        print(f_get(B))
+    else:
+        print(f_get(A - 1) ^ f_get(B))
+
+
+def abc048_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, x = mi()
+    A = li()
+
+    def check():
+        res = 0
+        for i in range(N - 1):
+            if A[i + 1] + A[i] > x:
+                need = A[i + 1] + A[i] - x
+                if A[i + 1] < need:
+                    ai_need = need - A[i + 1]
+                    A[i + 1] = 0
+                    A[i] -= ai_need
+                else:
+                    A[i + 1] -= need
+
+                res += need
+        return res
+
+    print(check())
+
+
 if __name__ == '__main__':
-    tenka1_2018_c()
+    abc048_c()
