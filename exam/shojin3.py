@@ -3,6 +3,123 @@ import sys
 from itertools import product, combinations
 
 
+class SegTree:
+    """
+    init(init_val, ide_ele): 配列init_valで初期化 O(N)
+    update(k, x): k番目の値をxに更新 O(logN)
+    query(l, r): 区間[l, r)をsegfuncしたものを返す O(logN)
+    find_rightest(a, b, x): [a,b)区間のx以下となる一番右のインデックスを取り出す O(logN)
+    find_leftest(a, b, x): [a,b)区間のx以下となる一番左のインデックスを取り出す O(logN)
+    get region(i): iを含み、区間積が tree[num + i - 1] となる区間 [l, r) を取り出す O(logN)
+    """
+
+    def __init__(self, init_val, segfunc, ide_ele):
+        """
+        init_val: 配列の初期値
+        segfunc: 区間にしたい操作
+        ide_ele: 単位元
+        n: 要素数
+        num: n以上の最小の2のべき乗
+        tree: セグメント木(1-index)
+        """
+        n = len(init_val)
+        self.n = n
+        self.segfunc = segfunc
+        self.ide_ele = ide_ele
+        self.num = 1 << (n - 1).bit_length()
+        self.tree = [ide_ele] * 2 * self.num
+        # 配列の値を葉にセット
+        for i in range(n):
+            self.tree[self.num + i] = init_val[i]
+        # 構築していく
+        for i in range(self.num - 1, 0, -1):
+            self.tree[i] = self.segfunc(self.tree[2 * i], self.tree[2 * i + 1])
+
+    def update(self, k, x):
+        """
+        k番目の値をxに更新
+        k: index(0-index)
+        x: update value
+        """
+        k += self.num
+        self.tree[k] = x
+        while k > 1:
+            self.tree[k >> 1] = self.segfunc(self.tree[k], self.tree[k ^ 1])
+            k >>= 1
+
+    def query(self, l, r):
+        """
+        [l, r)のsegfuncしたものを得る
+        l: index(0-index)
+        r: index(0-index)
+        """
+        res = self.ide_ele
+
+        l += self.num
+        r += self.num
+        while l < r:
+            if l & 1:
+                res = self.segfunc(res, self.tree[l])
+                l += 1
+            if r & 1:
+                res = self.segfunc(res, self.tree[r - 1])
+            l >>= 1
+            r >>= 1
+        return res
+
+    def find_rightest(self, a, b, x):
+        """
+        [a,b)区間のx以下となる一番右のインデックスを取り出す
+        """
+        return self.find_rightest_sub(a, b, x, 0, 0, self.n)
+
+    def find_leftest(self, a, b, x):
+        """
+        [a,r)区間のx以下となる一番左のインデックスを取り出す
+        """
+        return self.find_leftest_sub(a, b, x, 0, 0, self.n)
+
+    def find_rightest_sub(self, a, b, x, k, l, r):
+        """
+        find_ringtestのサブルーチン
+        [参考サイト]
+        https://algo-logic.info/segment-tree/
+        """
+        if self.tree[k] > x or r <= a or l >= b:
+            return max(a - 1, 0)
+        elif k >= self.num - 1:
+            return k - self.n - 1
+        else:
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
+            if vr != a - 1:
+                return vr
+            else:
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+
+    def find_leftest_sub(self, a, b, x, k, l, r):
+        """
+        find_leftestのサブルーチン
+        [参考サイト]
+        https://algo-logic.info/segment-tree/
+        """
+        if self.tree[k] > x or r <= a or l >= b:
+            return min(b, self.n - 1)
+        elif k >= self.num - 1:
+            return k - self.n - 1
+        else:
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 1, l, (r + l) // 2)
+            if vr != b:
+                return vr
+            else:
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+
+    def get_region(self, i):
+        idx = i + self.num - 1
+        return
+
+
 class UnionFind():
     def __init__(self, n):
         self.n = n
@@ -850,5 +967,139 @@ def abc048_c():
     print(check())
 
 
+def abc125_c():
+    from math import gcd
+    from functools import reduce
+
+    def lcm(a):
+        return reduce(lambda x, y: x * y // gcd(x, y), a)
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = li()
+
+    e = lcm(A)
+    st = SegTree(A, lambda x, y: gcd(x, y), e)
+
+    ans = 0
+    for i in range(N):
+        lft = st.query(0, i)
+        rght = st.query(i + 1, N)
+        res = gcd(
+            lft, rght
+        )
+        ans = max(ans, res)
+    print(ans)
+
+
+def apc001_c():
+    n = int(input())
+
+    print(0, flush=True)
+    s = input()
+    if s == "Vacant":
+        return 0
+    cap = 0
+    if s == "Female":
+        cap = 1
+
+    lo = 0
+    hi = n
+    while True:
+        mid = (hi + lo) // 2
+        print(mid, flush=True)
+        s = input()
+
+        if s == "Vacant":
+            return 0
+        gen = 0
+        if s == "Female":
+            gen = 1
+
+        if (cap + mid) % 2 == gen:
+            lo = mid
+        else:
+            hi = mid
+
+
+def abc105_c():
+    N = int(input())
+    d = []
+    while N != 0:
+        N, di = divmod(N, 2)
+        d.append(di)
+        N *= -1
+    if not d:
+        d.append(0)
+    print("".join(map(str, d[::-1])))
+
+
+def code_festival_2017_quala_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    H, W = mi()
+
+    A = [input() for _ in range(H)]
+
+    wcnt = [0] * 26
+    for i in range(H):
+        for j in range(W):
+            wcnt[ord(A[i][j]) - ord("a")] += 1
+
+    for i in range(H // 2):
+        for j in range(W // 2):
+            for w in range(26):
+                if wcnt[w] >= 4:
+                    wcnt[w] -= 4
+                    break
+            else:
+                print("No")
+                return
+
+    if H % 2 == 1:
+        for j in range(W // 2):
+            for w in range(26):
+                if wcnt[w] >= 2:
+                    wcnt[w] -= 2
+                    break
+            else:
+                print("No")
+                return
+    if W % 2 == 1:
+        for i in range(H // 2):
+            for w in range(26):
+                if wcnt[w] >= 2:
+                    wcnt[w] -= 2
+                    break
+            else:
+                print("No")
+                return
+    if H % 2 == W % 2 == 1:
+        for w in range(26):
+            if wcnt[w] >= 1:
+                wcnt[w] -= 1
+                break
+        else:
+            print("No")
+            return
+
+    print("Yes")
+
+
 if __name__ == '__main__':
-    abc048_c()
+    code_festival_2017_quala_c()
