@@ -1,27 +1,16 @@
-from math import ceil,floor
+import numpy as np
+
 K, N, M = map(int, input().split())
-A = list(map(int, input().split()))
-diva = [val * M for val in A]
+A = np.array(input().split(), np.int64)
+
+
 def check(x):
-    l = 0
-    r = 0
-    for i in range(K):
-        l += max(0, ceil((diva[i] - x)/N))
-        r += floor((diva[i] + x)/N)
-    if l <= M <= r:
-        return True
-    else:
-        return False
-ok = N * M
-ng = 0
-while ok - ng > 1:
-    cen = (ok + ng) // 2
-    if check(cen):
-        ok = cen
-    else:
-        ng = cen
+    L = np.maximum(0, (M * A - x + N - 1) // N)
+    R = (M * A + x) // N
+    return L.sum() <= M <= R.sum()
+
+
 def construct(x):
-    import numpy as np
     B = np.maximum(0, (M * A - x + N - 1) // N)
     R = (M * A + x) // N
     B_sum = B.sum()
@@ -30,7 +19,15 @@ def construct(x):
         B[i] += x
         B_sum += x
     return B
+
+
+ng, ok = -1, N * M
+while ng + 1 < ok:
+    x = (ng + ok) // 2
+    if check(x):
+        ok = x
+    else:
+        ng = x
+
 B = construct(ok)
 print(*B)
-_name__ == "__main__":
-mainb()
