@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "atcoder_codes"
+version = "0.1.0"
+description = "project for atcoder practice"
+authors = ["zaemon1251-hesty <hisakawa1251@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+online-judge-tools = "^11.5.1"
+numpy = "^1.22.2"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
+flake8 = "^4.0.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.971"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
