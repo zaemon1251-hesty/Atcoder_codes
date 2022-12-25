@@ -233,5 +233,259 @@ def agc014_b():
     print("NO")
 
 
+def nomura2020_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = li()
+    if N == 0:
+        print(1 if A[0] == 1 else -1)
+        return
+    if A[0] == 1:
+        print(-1)
+        return
+
+    ub = []
+    lb = []
+
+    cur = 0
+    for a in A[::-1]:
+        cur += a
+        lb.append(cur)
+    lb.reverse()
+
+    cur = 1
+    ub.append(1)
+    for a in A[1:]:
+        cur *= 2
+        ub.append(cur)
+        if a > cur:
+            print(-1)
+            return
+        cur -= a
+
+    print(sum(min(uu, ll) for uu, ll in zip(ub, lb)))
+
+
+def main():
+    from functools import lru_cache
+
+    @lru_cache(None)
+    def f(x: int):
+        if x == 1:
+            return 3
+        return 2 * f(x - 1) + 3
+
+    @lru_cache(None)
+    def find(lev, p):
+        length = f(lev)
+        cen = (length + 1) // 2
+        if p == 1:
+            return "A"
+        elif p == length:
+            return "C"
+        elif p == cen:
+            return "B"
+        elif p < cen:
+            return find(lev - 1, p - 1)
+        else:
+            return find(lev - 1, p - cen)
+
+    k, s, t = map(int, input().split())
+
+    ans = [find(k, i) for i in range(s, t + 1)]
+
+    print(*ans, sep="")
+
+
+class SegTree:
+    """
+    init(init_val, ide_ele): 配列init_valで初期化 O(N)
+    update(k, x): k番目の値をxに更新 O(logN)
+    query(l, r): 区間[l, r)をsegfuncしたものを返す O(logN)
+    find_rightest(a, b, x): [a,b)区間のx以下となる一番右のインデックスを取り出す O(logN)
+    find_leftest(a, b, x): [a,b)区間のx以下となる一番左のインデックスを取り出す O(logN)
+    get region(i): iを含み、区間積が tree[num + i - 1] となる区間 [l, r) を取り出す O(logN)
+    """
+
+    def __init__(self, init_val, segfunc, ide_ele):
+        """
+        init_val: 配列の初期値
+        segfunc: 区間にしたい操作
+        ide_ele: 単位元
+        n: 要素数
+        num: n以上の最小の2のべき乗
+        tree: セグメント木(1-index)
+        """
+        n = len(init_val)
+        self.n = n
+        self.segfunc = segfunc
+        self.ide_ele = ide_ele
+        self.num = 1 << (n - 1).bit_length()
+        self.tree = [ide_ele] * 2 * self.num
+        # 配列の値を葉にセット
+        for i in range(n):
+            self.tree[self.num + i] = init_val[i]
+        # 構築していく
+        for i in range(self.num - 1, 0, -1):
+            self.tree[i] = self.segfunc(self.tree[2 * i], self.tree[2 * i + 1])
+
+    def update(self, k, x):
+        """
+        k番目の値をxに更新
+        k: index(0-index)
+        x: update value
+        """
+        k += self.num
+        self.tree[k] = x
+        while k > 1:
+            self.tree[k >> 1] = self.segfunc(self.tree[k], self.tree[k ^ 1])
+            k >>= 1
+
+    def query(self, l, r):
+        """
+        [l, r)のsegfuncしたものを得る
+        l: index(0-index)
+        r: index(0-index)
+        """
+        res = self.ide_ele
+
+        l += self.num
+        r += self.num
+        while l < r:
+            if l & 1:
+                res = self.segfunc(res, self.tree[l])
+                l += 1
+            if r & 1:
+                res = self.segfunc(res, self.tree[r - 1])
+            l >>= 1
+            r >>= 1
+        return res
+
+    def find_rightest(self, a, b, x):
+        """
+        [a,b)区間のx以下となる一番右のインデックスを取り出す
+        """
+        return self.find_rightest_sub(a, b, x, 0, 0, self.n)
+
+    def find_leftest(self, a, b, x):
+        """
+        [a,r)区間のx以下となる一番左のインデックスを取り出す
+        """
+        return self.find_leftest_sub(a, b, x, 0, 0, self.n)
+
+    def find_rightest_sub(self, a, b, x, k, l, r):
+        """
+        find_ringtestのサブルーチン
+        [参考サイト]
+        https://algo-logic.info/segment-tree/
+        """
+        if self.tree[k] > x or r <= a or l >= b:
+            return max(a - 1, 0)
+        elif k >= self.num - 1:
+            return k - self.n - 1
+        else:
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
+            if vr != a - 1:
+                return vr
+            else:
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+
+    def find_leftest_sub(self, a, b, x, k, l, r):
+        """
+        find_leftestのサブルーチン
+        [参考サイト]
+        https://algo-logic.info/segment-tree/
+        """
+        if self.tree[k] > x or r <= a or l >= b:
+            return min(b, self.n - 1)
+        elif k >= self.num - 1:
+            return k - self.n - 1
+        else:
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 1, l, (r + l) // 2)
+            if vr != b:
+                return vr
+            else:
+                return self.find_rightest_sub(
+                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+
+    def get_region(self, i):
+        idx = i + self.num - 1
+        return
+
+
+def sub():
+    N, M = map(int, input().split())
+    X = [int(input()) for _ in range(N)]
+
+    st = SegTree(X, lambda x, y: min(x, y), float('inf'))
+
+    st2 = SegTree(X, lambda x, y: max(x, y), -float('inf'))
+
+    st2.find_leftest()
+
+
+def try_():
+    from string import ascii_lowercase
+    import sys
+    sys.setrecursionlimit(10**6)
+    s = input()
+    n = len(s)
+    digits = set([str(i) for i in range(10)])
+
+    stack = []
+    brackets = {}
+    for i in range(n):
+        if s[i] == "(":
+            stack.append(i)
+        elif s[i] == ")":
+            st = stack.pop()
+            brackets[st] = i
+
+    def getInt(st: int, en: int) -> tuple[int, int]:
+        assert s[st] in digits
+
+        i = st
+        while i < en and s[i] in digits:
+            i += 1
+
+        int_ = 1
+        if i > st:
+            int_ = int(s[st:i])
+
+        return int_, i - 1
+
+    def counting(t: str, st, en) -> int:
+        res = 0
+        i = st
+        int_ = 1
+        while i < en:
+            if s[i] in digits:
+                int_, i = getInt(i, en)
+            elif s[i] == t:
+                res += int_
+                int_ = 1
+            elif s[i] == "(":
+                mid_en = brackets[i] - 1
+                res += int_ * counting(t, i + 1, mid_en + 1)
+                i = mid_en
+            else:
+                int_ = 1
+            i += 1
+
+        return res
+
+    for a in ascii_lowercase:
+        print(a, counting(a, 0, n))
+
+
 if __name__ == '__main__':
-    agc014_b()
+    try_()
