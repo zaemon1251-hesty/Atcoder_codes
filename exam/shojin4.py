@@ -417,20 +417,10 @@ class SegTree:
                 return self.find_rightest_sub(
                     a, b, x, 2 * k + 2, (l + r) // 2, r)
 
-    def get_region(self, i):
-        idx = i + self.num - 1
-        return
-
 
 def sub():
     N, M = map(int, input().split())
-    X = [int(input()) for _ in range(N)]
-
-    st = SegTree(X, lambda x, y: min(x, y), float('inf'))
-
-    st2 = SegTree(X, lambda x, y: max(x, y), -float('inf'))
-
-    st2.find_leftest()
+    _ = [int(input()) for _ in range(N)]
 
 
 def try_():
