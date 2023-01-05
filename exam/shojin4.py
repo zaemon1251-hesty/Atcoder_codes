@@ -477,5 +477,76 @@ def try_():
         print(a, counting(a, 0, n))
 
 
+def arc083_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    A, B, C, D, E, F = mi()
+    ma = 0
+    ans1 = 100 * A
+    ans2 = 0
+    dp = [[0] * (F + 10) for _ in range(F + 10)]
+    dp[0][0] = 1
+    for i in range(1, F + 1):
+        for j in range(i + 1):
+            if i >= 100 * A and dp[i - 100 * A][j] > 0:
+                dp[i][j] = 1
+            if i >= 100 * B and dp[i - 100 * B][j] > 0:
+                dp[i][j] = 1
+            if j >= C and dp[i - C][j - C] > 0:
+                dp[i][j] = 1
+            if j >= D and dp[i - D][j - D] > 0:
+                dp[i][j] = 1
+
+            if not dp[i][j]:
+                continue
+
+            if 100 * j <= E * (i - j) and j / i > ma:
+                ma = j / i
+                ans1 = i
+                ans2 = j
+    print(ans1, ans2)
+
+
+def abc054_c():
+    from itertools import permutations
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, M = mi()
+
+    ans = 0
+    G = [set() for _ in range(N)]
+    for _ in range(M):
+        a, b = mi()
+        a -= 1
+        b -= 1
+        G[a].add(b)
+        G[b].add(a)
+
+    for g in permutations(range(1, N)):
+        v = 0
+        for nv in g:
+            if nv not in G[v]:
+                break
+            v = nv
+        else:
+            ans += 1
+    print(ans)
+
+
 if __name__ == '__main__':
-    try_()
+    abc054_c()
