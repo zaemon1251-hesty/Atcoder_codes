@@ -548,5 +548,84 @@ def abc054_c():
     print(ans)
 
 
+def agc024_b():
+    N = int(input())
+    P = [int(input()) for _ in range(N)]
+    Q = {v - 1: i for i, v in enumerate(P)}
+
+    ans_rev = 1
+    cur = 1
+    prev = Q[0]
+    for i in range(1, N):
+        if prev < Q[i]:
+            cur += 1
+        else:
+            cur = 1
+        prev = Q[i]
+        ans_rev = max(ans_rev, cur)
+    print(N - ans_rev)
+
+
+def arc062_b():
+    S = input()
+    print(len(S) // 2 - S.count("p"))
+
+
+def diverta2019_2_c():
+    N = int(input())
+    A = list(map(int, input().split()))
+    A.sort()
+    res = []
+    ma = A[-1]
+    mi = A[0]
+    for i in range(1, N - 1):
+        a = A[i]
+        if a < 0:
+            res.append((ma, a))
+            ma -= a
+        else:
+            res.append((mi, a))
+            mi -= a
+    res.append((ma, mi))
+    ans = ma - mi
+    print(ans)
+    for x in res:
+        print(*x)
+
+
+def aising2019_c():
+    from itertools import product
+    from collections import deque
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+    H, W = mi()
+    S = [input() for _ in range(H)]
+    dx = [0, 1, -1, 0]
+    dy = [1, 0, 0, -1]
+    uf = UnionFind()
+    seen = [[False] * W for _ in range(H)]
+    for h, w in product(range(H), range(W)):
+        if seen[h][w]:
+            continue
+
+        todo = deque([(h, w)])
+        for i in range(4):
+            nx, ny = x + dx[i], y + dy[i]
+            # 0-indexで考える
+            if nx < 0 or nx >= h or ny < 0 or ny >= w:
+                continue
+            if G[nx][ny] == '#':
+                continue
+            if seen[nx][ny]:
+                continue
+
+
 if __name__ == '__main__':
-    abc054_c()
+    main()

@@ -24,18 +24,33 @@
     ],
     "description": ""
   },
+  "shojin template": {
+    "prefix": "shojin template",
+    "body": [
+      "def sub():",
+      "    def li(): ",
+      "       return list(map(int, input().split()))",
+      "    def mi(): ",
+      "       return map(int, input().split())",
+      "    def ii(): ",
+      "       return int(input())",
+      ""
+    ],
+    "description": ""
+  },
+
   "graph-1": {
     "prefix": "graph-1",
     "body": [
-      "    N, M = mi()",
+      "N, M = mi()",
       "",
-      "    G = [[] for _ in range(N)]",
+      "G = [[] for _ in range(N)]",
       "",
-      "    for _ in range(M):",
-      "        a, b = mi()",
-      "        a -= 1;b -= 1;",
-      "        G[a].append(a)",
-      "        G[b].append(a)"
+      "for _ in range(M):",
+      "    a, b = mi()",
+      "    a -= 1;b -= 1;",
+      "    G[a].append(b)",
+      "    G[b].append(a)"
     ],
     "description": ""
   }
