@@ -102,5 +102,130 @@ def aising2019_c():
     print(ans)
 
 
+def arc092_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+
+    A = [li() for _ in range(N)]
+    B = [li() for _ in range(N)]
+
+    A.sort(key=lambda x: (x[0], x[1]))
+    B.sort(key=lambda x: (x[0], x[1]))
+
+    ans = 0
+    for bx, by in B:
+        tmp = -1
+        idx = -1
+        for i, (rx, ry) in enumerate(A):
+            if rx < bx and tmp < ry < by:
+                tmp = ry
+                idx = i
+        if tmp != -1:
+            ans += 1
+            A = [a for i, a in enumerate(A) if i != idx]
+
+    print(ans)
+
+
+def arc097_b():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, M = mi()
+    P = li()
+    S = [li() for _ in range(M)]
+    uf = UnionFind(N)
+    for x, y in S:
+        if not uf.same(x - 1, y - 1):
+            uf.union(x - 1, y - 1)
+
+    ans = 0
+    for i in range(N):
+        if uf.same(i, P[i] - 1):
+            ans += 1
+
+    print(ans)
+
+
+def arc125_b():
+    from math import sqrt
+    MOD = 998244353
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    ans = 0
+    for q in range(1, int(sqrt(N)) + 1):
+        ans += (N // q - q + 1) // 2
+        ans += (N // q) % 2 == q % 2
+        ans %= MOD
+    print(ans)
+
+
+def m_solutions2019_d():
+    import sys
+    sys.setrecursionlimit(10**6)
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+
+    G = [[] for _ in range(N)]
+
+    for _ in range(N - 1):
+        a, b = mi()
+        a -= 1
+        b -= 1
+        G[a].append(b)
+        G[b].append(a)
+
+    c = sorted(li(), reverse=True)
+    w = [-1] * N
+    i_ = [0]
+
+    def dfs(v, p):
+        res = 0
+        for nv in G[v]:
+            if nv != p:
+                w[nv] = c[i_[0]]
+                i_[0] += 1
+                res += w[nv] + dfs(nv, v)
+        return res
+
+    w[0] = c[i_[0]]
+    i_[0] += 1
+
+    print(dfs(0, -1))
+    print(*w)
+
+
 if __name__ == '__main__':
-    aising2019_c()
+    m_solutions2019_d()
