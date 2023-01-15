@@ -71,12 +71,12 @@ def grid01BFS(G):
     道と壁があって、上下左右に移動できるグリッドグラフにおいて、
     スタートからゴールまでの最小パンチ回数を求める
     """
-    h, w = len(G), len(G[0])
+    H, W = len(G), len(G[0])
     s = [0, 0]
-    g = [h - 1, w - 1]
+    g = [H - 1, W - 1]
     dx = [0, 1, -1, 0]
     dy = [1, 0, 0, -1]
-    dist = [[inf] * (w) for _ in range(h)]
+    dist = [[inf] * (W) for _ in range(H)]
     # d = 1
 
     todo = deque([])
@@ -89,7 +89,7 @@ def grid01BFS(G):
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
             # 0-indexで考える
-            if nx < 0 or nx >= h or ny < 0 or ny >= w:
+            if nx < 0 or nx >= H or ny < 0 or ny >= W:
                 continue
             if G[nx][ny] == '#':
                 continue

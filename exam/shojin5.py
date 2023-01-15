@@ -227,5 +227,152 @@ def m_solutions2019_d():
     print(*w)
 
 
+def abc109_d():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    H, W = mi()
+    G = [li() for _ in range(H)]
+    buf = []
+    for i in range(H):
+        for j in range(W - 1):
+            if G[i][j] % 2 != 0:
+                G[i][j] -= 1
+                G[i][j + 1] += 1
+                buf.append((i, j, i, j + 1))
+    for i in range(H - 1):
+        if G[i][-1] % 2 != 0:
+            G[i][-1] -= 1
+            G[i + 1][-1] += 1
+            buf.append((i, W - 1, i + 1, W - 1))
+
+    print(len(buf))
+    for bufline in buf:
+        print(*map(lambda x: x + 1, bufline))
+
+
+def arc061_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    S = input()
+    N = len(S)
+    ans = 0
+    for z in range(1 << (N - 1)):
+        tmp = S[0]
+        res = 0
+        for i in range(N - 1):
+            if z >> i & 1:
+                res += int(tmp)
+                tmp = ""
+            tmp += S[i + 1]
+        if tmp != "":
+            res += int(tmp)
+        ans += res
+
+    print(ans)
+
+
+def arc100_a():
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = li()
+    diff = []
+    for i in range(N):
+        b = A[i] - i - 1
+        diff.append(b)
+    diff.sort()
+    if N % 2 != 0:
+        b = diff[N // 2]
+        ans = sum(abs(a - b - i) for i, a in enumerate(A, start=1))
+        for eps in [-2, -1, 0, 1, 2]:
+            ans = min(
+                ans,
+                sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1))
+            )
+        print(ans)
+    else:
+        b = (diff[N // 2 - 1] + diff[N // 2]) // 2
+        ans = sum(abs(a - b - i) for i, a in enumerate(A, start=1))
+        for eps in [-2, -1, 0, 1, 2]:
+            ans = min(
+                ans,
+                sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1))
+            )
+        print(ans)
+
+
+def arc153_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+    N = ii()
+    i = 10**5
+    N += i - 1
+
+    S = str(N)
+    print(S[0] * 2 + S[1:3] + S[3] * 2 + S[4] + S[5] + S[4])
+
+
+def arc153_b():
+    H, W = map(int, input().split())
+    S = [input() for _ in range(H)]
+    Q = int(input())
+    H0, W0 = 0, 0  # 操作後のA[0][0]のインデックス
+    for _ in range(Q):
+        A, B = map(int, input().split())
+        if H0 < A:
+            H0 = A - 1 - H0
+        else:
+            H0 = A + H - 1 - H0
+        if W0 < B:
+            W0 = B - 1 - W0
+        else:
+            W0 = B + W - 1 - W0
+
+    hs = [0] * H
+    ws = [0] * W
+    for i in range(H):
+        if Q % 2 == 0:
+            hs[(H0 + i) % H] = i
+        else:
+            hs[(H0 + H - i) % H] = i
+    for i in range(W):
+        if Q % 2 == 0:
+            ws[(W0 + i) % W] = i
+        else:
+            ws[(W0 + W - i) % W] = i
+    for i in range(H):
+        for j in range(W):
+            print(S[hs[i]][ws[j]], end='')
+        print()
+
+
 if __name__ == '__main__':
-    m_solutions2019_d()
+    arc153_b()
