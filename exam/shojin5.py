@@ -374,5 +374,51 @@ def arc153_b():
         print()
 
 
+def agc024_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    A = [ii() for _ in range(N)]
+
+    if any(A[i] > i for i in range(N)):
+        print(-1)
+        return
+
+    ans = 0
+    for i in range(N - 1)[::-1]:
+        if A[i] == A[i + 1] - 1:
+            ans += 1
+        elif A[i] > A[i + 1] - 1:
+            ans += A[i + 1]
+        else:
+            print(-1)
+            return
+
+    print(ans)
+
+
+def abc103_d():
+    N, M = map(int, input().split())
+    T = []
+    for i in range(M):
+        a, b = map(int, input().split())
+        T.append([b, a])
+    T.sort()
+    y = -1
+    count = 0
+    for i in range(M):
+        if y <= T[i][1]:
+            count += 1
+            y = T[i][0]
+    print(count)
+
+
 if __name__ == '__main__':
-    arc153_b()
+    abc103_d()
