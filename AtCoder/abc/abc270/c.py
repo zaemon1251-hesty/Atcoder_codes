@@ -1,5 +1,8 @@
 import sys
-def input(): return sys.stdin.readline().rstrip()
+
+
+def input():
+    return sys.stdin.readline().rstrip()
 
 
 sys.setrecursionlimit(10**6)
@@ -39,7 +42,7 @@ def main():
             ans.pop()
 
     search(X - 1, -1)
-    
+
     for i in range(len(k)):
         k[i] += 1
     print(*k)
