@@ -19,11 +19,6 @@ poetry env use $PYVERSION
 
 poetry install
 
-call poetry shell
-
-oj login -u $UNAME -p $PASSWD "https://atcoder.jp/"
-
-
 echo "######## end setup ########"
 
 exit 0
