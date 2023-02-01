@@ -9,10 +9,10 @@ class SegTree:
     """
     init(init_val, ide_ele): 配列init_valで初期化 O(N)
     update(k, x): k番目の値をxに更新 O(logN)
-    query(l, r): 区間[l, r)をsegfuncしたものを返す O(logN)
+    query(ll, r): 区間[ll, r)をsegfuncしたものを返す O(logN)
     find_rightest(a, b, x): [a,b)区間のx以下となる一番右のインデックスを取り出す O(logN)
     find_leftest(a, b, x): [a,b)区間のx以下となる一番左のインデックスを取り出す O(logN)
-    get region(i): iを含み、区間積が tree[num + i - 1] となる区間 [l, r) を取り出す O(logN)
+    get region(i): iを含み、区間積が tree[num + i - 1] となる区間 [ll, r) を取り出す O(logN)
     """
 
     def __init__(self, init_val, segfunc, ide_ele):
@@ -49,23 +49,23 @@ class SegTree:
             self.tree[k >> 1] = self.segfunc(self.tree[k], self.tree[k ^ 1])
             k >>= 1
 
-    def query(self, l, r):
+    def query(self, ll, r):
         """
-        [l, r)のsegfuncしたものを得る
-        l: index(0-index)
+        [ll, r)のsegfuncしたものを得る
+        ll: index(0-index)
         r: index(0-index)
         """
         res = self.ide_ele
 
-        l += self.num
+        ll += self.num
         r += self.num
-        while l < r:
-            if l & 1:
-                res = self.segfunc(res, self.tree[l])
-                l += 1
+        while ll < r:
+            if ll & 1:
+                res = self.segfunc(res, self.tree[ll])
+                ll += 1
             if r & 1:
                 res = self.segfunc(res, self.tree[r - 1])
-            l >>= 1
+            ll >>= 1
             r >>= 1
         return res
 
@@ -81,44 +81,44 @@ class SegTree:
         """
         return self.find_leftest_sub(a, b, x, 0, 0, self.n)
 
-    def find_rightest_sub(self, a, b, x, k, l, r):
+    def find_rightest_sub(self, a, b, x, k, ll, r):
         """
         find_ringtestのサブルーチン
         [参考サイト]
         https://algo-logic.info/segment-tree/
         """
-        if self.tree[k] > x or r <= a or l >= b:
+        if self.tree[k] > x or r <= a or ll >= b:
             return max(a - 1, 0)
         elif k >= self.num - 1:
             return k - self.n - 1
         else:
-            vr = self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 2, (ll + r) // 2, r)
             if vr != a - 1:
                 return vr
             else:
                 return self.find_rightest_sub(
-                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+                    a, b, x, 2 * k + 1, ll, (ll + r) // 2)
 
-    def find_leftest_sub(self, a, b, x, k, l, r):
+    def find_leftest_sub(self, a, b, x, k, ll, r):
         """
         find_leftestのサブルーチン
         [参考サイト]
         https://algo-logic.info/segment-tree/
         """
-        if self.tree[k] > x or r <= a or l >= b:
+        if self.tree[k] > x or r <= a or ll >= b:
             return min(b, self.n - 1)
         elif k >= self.num - 1:
             return k - self.n - 1
         else:
-            vr = self.find_rightest_sub(a, b, x, 2 * k + 1, l, (r + l) // 2)
+            vr = self.find_rightest_sub(a, b, x, 2 * k + 1, ll, (r + ll) // 2)
             if vr != b:
                 return vr
             else:
                 return self.find_rightest_sub(
-                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+                    a, b, x, 2 * k + 2, (ll + r) // 2, r)
 
     def get_region(self, i):
-        idx = i + self.num - 1
+        _ = i + self.num - 1
         return
 
 
@@ -573,9 +573,9 @@ def tokiomarine2020_c():
         B = [0] * N
 
         for i, a in enumerate(A):
-            L = max(0, i - a)
+            ll = max(0, i - a)
             R = min(i + a, N - 1)
-            B[L] += 1
+            B[ll] += 1
             if R + 1 < N:
                 B[R + 1] -= 1
 
