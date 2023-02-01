@@ -675,5 +675,35 @@ def agc031_b():
     print(dp[N] % MOD)
 
 
+def abc106_d():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, M, Q = mi()
+
+    cnt = [[0] * (N + 1) for _ in range(N + 1)]
+
+    for i in range(M):
+        L, R = mi()
+        cnt[L][R] += 1
+
+    for L in range(N + 1):
+        for R in range(N):
+            cnt[L][R + 1] += cnt[L][R]
+
+    for _ in range(Q):
+        p, q = mi()
+        ans = 0
+        for L in range(p, q + 1):
+            ans += cnt[L][q]
+        print(ans)
+
+
 if __name__ == '__main__':
-    agc031_b()
+    abc106_d()
