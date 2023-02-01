@@ -603,5 +603,77 @@ def arc068_b():
     print((k - 1) // 2 * 2 + 1)
 
 
+def agc032_b():
+    from itertools import combinations
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    E = []
+    for i, j in combinations(range(1, N + 1), 2):
+        if i + j != (N + int(N % 2 == 0)):
+            E.append((i, j))
+
+    print(len(E))
+    for e in E:
+        print(*e)
+
+
+def soundhound2018_summer_qual_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    n, m, d = map(int, input().split())
+    if 0 < 2 * d <= n:
+        print(2 * (m - 1) * (n - d) / n / n)
+    else:
+        print((m - 1) / n)
+
+
+def agc031_b():
+    from collections import defaultdict
+    from bisect import bisect_left
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    C = [ii() for i in range(N)]
+    colors = defaultdict(list)
+    for i, c in enumerate(C):
+        colors[c].append(i)
+    MOD = 10**9 + 7
+    dp = [0] * (N + 1)
+    dp[0] = 1
+    for i in range(N):
+        dp[i + 1] = (dp[i + 1] + dp[i]) % MOD
+        c = C[i]
+        it = bisect_left(colors[c], i)
+        if it > 0:
+            j = colors[c][it - 1]
+            if i - j > 1:
+                dp[i + 1] = (dp[i + 1] + dp[j + 1]) % MOD
+    print(dp[N] % MOD)
+
+
 if __name__ == '__main__':
-    arc068_b()
+    agc031_b()
