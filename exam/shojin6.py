@@ -1,5 +1,7 @@
 from itertools import combinations, product
 from functools import reduce, lru_cache
+from collections import defaultdict
+from operator import itemgetter
 
 
 class UnionFind():
@@ -135,5 +137,108 @@ def agc048_a():
         solve()
 
 
+def abc100_d():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, M = mi()
+    S = [li() for _ in range(N)]
+
+    def solve(f):
+        S.sort(key=lambda x: sum(fi * i for i, fi in zip(x, f)), reverse=True)
+
+        X, Y, Z = 0, 0, 0
+        for x, y, z in S[:M]:
+            X += x
+            Y += y
+            Z += z
+        return (abs(X) + abs(Y) + abs(Z))
+
+    print(max(solve(f) for f in product([-1, 1], repeat=3)))
+
+
+def sumitb2019_e():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    _ = ii()
+    A = li()
+    MOD = 1000000007
+
+    nums = defaultdict(lambda: 0)
+    nums[0] += 3
+
+    ans = 1
+    for a in A:
+        ans *= nums[a]
+        ans %= MOD
+        nums[a] -= 1
+        nums[a + 1] += 1
+    print(ans)
+
+
+def arc058_a():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N, K = mi()
+    D = set(li())
+
+    while N < 10**7:
+        for i in str(N):
+            if int(i) in D:
+                break
+        else:
+            break
+        N += 1
+
+    print(N)
+
+
+def arc096_b():
+    ans = 0
+    n, c = map(int, input().split())
+    XV = [tuple(map(int, input().split())) for _ in range(n)]
+    R = [0, ]
+    RR = [0, ]
+    tmp = 0
+    pre = 0
+
+    for x, v in XV:
+        tmp += v - (x - pre)
+        R.append(max(R[-1], tmp))
+        RR.append(max(RR[-1], tmp - x))
+        ans = max(ans, tmp)
+        pre = x
+
+    tmp = 0
+    pre = c
+
+    for i, (x, v) in enumerate(XV[::-1], 2):
+        tmp += v - (pre - x)
+        ans = max([ans, tmp, R[-i] + tmp - (c - x), RR[-i] + tmp])
+        pre = x
+
+    print(ans)
+
+
 if __name__ == "__main__":
-    agc048_a()
+    arc096_b()
