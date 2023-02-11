@@ -1,5 +1,5 @@
 {
-  "main": {
+  "snippet": {
     "prefix": "snippet",
     "body": [
       "import sys",
@@ -52,6 +52,11 @@
       "    G[a].append(b)",
       "    G[b].append(a)"
     ],
+    "description": ""
+  },
+  "n range": {
+    "prefix": "n range",
+    "body": ["for i in range(N)"],
     "description": ""
   }
 }

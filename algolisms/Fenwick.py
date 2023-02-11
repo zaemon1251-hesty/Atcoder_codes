@@ -43,6 +43,26 @@ class Fenwick:
         return i + 1
 
 
+class FenwickTree:
+    def __init__(self, n, e, op):
+        self.n = n  # [1,n], 1_indexed
+        self.e = e
+        self.op = op
+        self.fw = [e] * (n + 1)  # FW tree, 1_indexed
+
+    def __setitem__(self, p, x):
+        while p <= self.n:
+            self.fw[p] = self.op(self.fw[p], x)
+            p += p & -p
+
+    def __getitem__(self, r):
+        s = self.e
+        while r:
+            s = self.op(s, self.fw[r])
+            r -= r & -r
+        return s
+
+
 # これはXor演算
 n, q = map(int, input().split())
 a = list(map(int, input().split()))
