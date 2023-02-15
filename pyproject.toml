@@ -8,6 +8,7 @@ authors = ["zaemon1251-hesty <hisakawa1251@gmail.com>"]
 python = "^3.10"
 online-judge-tools = "^11.5.1"
 numpy = "^1.22.2"
+pillow = "^9.4.0"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.6.0"
