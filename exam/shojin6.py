@@ -1,3 +1,4 @@
+import math
 from itertools import combinations, product
 from functools import reduce, lru_cache
 from collections import defaultdict
@@ -240,5 +241,83 @@ def arc096_b():
     print(ans)
 
 
+def arc159_a():
+    from math import inf
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+    N, K = mi()
+    A = [li() for _ in range(N)]
+    cost = [[inf] * N for _ in range(N)]
+
+    for k in range(N):
+        for i in range(N):
+            for j in range(N):
+                if cost[i][j] == inf and A[i][j] == 1:
+                    cost[i][j] = 1
+                else:
+                    if cost[i][j] > cost[i][k] + cost[k][j]:
+                        cost[i][j] = cost[i][k] + cost[k][j]
+
+    Q = ii()
+    for i in range(Q):
+        s, t = mi()
+        s -= 1
+        t -= 1
+        if cost[s % N][t % N] < inf:
+            print(cost[s % N][t % N])
+        else:
+            print(-1)
+
+
+def prime(n):
+    prime_list = []
+    # 素数で割り切れるかの判定
+    for p in range(2, int(n ** 0.5) + 1):
+        if n % p == 0:
+            prime_list.append(p)
+            while n % p == 0:
+                n //= p
+    # n が1より大きい数字として残っていれば、素数
+    if n != 1:
+        prime_list.append(n)
+    return prime_list
+
+
+def arc159_b():
+    A, B = map(int, input().split())
+    if A < B:
+        A, B = B, A
+    if A == B:
+        print(1)
+        return
+    ans = 0
+    while (A > 0 and B > 0):
+        if A - B == 1:
+            ans += min(A, B)
+            break
+        else:
+            g = math.gcd(A, B)
+            A = A // g
+            B = B // g
+            if A - B == 1:
+                ans += min(A, B)
+                break
+            prime_list = prime(A - B)
+            t = float("inf")
+            for p in prime_list:
+                t = min(t, B % p)
+            A -= t
+            B -= t
+            ans += t
+    print(ans)
+
+
 if __name__ == "__main__":
-    arc096_b()
+    arc159_b()

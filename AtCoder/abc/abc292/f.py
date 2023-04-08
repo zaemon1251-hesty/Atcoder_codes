@@ -5,7 +5,8 @@ from math import sqrt
 # list<int>
 
 
-def LI(): return list(map(int, stdin.readline().rstrip().split()))
+def LI():
+    return list(map(int, stdin.readline().rstrip().split()))
 
 
 A, B = LI()
