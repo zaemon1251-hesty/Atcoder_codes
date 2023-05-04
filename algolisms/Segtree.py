@@ -137,9 +137,15 @@ def routine_1():
     for _ in range(q):
         t, x, y = map(int, input().split())
         if t == 1:
+<<<<<<< HEAD:algolisms/Segtree.py
             tree.update(x - 1, y)
         else:
             print(tree.query(x - 1, y))
+=======
+            tree.update(x-1, y)
+        else:
+            print(tree.query(x-1, y))
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0:Segtree.py
 
 
 def routine_2():

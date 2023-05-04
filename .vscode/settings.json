@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   // zaemon1251 は 個人の設定に合わせて変更してください
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3.10",
   "python.linting.mypyEnabled": true,
@@ -36,3 +37,13 @@
 //     "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
 //   ]
 // }
+=======
+  "python.pythonPath": "c:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Scripts\\python.exe",
+  "python.autoComplete.extraPaths": [
+    "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
+  ]
+}
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0

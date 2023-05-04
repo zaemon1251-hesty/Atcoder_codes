@@ -1,7 +1,10 @@
 # cmb の逐次計算
 mod = 10**9 + 7
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0
 def cmb(n, r):
     if n < r:
         return 0
@@ -14,8 +17,11 @@ def cmb(n, r):
         b *= (k+1)
         b %= mod
     return a * pow(b, mod-2, mod) % mod
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 A.sort()
@@ -44,3 +50,12 @@ for i in range(N):
     ans += rr[i] * A[i]
     ans %= mod
 print(ans % mod)
+<<<<<<< HEAD
+=======
+_name__ == '__main__':
+# maina()
+# mainb()
+# mainc()
+# maind()
+maine()
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0

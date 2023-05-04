@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": "2.0.0",
   "tasks": [
     {
@@ -12,4 +13,25 @@
       "problemMatcher": []
     }
   ]
+=======
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "test_atcoder_sample",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "${workspaceFolder}\\AtCoder\\onlinejudge\\cptest.bat",
+            "args": [
+                "${relativeFileDirname}_${fileBasenameNoExtension}",
+                "${file}",
+                "${relativeFileDirname}",
+                "${workspaceFolder}\\venv\\Scripts\\activate.bat",
+                "${workspaceFolder}",
+            ],
+            "problemMatcher": []
+        }
+    ]
+>>>>>>> f9ad35ec977c779c25cb6b4ce6092c52d1b94ee0
 }
