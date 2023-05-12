@@ -3,6 +3,7 @@
 from operator import itemgetter
 from collections import defaultdict
 import sys
+
 sys.setrecursionlimit(1 << 25)
 read = sys.stdin.readline
 
@@ -10,6 +11,7 @@ read = sys.stdin.readline
 class Mo:
     def __init__(self, ls):
         from math import sqrt, ceil
+
         self.ls = ls
         self.n = len(ls)
         self.b = ceil(sqrt(self.n))  # bukectのサイズ及び個数
@@ -74,7 +76,8 @@ class Mo:
         return ret
 
 
-def ints(): return list(map(int, read().split()))
+def ints():
+    return list(map(int, read().split()))
 
 
 N, Q = ints()
@@ -86,4 +89,4 @@ for _ in range(Q):
 
 mo = Mo(C)
 ans = mo.process(queries)
-print(*ans, sep='\n')
+print(*ans, sep="\n")

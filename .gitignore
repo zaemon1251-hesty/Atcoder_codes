@@ -3,12 +3,10 @@
 *.pyc
 __pycache__/
 AtCoder/onlinejudge/test/
-
 #挙げるまでもないコードをignoreに
 ignore/
-
+venv/
 .env
 
-# dotfiles
 # 間違えたユーザーでコミットしたときの修正方法
 # git filter-branch -f --env-filter "GIT_AUTHOR_NAME='zaemon1251-hesty'; GIT_AUTHOR_EMAIL='hisakawa1251@gmail.com'; GIT_COMMITTER_NAME='zaemon1251-hesty'; GIT_COMMITTER_EMAIL='hisakawa1251@gmail.com';" HEAD

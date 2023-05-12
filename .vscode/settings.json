@@ -12,9 +12,17 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
-  "python.linting.flake8Args": ["--ignore=W293, W504", "--max-line-length=160"],
-  "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Args": ["--aggressive"],
+  "python.linting.flake8Path": "${workspaceFolder}/.venv/bin/pflake8",
+  "python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
+  "python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
+  "python.linting.flake8Args": [
+    "--ignore=W293, W504",
+    "--max-line-length=160"
+  ],
+  "python.formatting.provider": "none",
+  "python.formatting.autopep8Args": [
+    "--aggressive"
+  ],
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 10000,
   "[python]": {
@@ -23,16 +31,7 @@
     ],
     "editor.wordBasedSuggestions": false,
     "editor.tabSize": 4,
-	  "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
   }
 }
-// windowsなら上記をコメントアウトし、以下をアンコメントする
-// {
-//   "python.pythonPath": "c:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Scripts\\python.exe",
-//   "python.autoComplete.extraPaths": [
-//     "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
-//   ],
-//   "python.analysis.extraPaths": [
-//     "C:\\Users\\heste\\OneDrive - Kyushu University\\python\\Atcoder\\venv\\Lib\\site-packages"
-//   ]
-// }
