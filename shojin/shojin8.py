@@ -174,5 +174,42 @@ def abc099_d():
     print(ans)
 
 
+def dwacon5th_prelims_c():
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
+    N = ii()
+    S = list(input())
+    Q = ii()
+    K = li()
+
+    for k in K:
+        dp = [0, 0, 0]  # D, M, (D, M)
+        ans = 0
+        for i in range(N):
+            if S[i] == "D":
+                dp[0] += 1
+            elif S[i] == "M":
+                dp[1] += 1
+                dp[2] += dp[0]  # Mが一つ増えたら、Dの数だけ(D, M)の組が増える
+            elif S[i] == "C":
+                ans += dp[2]
+            if i >= k - 1:
+                if S[i - k + 1] == "D":
+                    dp[2] -= dp[1]  # Dが一つ減ったら、Mの数だけ(D, M)の組が減る
+                    dp[0] -= 1
+
+                elif S[i - k + 1] == "M":
+                    dp[1] -= 1
+
+        print(ans)
+
+
 if __name__ == "__main__":
-    abc099_d()
+    dwacon5th_prelims_c()
