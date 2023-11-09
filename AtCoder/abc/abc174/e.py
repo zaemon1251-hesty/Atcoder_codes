@@ -8,7 +8,7 @@ A = list(map(int, input().split()))
 def check(x):
     cut = 0
     for t in A:
-        cut += floor(t/x)
+        cut += floor(t / x)
         if t % x == 0:
             cut -= 1
     if cut > K:

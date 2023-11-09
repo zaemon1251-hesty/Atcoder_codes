@@ -14,11 +14,12 @@ def main():
 
     def ii():
         return int(input())
+
     N, P, Q, R, S = mi()
     A = li()
-    A[P - 1:Q], A[R - 1:S] = A[R - 1:S], A[P - 1:Q]
+    A[P - 1 : Q], A[R - 1 : S] = A[R - 1 : S], A[P - 1 : Q]
     print(*A)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

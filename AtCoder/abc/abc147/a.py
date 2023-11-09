@@ -16,7 +16,7 @@ for _ in range(N):
     A.append(a)
 ans = 0
 for i in range(1 << N):
-    hon = [0]*N
+    hon = [0] * N
     for j in range(N):
         if (i >> j) & 1:
             hon[j] = 1

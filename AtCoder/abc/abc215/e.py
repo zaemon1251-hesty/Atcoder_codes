@@ -2,7 +2,7 @@ mod = 998244353
 N = int(input())
 S = input()
 dp = [[0] * 10 for _ in range(1 << 10)]
-a = ord('A')
+a = ord("A")
 cv = {c: ord(c) - a for c in "ABCDEFGHIJ"}
 for c in S:
     x = cv[c]

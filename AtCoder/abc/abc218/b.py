@@ -7,5 +7,5 @@ def main():
     print("".join(map(lambda x: alpha[x - 1], P)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

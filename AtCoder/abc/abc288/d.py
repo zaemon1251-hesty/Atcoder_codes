@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, K = mi()
     A = li()
     cum = [[0] * (N + 1) for _ in range(K)]
@@ -36,5 +37,5 @@ def main():
         print("Yes" if same else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

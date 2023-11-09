@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N = ii()
     A = list(mi())
 
@@ -39,5 +40,5 @@ def main():
     print(dfs(29, A))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

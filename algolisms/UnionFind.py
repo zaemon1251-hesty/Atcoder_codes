@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -43,8 +43,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 N, M, K = map(int, input().split())
@@ -66,4 +65,4 @@ for c, d in CD:
         blocked[d - 1] += 1
 
 ans = [uf.size(i) - friend[i] - blocked[i] - 1 for i in range(N)]
-print(' '.join(map(str, ans)))
+print(" ".join(map(str, ans)))

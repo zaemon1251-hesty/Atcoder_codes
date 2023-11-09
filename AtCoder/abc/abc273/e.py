@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 Q = int(input())
 A = [-1]

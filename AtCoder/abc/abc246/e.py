@@ -20,12 +20,7 @@ def main():
 
     # dist[x][y][dir] = (sx,sy)から(x,y)に, dir向きで入る最短経路の長さ
     dist = [[[inf] * 4 for _ in range(N)] for _ in range(N)]
-    to = {
-        0: (1, 1),
-        1: (1, -1),
-        2: (-1, -1),
-        3: (-1, 1)
-    }
+    to = {0: (1, 1), 1: (1, -1), 2: (-1, -1), 3: (-1, 1)}
     todo = deque([])
     for i in range(4):
         todo.append((*S, i))
@@ -38,7 +33,7 @@ def main():
             op = todo.appendleft if t % 2 == k % 2 else todo.append
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue
-            if G[nx][ny] == '#':
+            if G[nx][ny] == "#":
                 continue
             if dist[nx][ny][k] > nd:
                 dist[nx][ny][k] = nd
@@ -46,5 +41,5 @@ def main():
     print(min(dist[T[0]][T[1]]) if min(dist[T[0]][T[1]]) < inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

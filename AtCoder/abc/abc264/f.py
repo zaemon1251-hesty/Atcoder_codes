@@ -7,13 +7,19 @@ from itertools import permutations
 from math import gcd, log
 
 
-def input(): return sys.stdin.readline().rstrip()
-def mi(): return map(int, input().split())
-def li(): return list(mi())
+def input():
+    return sys.stdin.readline().rstrip()
+
+
+def mi():
+    return map(int, input().split())
+
+
+def li():
+    return list(mi())
 
 
 def main():
-
     H, W = mi()
     R = li()
     C = li()

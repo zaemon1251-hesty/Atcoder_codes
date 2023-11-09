@@ -85,5 +85,5 @@ def main():
         print(loc if loc is not None else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

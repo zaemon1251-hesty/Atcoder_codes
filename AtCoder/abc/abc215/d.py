@@ -1,9 +1,11 @@
 n, m = list(map(int, input().split()))
 A = list(map(int, input().split()))
+
+
 def pFact(a):
     fctrz = []
     x = 2
-    while x*x <= a:
+    while x * x <= a:
         if a % x == 0:
             fctrz.append(x)
             while a % x == 0:
@@ -12,8 +14,10 @@ def pFact(a):
     if a != 1:
         fctrz.append(a)
     return fctrz
+
+
 prints = []
-seive = [True]*(m+1)
+seive = [True] * (m + 1)
 for k in A:
     fctrz = pFact(k)
     for p in fctrz:
@@ -22,7 +26,7 @@ for k in A:
             while i_ <= m:
                 seive[i_] = False
                 i_ += p
-for i in range(1, m+1):
+for i in range(1, m + 1):
     if seive[i]:
         prints.append(i)
 print(len(prints))

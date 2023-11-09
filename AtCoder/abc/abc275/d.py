@@ -1,5 +1,6 @@
 from functools import lru_cache
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
@@ -28,5 +29,5 @@ def main():
     print(f(N))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

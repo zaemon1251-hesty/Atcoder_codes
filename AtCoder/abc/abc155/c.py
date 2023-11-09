@@ -12,5 +12,5 @@ def main():
     print(*sorted(ans), sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

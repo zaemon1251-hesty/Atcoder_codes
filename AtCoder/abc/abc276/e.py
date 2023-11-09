@@ -2,7 +2,7 @@ import sys
 from itertools import product, combinations
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -47,8 +47,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def input():
@@ -83,13 +82,13 @@ def main():
     uf = UnionFind(H * W)
 
     for x, y in product(range(H), range(W)):
-        if G[x][y] == '#':
+        if G[x][y] == "#":
             continue
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
             if nx < 0 or nx >= H or ny < 0 or ny >= W:
                 continue
-            if G[nx][ny] == '#':
+            if G[nx][ny] == "#":
                 continue
             if not uf.same(W * x + y, W * nx + ny):
                 uf.union(W * x + y, W * nx + ny)
@@ -107,5 +106,5 @@ def main():
     print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

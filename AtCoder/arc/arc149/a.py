@@ -28,5 +28,5 @@ def main():
     print(-1 if ans == -1 else num * ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

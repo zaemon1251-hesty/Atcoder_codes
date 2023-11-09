@@ -29,7 +29,7 @@ def main():
     q = Kth_PQ()
     n_set = 0
     ysum = 0
-    ans = -10**20
+    ans = -(10**20)
     while Q:
         t, y = Q.pop()
         if t == 1:
@@ -47,5 +47,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

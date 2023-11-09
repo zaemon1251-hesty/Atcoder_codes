@@ -14,9 +14,10 @@ def main():
 
     def ii():
         return int(input())
+
     A, P = mi()
     print((3 * A + P) // 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

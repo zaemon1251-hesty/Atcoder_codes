@@ -8,7 +8,7 @@ def main():
         exit()
     for i in range(N - 1):
         inf_ = 0
-        sup_ = sum(dp[K + 1:]) % MOD
+        sup_ = sum(dp[K + 1 :]) % MOD
 
         tmp = [1] * (M + 1)
         tmp[0] = 0
@@ -31,5 +31,5 @@ def main():
     print(res % MOD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

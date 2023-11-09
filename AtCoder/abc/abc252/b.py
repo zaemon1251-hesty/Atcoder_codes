@@ -13,5 +13,5 @@ def main():
     print("Yes" if ans else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

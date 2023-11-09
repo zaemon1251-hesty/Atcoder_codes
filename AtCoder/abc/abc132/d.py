@@ -9,14 +9,14 @@ def Partition(n):
     for i in range(n + 1):
         j = 1
         while i - (j * j * 3 - j) / 2 >= 0:
-            #print(i, i - (j * j * 3 - j)//2, i - (j * j * 3 + j)//2)
+            # print(i, i - (j * j * 3 - j)//2, i - (j * j * 3 + j)//2)
             if (j - 1) % 2 == 0:
                 P[i] += P[i - (j * j * 3 - j) // 2]
-                if (i - (j * j * 3 + j) // 2 >= 0):
+                if i - (j * j * 3 + j) // 2 >= 0:
                     P[i] += P[i - (j * j * 3 + j) // 2]
             else:
                 P[i] -= P[i - (j * j * 3 - j) // 2]
-                if (i - (j * j * 3 + j) // 2 >= 0):
+                if i - (j * j * 3 + j) // 2 >= 0:
                     P[i] -= P[i - (j * j * 3 + j) // 2]
             j += 1
 
@@ -73,8 +73,7 @@ def Partition2_s(n, k):
 
 
 class ModCmb:
-    """calc combinations on the conditions of a certain mod
-    """
+    """calc combinations on the conditions of a certain mod"""
 
     def __init__(self, N, mod=10**9 + 7):
         # 二項係数テーブル
@@ -98,14 +97,18 @@ class ModCmb:
             return 0
         if n < 0 or k < 0:
             return 0
-        return self.fact[n] * \
-            (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+        return self.fact[n] * (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, K = mi()
     MOD = 10**9 + 7
@@ -117,5 +120,5 @@ def main():
         print(res)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

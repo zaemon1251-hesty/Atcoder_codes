@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     H, W = mi()
     N = min(H, W)
     C = [list(input()) for _ in range(H)]
@@ -45,5 +46,5 @@ def main():
     print(*cross[1:])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

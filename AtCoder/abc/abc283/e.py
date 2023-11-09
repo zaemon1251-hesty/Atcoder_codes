@@ -5,12 +5,13 @@ from heapq import *
 from itertools import product
 import sys
 import getpass
-OFFLINE = getpass.getuser() == 'zz'
+
+OFFLINE = getpass.getuser() == "zz"
 
 
 def log(*args):
     if OFFLINE:
-        print('\033[36m', *args, '\033[0m', file=sys.stderr)
+        print("\033[36m", *args, "\033[0m", file=sys.stderr)
     else:
         pass
 
@@ -41,10 +42,14 @@ for r in range(R):
     for x, y, z in product(range(2), repeat=3):
         for c in range(C):
             if not (
-                r and A[r][c] ^ y == A[r - 1][c] ^ x or
-                r < R - 1 and A[r][c] ^ y == A[r + 1][c] ^ z or
-                c and A[r][c] ^ y == A[r][c - 1] ^ y or
-                c < C - 1 and A[r][c] ^ y == A[r][c + 1] ^ y
+                r
+                and A[r][c] ^ y == A[r - 1][c] ^ x
+                or r < R - 1
+                and A[r][c] ^ y == A[r + 1][c] ^ z
+                or c
+                and A[r][c] ^ y == A[r][c - 1] ^ y
+                or c < C - 1
+                and A[r][c] ^ y == A[r][c + 1] ^ y
             ):
                 break
         else:

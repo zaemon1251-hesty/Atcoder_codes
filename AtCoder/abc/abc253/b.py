@@ -9,5 +9,5 @@ def main():
     print(abs(set[0][0] - set[1][0]) + abs(set[0][1] - set[1][1]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

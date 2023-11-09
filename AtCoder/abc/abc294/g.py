@@ -3,20 +3,20 @@ class SegmentTree:
         self.n = n
         self.op = op
         self.e = e
-        self.size = 2**(n - 1).bit_length()
+        self.size = 2 ** (n - 1).bit_length()
         self.data = [e] * (self.size * 2)
 
     def __repr__(self):
         l = self.size
         r = l + self.n
-        res = ', '.join(map(str, self.data[l:r]))
-        return f'SegmentTree([{res}])'
+        res = ", ".join(map(str, self.data[l:r]))
+        return f"SegmentTree([{res}])"
 
     def update(self, i):
         self.data[i] = self.op(self.data[i * 2], self.data[i * 2 + 1])
 
     def build(self, a):
-        self.data[self.size:self.size + self.n] = a
+        self.data[self.size : self.size + self.n] = a
         for i in range(self.size - 1, 0, -1):
             self.update(i)
 
@@ -26,10 +26,12 @@ class SegmentTree:
         while p:
             p //= 2
             self.update(p)
+
     __setitem__ = set
 
     def get(self, p):
         return self.data[p + self.size]
+
     __getitem__ = get
 
     def prod(self, l, r):
@@ -48,7 +50,8 @@ class SegmentTree:
         return self.op(vl, vr)
 
 
-def f(): return map(int, input().split())
+def f():
+    return map(int, input().split())
 
 
 n = int(input())
@@ -89,7 +92,10 @@ while Q:
 O[0] = t
 STV = SegmentTree(n * 2 - 1, min, 4e5)
 STV.build([I[v] for v in V])
-def op(x, y): return x + y
+
+
+def op(x, y):
+    return x + y
 
 
 STW = SegmentTree(n * 2 - 2, op, 0)

@@ -11,7 +11,7 @@ for i in range(1 << N):
             b.append(int(t[j]))
     a = "".join(list(map(str, sorted(a, reverse=True))))
     b = "".join(list(map(str, sorted(b, reverse=True))))
-    #print(a, b)
+    # print(a, b)
     if a == "" or b == "":
         continue
     ans = max(ans, int(a) * int(b))

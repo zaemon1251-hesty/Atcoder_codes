@@ -17,6 +17,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, K = mi()
     D = li()
     ans = 0
@@ -46,5 +47,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

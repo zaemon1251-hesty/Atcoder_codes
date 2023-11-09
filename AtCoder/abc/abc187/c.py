@@ -3,7 +3,7 @@ def main():
     S = list(input() for _ in range(N))
     t = set()
     for s in S:
-        if s[0] != "!" and "!"+s in t or s[0] == "!" and s[1:] in t:
+        if s[0] != "!" and "!" + s in t or s[0] == "!" and s[1:] in t:
             s = s.replace("!", "")
             print(s)
             exit()
@@ -12,5 +12,5 @@ def main():
         print("satisfiable")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

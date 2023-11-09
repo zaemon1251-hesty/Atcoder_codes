@@ -12,9 +12,9 @@ for i in range(1 << N):
     try:
         x = sorted(x, reverse=True)
         y = sorted(y, reverse=True)
-        x = int(''.join(x))
-        y = int(''.join(y))
+        x = int("".join(x))
+        y = int("".join(y))
     except:
         x, y = 0, 0
-    ans = max(ans, x*y)
+    ans = max(ans, x * y)
 print(ans)

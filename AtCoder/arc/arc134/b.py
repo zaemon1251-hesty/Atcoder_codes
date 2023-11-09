@@ -1,4 +1,3 @@
-
 def main():
     from string import ascii_lowercase
 
@@ -6,7 +5,7 @@ def main():
     cv = {c: i for i, c in enumerate(ascii_lowercase)}
 
     n = int(input())
-    *s, = input()
+    (*s,) = input()
 
     a = [[] for _ in range(SIZE_OF_CHRS)]
     for i, c in enumerate(s):
@@ -25,7 +24,7 @@ def main():
                 k = j
                 break
 
-    print(*s, sep='')
+    print(*s, sep="")
 
 
 if __name__ == "__main__":

@@ -11,9 +11,9 @@ def main():
             if i == j:
                 continue
             else:
-                ans += v * u * (i - j)**2
+                ans += v * u * (i - j) ** 2
     print(ans // 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**7)
 readline = sys.stdin.readline
 read = sys.stdin.read
@@ -29,8 +30,7 @@ class SegmentTree:
         #   k >>= 1
         while k > 1:
             k >>= 1
-            self.tree[k] = self.monoid(
-                self.tree[k << 1], self.tree[k << 1 | 1])
+            self.tree[k] = self.monoid(self.tree[k << 1], self.tree[k << 1 | 1])
 
     def get(self, l, r):
         resl = self.identity_element
@@ -60,8 +60,7 @@ def main():
         else:
             init[i] = (-1, -1)
 
-    STQ = SegmentTree(init, monoid=(lambda x, y: (
-        min(x[0], x[1] + y[0]), x[1] + y[1])), identity_element=(0, 0))
+    STQ = SegmentTree(init, monoid=(lambda x, y: (min(x[0], x[1] + y[0]), x[1] + y[1])), identity_element=(0, 0))
 
     for _ in range(Q):
         q, l, r = map(int, readline().split())
@@ -78,5 +77,5 @@ def main():
                 print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

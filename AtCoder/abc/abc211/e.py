@@ -11,14 +11,14 @@ dc = [0, -1, 0, 1]
 def dfs(g):
     cnt = 0
     for i, j in product(range(N), repeat=2):
-        if g[i][j] == 'o':
+        if g[i][j] == "o":
             cnt += 1
     if cnt == K:
         return 1
 
     res = 0
     for i, j in product(range(N), repeat=2):
-        if g[i][j] != '.':
+        if g[i][j] != ".":
             continue
         if cnt > 0:
             ok = False
@@ -27,16 +27,16 @@ def dfs(g):
                 c = j + dc[k]
                 if not (0 <= r < N and 0 <= c < N):
                     continue
-                if g[r][c] == 'o':
+                if g[r][c] == "o":
                     ok = True
             if not ok:
                 continue
 
-        g[i][j] = 'o'
+        g[i][j] = "o"
         res += dfs(g)
-        g[i][j] = '#'
+        g[i][j] = "#"
         res += dfs(g)
-        g[i][j] = '.'  # 戻す
+        g[i][j] = "."  # 戻す
         return res
     return res
 

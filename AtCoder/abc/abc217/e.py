@@ -1,5 +1,6 @@
 from heapq import heappush, heappop
 from collections import deque
+
 Q = int(input())
 A = deque([])
 heap = []

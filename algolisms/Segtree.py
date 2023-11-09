@@ -5,11 +5,13 @@
 #####segfunc#####
 def segfunc(x, y):
     return min(x, y)
+
+
 #################
 
 
 #####ide_ele#####
-ide_ele = float('inf')
+ide_ele = float("inf")
 #################
 
 
@@ -104,8 +106,7 @@ class SegTree:
             if vr != a - 1:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+                return self.find_rightest_sub(a, b, x, 2 * k + 1, l, (l + r) // 2)
 
     def find_leftest_sub(self, a, b, x, k, l, r):
         """
@@ -122,8 +123,7 @@ class SegTree:
             if vr != b:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+                return self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
 
     def get_region(self, i):
         idx = i + self.num - 1

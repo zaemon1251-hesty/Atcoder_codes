@@ -19,11 +19,11 @@ def resolve() -> None:
 
     res = N % (2 * K)
     if res != 0:
-        last = sorted(ans[-2 * K:])
+        last = sorted(ans[-2 * K :])
         for i in range(N - 2 * K, N):
             ans[i] = last[(i - N + 2 * K + K) % (2 * K)]
 
-    print(' '.join(map(str, ans)))
+    print(" ".join(map(str, ans)))
 
 
 if __name__ == "__main__":

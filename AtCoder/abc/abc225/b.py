@@ -1,6 +1,6 @@
 N = int(input())
 s = []
-for _ in range(N-1):
+for _ in range(N - 1):
     a, b = map(int, input().split())
     s.append([a, b])
 cand = [s[0][0], s[0][1]]

@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 N, M, K = map(int, input().split())
@@ -44,6 +45,6 @@ for i in range(32, -1, -1):
                 nex.append(x)
 
     now = nex
-    assert(len(now) >= K)
+    assert len(now) >= K
 
 print(ans)

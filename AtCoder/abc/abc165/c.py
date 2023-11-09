@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 ans = 0
 
@@ -7,7 +8,7 @@ P = [tuple(map(int, input().split())) for _ in range(Q)]
 
 
 def dfs(A):
-    if len(A) == N+1:
+    if len(A) == N + 1:
         global ans
         cand = 0
         for a, b, c, d in P:

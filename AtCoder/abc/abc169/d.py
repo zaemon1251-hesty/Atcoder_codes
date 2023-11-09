@@ -24,9 +24,9 @@ def prime_factorize(n):
 def binaru_search(x):
     ok = 0
     ng = 10**9 + 1
-    while ng-ok > 1:
-        cen = (ng + ok)//2
-        if cen * (cen + 1)//2 <= x:
+    while ng - ok > 1:
+        cen = (ng + ok) // 2
+        if cen * (cen + 1) // 2 <= x:
             ok = cen
         else:
             ng = cen

@@ -44,5 +44,5 @@ def main():
     print("".join(map(str, ans)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

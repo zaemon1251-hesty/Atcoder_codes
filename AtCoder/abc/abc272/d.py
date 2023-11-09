@@ -66,5 +66,5 @@ def main():
         print(*ans[i])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

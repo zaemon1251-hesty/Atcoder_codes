@@ -1,4 +1,5 @@
 from collections import deque
+
 # from collections import defaultdict
 # from collections import deque
 inf = 1 << 60
@@ -44,7 +45,7 @@ def gridBFS(G, s, g):
                 # 0-indexで考える
                 if nx < 0 or nx >= h or ny < 0 or ny >= w:
                     continue
-                if G[nx][ny] == '#':
+                if G[nx][ny] == "#":
                     continue
                 if seen[nx][ny]:
                     continue
@@ -91,7 +92,7 @@ def grid01BFS(G):
             # 0-indexで考える
             if nx < 0 or nx >= H or ny < 0 or ny >= W:
                 continue
-            if G[nx][ny] == '#':
+            if G[nx][ny] == "#":
                 continue
             if dist[nx][ny] <= dist[x][y]:
                 continue
@@ -99,8 +100,7 @@ def grid01BFS(G):
             todo.appendleft([nx, ny])
         for i in range(-2, 3):
             for j in range(-2, 3):
-                if (i == -2 and j == -2) or (i == 2 and j == -
-                                             2) or (i == -2 and j == 2) or (i == 2 and j == 2):
+                if (i == -2 and j == -2) or (i == 2 and j == -2) or (i == -2 and j == 2) or (i == 2 and j == 2):
                     continue
                 nx, ny = x + i, y + j
                 # 0-indexで考える

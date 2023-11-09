@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**7)
 N, Q = map(int, input().split())
 G = [[] for _ in range(N)]
@@ -34,8 +35,7 @@ st = [None] * (lg[L] + 1)
 st0 = st[0] = S
 b = 1
 for i in range(lg[L]):
-    st0 = st[i + 1] = [p if depth[p] <= depth[q]
-                       else q for p, q in zip(st0, st0[b:])]
+    st0 = st[i + 1] = [p if depth[p] <= depth[q] else q for p, q in zip(st0, st0[b:])]
     b <<= 1
 
 

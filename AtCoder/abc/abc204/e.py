@@ -14,13 +14,12 @@ for i in range(m):
     g[a].append((b, c, d))
     g[b].append((a, c, d))
 
-infty = 10 ** 20
+infty = 10**20
 
 
 def get_dist(now, c, d):
-    to = int(d ** .5) - 1
-    return min(t - now + c + d // (t + 1)
-               for t in [to, to + 1, now] if t >= now)
+    to = int(d**0.5) - 1
+    return min(t - now + c + d // (t + 1) for t in [to, to + 1, now] if t >= now)
 
 
 q = []

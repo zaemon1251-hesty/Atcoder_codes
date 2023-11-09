@@ -12,14 +12,13 @@ def main():
             for j in range(i - 1, -1, -1):
                 for k in range(i):
                     if dp[j][k] != -1:
-                        dp[j + 1][(k + a) % i] = \
-                            max(dp[j + 1][(k + a) % i], dp[j][k] + a)
+                        dp[j + 1][(k + a) % i] = max(dp[j + 1][(k + a) % i], dp[j][k] + a)
         need = X % i
-        #print(i, dp[i][need])
+        # print(i, dp[i][need])
         if dp[i][need] != -1:
             ans = min(ans, (X - dp[i][need]) // i)
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

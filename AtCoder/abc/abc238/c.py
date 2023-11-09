@@ -1,8 +1,8 @@
 N = int(input())
-s = len(str(N))-1
+s = len(str(N)) - 1
 mod = 998244353
 if N < 10:
-    print(N * (N+1)//2)
+    print(N * (N + 1) // 2)
     exit()
 ans = 0
 ans += 45
@@ -13,5 +13,5 @@ for i in range(1, s):
 
 p = N - pow(10, s, mod) + 1
 p %= mod
-ans += p*(p+1)//2
+ans += p * (p + 1) // 2
 print(ans % mod)

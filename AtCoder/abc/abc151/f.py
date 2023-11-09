@@ -3,7 +3,7 @@ from math import sqrt, inf
 
 
 def l2(x, y):
-    return (y[0] - x[0])**2 + (y[1] - x[1])**2
+    return (y[0] - x[0]) ** 2 + (y[1] - x[1]) ** 2
 
 
 def circumcircle(P1, P2, P3):
@@ -30,7 +30,7 @@ def circumcircle(P1, P2, P3):
         det = -det
     x /= det
     y /= det
-    r2 = (x - x1)**2 + (y - y1)**2
+    r2 = (x - x1) ** 2 + (y - y1) ** 2
     return x, y, r2
 
 
@@ -40,10 +40,7 @@ def main():
     ans = inf
 
     for i, j in combinations(range(N), 2):
-        cen = [
-            (S[i][0] + S[j][0]) / 2,
-            (S[i][1] + S[j][1]) / 2
-        ]
+        cen = [(S[i][0] + S[j][0]) / 2, (S[i][1] + S[j][1]) / 2]
 
         res = l2(S[i], cen)
         for k in range(N):
@@ -56,10 +53,7 @@ def main():
         if x == False:
             continue
 
-        cen = [
-            x,
-            y
-        ]
+        cen = [x, y]
         res = r
         for m in range(N):
             res = max(res, l2(S[m], cen))
@@ -68,5 +62,5 @@ def main():
     print(sqrt(ans))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

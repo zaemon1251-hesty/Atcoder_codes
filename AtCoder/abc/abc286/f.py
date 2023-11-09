@@ -23,7 +23,7 @@ def main():
     def ii():
         return int(input())
 
-    cycles = [2 ** 2, 3 ** 2, 5, 7, 11, 13, 17, 19, 23]
+    cycles = [2**2, 3**2, 5, 7, 11, 13, 17, 19, 23]
 
     def gen_seq():
         seq = []
@@ -55,5 +55,5 @@ def main():
     print(x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

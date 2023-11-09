@@ -1,8 +1,9 @@
 from collections import deque
+
 inf = 1 << 60
 
 
-def e_takahashi_and_animals(INF=float('inf')):
+def e_takahashi_and_animals(INF=float("inf")):
     N = int(input())
     A = [0] + [int(_) for _ in input().split()]
 
@@ -18,7 +19,7 @@ def e_takahashi_and_animals(INF=float('inf')):
 
         if t == 0:
             ans = min(ans, dp[N][1])
-            
+
         if t == 1:
             ans = min(ans, min(dp[N][0], dp[N][1]))
     return ans
@@ -28,5 +29,5 @@ def main():
     print(e_takahashi_and_animals())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

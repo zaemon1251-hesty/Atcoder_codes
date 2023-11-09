@@ -1,9 +1,12 @@
 from copy import copy
 from bisect import bisect_right, bisect_left
+
 H, W, K = map(int, input().split())
 G = [list(input()) for _ in range(H)]
 inf = 1 << 60
 ans = inf
+
+
 def getWbag(sep):
     bg = {i: 0 for i in sep}
     wbag = 0
@@ -32,12 +35,14 @@ def getWbag(sep):
             wbag = inf
             break
     return wbag
+
+
 for i in range(1 << (H - 1)):
     sep = []
     for j in range(H - 1):
         if (i >> j) & 1:
             sep.append(j)
-    sep.append(H-1)
+    sep.append(H - 1)
     ans = min(ans, getWbag(sep) + len(sep) - 1)
 print(ans)
 e()

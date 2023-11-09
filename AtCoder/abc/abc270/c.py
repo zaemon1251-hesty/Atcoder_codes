@@ -19,6 +19,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, X, Y = mi()
     E = [li() for _ in range(N - 1)]
     G = [[] for _ in range(N)]
@@ -29,7 +30,6 @@ def main():
     ans = [X - 1]
 
     def search(v, p):
-
         if v == Y - 1:
             global k
             k = ans.copy()
@@ -48,5 +48,5 @@ def main():
     print(*k)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,5 +1,6 @@
 import sys
 import bisect
+
 sys.setrecursionlimit(10**6)
 
 
@@ -39,5 +40,5 @@ def main():
         print(r - l)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

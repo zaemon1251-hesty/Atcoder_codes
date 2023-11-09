@@ -1,7 +1,8 @@
 from functools import cmp_to_key
 
 
-def func(si, sj): return sj[0] * si[1] > si[0] * sj[1]
+def func(si, sj):
+    return sj[0] * si[1] > si[0] * sj[1]
 
 
 def cnt(s):
@@ -30,5 +31,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

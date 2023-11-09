@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, M = mi()
     C = []
     A = []
@@ -36,5 +37,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

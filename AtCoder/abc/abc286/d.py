@@ -31,5 +31,5 @@ def main():
     print("Yes" if dp[N][X] else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

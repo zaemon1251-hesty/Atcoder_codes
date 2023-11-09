@@ -25,14 +25,14 @@ def main():
         Q = P.copy()
 
         try:
-            supQi = max([q for q in Q[i + 1:] if q < Q[i]])
+            supQi = max([q for q in Q[i + 1 :] if q < Q[i]])
         except ValueError:
             continue
 
         j = Q.index(supQi)
 
         Q[i], Q[j] = Q[j], Q[i]
-        Q[i + 1:] = sorted(Q[i + 1:], reverse=True)
+        Q[i + 1 :] = sorted(Q[i + 1 :], reverse=True)
         ans_array.append(".".join(map(lambda x: "%03d" % x, Q)))
 
     ans_array.sort()
@@ -40,5 +40,5 @@ def main():
     print(*map(int, ans_array[i - 1].split(".")))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

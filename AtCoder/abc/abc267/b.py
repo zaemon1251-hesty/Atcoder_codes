@@ -9,12 +9,11 @@ def main():
 
     for i in range(6):
         for j in range(i + 1, 7):
-            if colstand[i] & colstand[j] & any(
-                    not colstand[k] for k in range(i + 1, j)):
+            if colstand[i] & colstand[j] & any(not colstand[k] for k in range(i + 1, j)):
                 print("Yes")
                 exit()
     print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

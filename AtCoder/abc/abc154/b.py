@@ -1,1 +1,1 @@
-print('x'*len(input()))
+print("x" * len(input()))

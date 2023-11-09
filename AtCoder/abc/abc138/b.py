@@ -8,5 +8,5 @@ def main():
     print(s / sum(map(lambda x: s // x, A)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -8,7 +8,7 @@ def input():
 MOD = 998244353
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -53,13 +53,11 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 class ModCmb:
-    """calc combinations on the conditions of a certain mod
-    """
+    """calc combinations on the conditions of a certain mod"""
 
     def __init__(self, N, mod=10**9 + 7):
         # 二項係数テーブル
@@ -83,8 +81,7 @@ class ModCmb:
             return 0
         if n < 0 or k < 0:
             return 0
-        return self.fact[n] * \
-            (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+        return self.fact[n] * (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
 
 
 def main():
@@ -109,5 +106,5 @@ def main():
     print((pow(M, N, MOD) - pow(M, C, MOD)) * pow(2, MOD - 2, MOD) % MOD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

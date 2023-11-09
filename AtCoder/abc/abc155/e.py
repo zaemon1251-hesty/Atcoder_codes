@@ -18,5 +18,5 @@ def main():
     print(min(dp[N][1] + 1, dp[N][0]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

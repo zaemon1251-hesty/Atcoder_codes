@@ -22,5 +22,5 @@ def main():
     print(sum((s[3:] in sufs) for s in S))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,12 +1,20 @@
 from itertools import combinations
 import sys
-def input(): return sys.stdin.readline().rstrip()
+
+
+def input():
+    return sys.stdin.readline().rstrip()
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, K = mi()
     ans = []
@@ -14,7 +22,7 @@ def main():
         ans.append([0, i])
 
     k = (N - 1) * (N - 2) // 2
-    if (k < K):
+    if k < K:
         print(-1)
         exit()
 
@@ -30,5 +38,5 @@ def main():
         print(a + 1, b + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

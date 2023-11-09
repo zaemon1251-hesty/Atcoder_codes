@@ -19,8 +19,9 @@ def main():
         if i == 0:
             return 1
         return i * f(i - 1)
+
     print(f(ii()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

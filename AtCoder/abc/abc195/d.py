@@ -14,7 +14,7 @@ def main():
         l, r = map(int, input().split())
         l -= 1
         r -= 1
-        available = sorted([*X[:l], *X[r + 1:]])
+        available = sorted([*X[:l], *X[r + 1 :]])
         res = 0
         used = set()
         # bug = {}
@@ -31,11 +31,11 @@ def main():
                 used.add(idx)
                 # bug[w, v] = [idx, available[idx]]
             # else:
-                # bug[w, v] = [idx, None]
+            # bug[w, v] = [idx, None]
         ans.append(res)
         # print(bug)
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

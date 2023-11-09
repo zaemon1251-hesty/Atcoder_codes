@@ -1,7 +1,8 @@
 from bisect import bisect_left
+
 n = int(input())
 t = list(map(int, input().split()))
-inf = 10 ** 5
+inf = 10**5
 s = sum(t)
 s_2 = s / 2
 # dp[i][j]: 1~iのうち幾つかの料理を、ちょうどj分で完成させることができるかどうか
@@ -22,7 +23,5 @@ for i in range(1, n + 1):
             cnd.append(j)
 index = bisect_left(cnd, s_2)
 cnd1 = max(cnd[index], s - cnd[index])
-cnd2 = max(cnd[index + 1], s - cnd[index + 1]) \
-    if index + 1 < len(cnd) \
-    else inf * 10**5
+cnd2 = max(cnd[index + 1], s - cnd[index + 1]) if index + 1 < len(cnd) else inf * 10**5
 print(min(cnd1, cnd2))

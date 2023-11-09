@@ -1,5 +1,6 @@
 from functools import lru_cache
 import sys
+
 sys.setrecursionlimit(10**7)
 
 N, A_, B_, C_ = map(int, input().split())
@@ -21,13 +22,13 @@ def dfs(t, A=0, B=0, C=0):
 
     dicts[k] -= 1
     dicts[l] += 1
-    if dicts[k] >= 0 and dfs(t+1, **dicts):
+    if dicts[k] >= 0 and dfs(t + 1, **dicts):
         ans.append(l)
         return True
 
     dicts[k] += 2
     dicts[l] -= 2
-    if dicts[l] >= 0 and dfs(t+1, **dicts):
+    if dicts[l] >= 0 and dfs(t + 1, **dicts):
         ans.append(k)
         return True
 

@@ -2,7 +2,7 @@ from collections import deque
 
 
 N = int(input())
-*S, = input()
+(*S,) = input()
 
 
 class Node:

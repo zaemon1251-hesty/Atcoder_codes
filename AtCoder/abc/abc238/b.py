@@ -10,6 +10,6 @@ for i in range(N):
     where[now] = True
 t = [i for i in range(360) if where[i]] + [360]
 ans = 0
-for i in range(len(t)-1):
-    ans = max(t[i+1] - t[i], ans)
+for i in range(len(t) - 1):
+    ans = max(t[i + 1] - t[i], ans)
 print(ans)

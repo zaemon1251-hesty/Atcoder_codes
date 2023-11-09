@@ -1,9 +1,9 @@
 def sqrt_floor(a: int):
     ok = 0
-    ng = 10 ** 9 + 1
+    ng = 10**9 + 1
     while ng - ok >= 2:
         mid = ok + (ng - ok) // 2
-        if mid ** 2 <= a:
+        if mid**2 <= a:
             ok = mid
         else:
             ng = mid
@@ -11,13 +11,13 @@ def sqrt_floor(a: int):
 
 
 def toint(i: str):
-    c = i.split('.')
+    c = i.split(".")
     c.append("0" * (4 - len(c[1]) if len(c) == 2 else 4))
     return int("".join(c))
 
 
 def divceil(x, m):
-    return ((x + m - 1) // m)
+    return (x + m - 1) // m
 
 
 def main():
@@ -33,5 +33,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

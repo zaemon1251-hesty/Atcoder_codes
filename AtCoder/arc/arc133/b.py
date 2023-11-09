@@ -3,6 +3,7 @@
 # LIS 最長増加部分列
 from bisect import bisect_left
 import sys
+
 readline = sys.stdin.buffer.readline
 sys.setrecursionlimit(10**6)
 

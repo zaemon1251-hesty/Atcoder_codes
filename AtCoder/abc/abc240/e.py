@@ -1,4 +1,5 @@
 from sys import setrecursionlimit
+
 setrecursionlimit(10**6)
 
 # 行きがけ、帰りがけに使う変数
@@ -9,7 +10,7 @@ def main():
     N = int(input())
     G = [[] for i in range(N)]
     G[0].append(-1)
-    for i in range(N-1):
+    for i in range(N - 1):
         u, v = map(int, input().split())
         u -= 1
         v -= 1
@@ -41,8 +42,8 @@ def main():
 
     lr = [(l, r) for l, r in zip(before, after)]
     for i in range(N):
-        print(*lr[i], sep=' ')
+        print(*lr[i], sep=" ")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

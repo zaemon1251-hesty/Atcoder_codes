@@ -16,7 +16,7 @@ for _ in range(k):
 for i in range(2**k):
     dish = [0] * n
     for j in range(k):
-        if ((i >> j) & 1):  # 順に右にシフトさせ最下位bitのチェックを行う
+        if (i >> j) & 1:  # 順に右にシフトさせ最下位bitのチェックを行う
             dish[bow[j][1]] += 1
 
         else:

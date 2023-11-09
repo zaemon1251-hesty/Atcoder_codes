@@ -1,17 +1,13 @@
 def dot1(mat1, mat2):
     a11, a12, a21, a22 = mat1
     b11, b12, b21, b22 = mat2
-    return [a11 * b11 + a12 * b21,
-            a11 * b12 + a12 * b22,
-            a21 * b11 + a22 * b21,
-            a21 * b12 + a22 * b22]
+    return [a11 * b11 + a12 * b21, a11 * b12 + a12 * b22, a21 * b11 + a22 * b21, a21 * b12 + a22 * b22]
 
 
 def dot2(mat, vec):
     a11, a12, a21, a22 = mat
     c1, c2 = vec
-    return [a11 * c1 + a12 * c2,
-            a21 * c1 + a22 * c2]
+    return [a11 * c1 + a12 * c2, a21 * c1 + a22 * c2]
 
 
 def main():
@@ -26,12 +22,7 @@ def main():
 
     a = [[1, 0, 0, 1]]
     b = [[0, 0]]
-    matrxs = [
-        [0, 1, -1, 0],
-        [0, -1, 1, 0],
-        [-1, 0, 0, 1],
-        [1, 0, 0, -1]
-    ]
+    matrxs = [[0, 1, -1, 0], [0, -1, 1, 0], [-1, 0, 0, 1], [1, 0, 0, -1]]
     for t in op:
         pl = [0, 0]
         loc = t[0] - 1
@@ -58,5 +49,5 @@ def main():
         print(x, y)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -34,16 +34,16 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def main():
     ans = []
     N, Q = map(int, input().split())
-    C = list(map(lambda x: int(x)-1, input().split()))
-    S = [{C[i]:1} for i in range(N)]
+    C = list(map(lambda x: int(x) - 1, input().split()))
+    S = [{C[i]: 1} for i in range(N)]
     uf = UnionFind(N)
-    query = [list(map(lambda x:int(x)-1, input().split())) for _ in range(Q)]
+    query = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(Q)]
     for t, x, y in query:
         if t == 0:
             x = uf.find(x)
@@ -60,5 +60,5 @@ def main():
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

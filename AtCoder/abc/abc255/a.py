@@ -4,5 +4,5 @@ def main():
     print(A[R - 1][C - 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -8,7 +8,7 @@ def main():
         G[A] |= 1 << B
         G[B] |= 1 << A
 
-    dp = [0xff] * (1 << N)
+    dp = [0xFF] * (1 << N)
     dp[0] = 1
     for i in range(N):
         for j in range(1 << N):
@@ -27,5 +27,5 @@ def main():
     print(dp[-1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

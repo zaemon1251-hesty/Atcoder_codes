@@ -41,7 +41,7 @@ class FourDigitsToTen:
 
     def isTenizable(self, A) -> bool:
         for i, j, k in permutations(range(3), 3):
-            x = self.operate_all(A[i], A[i+1])
+            x = self.operate_all(A[i], A[i + 1])
             y = self.operate_all(A[2], A[3])
             if any(i == Fraction(10) for i in self.operate_all(x, y)):
                 return True
@@ -80,16 +80,15 @@ if __name__ == "__main__":
                 fst = order.index(0)
                 snd = order.index(1)
                 trd = order.index(2)
-                stack.extend([arr[fst], arr[fst+1], ops[fst]])
-                arr.pop(fst+1)
+                stack.extend([arr[fst], arr[fst + 1], ops[fst]])
+                arr.pop(fst + 1)
                 arr.pop(fst)
-                if abs(snd-fst) > 1:
+                if abs(snd - fst) > 1:
                     stack.extend([*arr, ops[snd], ops[trd]])
                 else:
                     sndNum = int(snd > trd)
                     trdNum = 1 - sndNum
-                    stack.extend(
-                        [arr[sndNum], ops[snd], arr[trdNum], ops[trd]])
+                    stack.extend([arr[sndNum], ops[snd], arr[trdNum], ops[trd]])
                 buff = deque([])
                 while stack:
                     s = stack.popleft()

@@ -1,4 +1,5 @@
 from collections import Counter
+
 N, P = map(int, input().split())
 A = input()
 T = [0] * N
@@ -8,7 +9,7 @@ if not P in (2, 5):
     for i in range(N):
         power *= 10
         power %= P
-        T[i] = T[i-1] + power * int(A[i])
+        T[i] = T[i - 1] + power * int(A[i])
         T[i] %= P
     counter = Counter(T)
     # counter[0]は 単体で割り切れるので、追加で足す

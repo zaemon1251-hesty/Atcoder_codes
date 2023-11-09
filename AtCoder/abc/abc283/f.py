@@ -23,7 +23,7 @@ class FenwickTree:
 
 
 def solve():
-    INF = float('inf')
+    INF = float("inf")
     N = int(input())
     P = [*map(int, input().split())]
 

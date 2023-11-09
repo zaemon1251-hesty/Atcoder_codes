@@ -1,6 +1,7 @@
 from collections import defaultdict
 from math import inf
 import sys
+
 input = sys.stdin.readline
 
 
@@ -25,5 +26,5 @@ def main():
     print(max(dp[-1]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

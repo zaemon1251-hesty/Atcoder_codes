@@ -8,10 +8,10 @@ def optcost(A):
     N = len(A)
     dp = [[0] * N for _ in range(N)]
     from itertools import accumulate
+
     F = [0] + list(accumulate(A))
 
     for width in range(1, N):
-
         for i in range(N - width):
             Acc = F[i + width + 1] - F[i]
             div = float("inf")

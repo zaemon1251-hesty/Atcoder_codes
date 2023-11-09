@@ -6,7 +6,6 @@ def main():
     A = list(map(int, input().split()))
     ans = 0
     for modp in range(1, N + 1):
-
         dp = [[0] * (modp + 10) for _ in range(modp + 1)]
         dp[0][0] = 1
 
@@ -21,5 +20,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

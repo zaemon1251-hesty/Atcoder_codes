@@ -14,10 +14,11 @@ def main():
 
     def ii():
         return int(input())
+
     H, W = mi()
     S = [input() for _ in range(H)]
     print(sum(s.count("#") for s in S))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

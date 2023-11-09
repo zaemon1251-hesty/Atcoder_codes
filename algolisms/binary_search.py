@@ -1,8 +1,10 @@
-#競プロ典型 1
-#最小値の最大化 : O(NlogN)
-N, L = map(int,input().split())
+# 競プロ典型 1
+# 最小値の最大化 : O(NlogN)
+N, L = map(int, input().split())
 K = int(input())
-A = list(map(int,input().split())) + [L]
+A = list(map(int, input().split())) + [L]
+
+
 def check(x):
     cut = 0
     src = 0

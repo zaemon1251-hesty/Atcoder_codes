@@ -44,7 +44,10 @@ class UnionFind:
 
 N = 4
 A = [tuple(map(int, input().split())) for _ in range(N)]
-def grid2int(x, y, n): return x + y * n
+
+
+def grid2int(x, y, n):
+    return x + y * n
 
 
 def isOK(b):
@@ -75,6 +78,6 @@ def isOK(b):
 
 
 ans = 0
-for b in range(1 << (N ** 2)):
+for b in range(1 << (N**2)):
     ans += isOK(b)
 print(ans)

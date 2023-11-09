@@ -13,10 +13,10 @@ def main():
                 for w in ws:
                     used[ord(w) - ord("a")] += 1
         lenght = bin(i).count("1")
-        ans += pow(sum(u == lenght for u in used), L, MOD) * (-1)**(lenght - 1)
+        ans += pow(sum(u == lenght for u in used), L, MOD) * (-1) ** (lenght - 1)
         ans %= MOD
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

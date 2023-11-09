@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
@@ -7,7 +8,7 @@ def main():
     X = list(map(int, input().split()))
     noods = [[] for i in range(N)]
     G = [[] for _ in range(N)]
-    for _ in range(N-1):
+    for _ in range(N - 1):
         a, b = map(int, input().split())
         a -= 1
         b -= 1
@@ -39,8 +40,8 @@ def main():
         noods[v].sort(reverse=True)
         ans.append(noods[v][k])
 
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

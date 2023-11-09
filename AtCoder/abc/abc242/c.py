@@ -15,5 +15,5 @@ def main():
     print(sum(dp) % MOD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

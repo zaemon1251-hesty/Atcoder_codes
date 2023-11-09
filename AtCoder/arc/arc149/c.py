@@ -6,18 +6,9 @@ def input():
 
 
 ExceptionalEdges = {
-    3: {
-        'odd': [1, 3, 7],
-        'even': [8, 6, 2]
-    },
-    4: {
-        'odd': [1, 3, 5, 7],
-        'even': [8, 6, 4, 2]
-    },
-    5: {
-        'odd': [21, 1, 3, 9, 15],
-        'even': [24, 8, 6, 12, 18]
-    }
+    3: {"odd": [1, 3, 7], "even": [8, 6, 2]},
+    4: {"odd": [1, 3, 5, 7], "even": [8, 6, 4, 2]},
+    5: {"odd": [21, 1, 3, 9, 15], "even": [24, 8, 6, 12, 18]},
 }
 
 
@@ -40,9 +31,7 @@ def main():
 
     # fill edge numbers
     if N <= 5:
-        for od, ev in zip(
-                ExceptionalEdges[N]['odd'][::-1],
-                ExceptionalEdges[N]['even']):
+        for od, ev in zip(ExceptionalEdges[N]["odd"][::-1], ExceptionalEdges[N]["even"]):
             deck.remove(od)
             deck.remove(ev)
 
@@ -77,8 +66,8 @@ def main():
 
     # OUTPUT
     for st in range(0, N**2, N):
-        print(*A[st:st + N])
+        print(*A[st : st + N])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

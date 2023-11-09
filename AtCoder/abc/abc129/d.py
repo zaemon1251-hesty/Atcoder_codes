@@ -14,7 +14,7 @@ def gridint(s):
 class Fenwick:
     def __init__(self, n):
         self.n = n
-        self.n0 = 2**(n - 1).bit_length()
+        self.n0 = 2 ** (n - 1).bit_length()
         self.data = [0] * (n + 1)
         self.el = [0] * (n + 1)
 
@@ -103,5 +103,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

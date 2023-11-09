@@ -1,16 +1,17 @@
 from typing import Union
+
 # import pypyjit
 import sys
+
 input = sys.stdin.readline
 # pypyjit.set_param('max_unroll_recursion=-1')
 sys.setrecursionlimit(2000000)
 
 
 def main():
-
     from collections import deque
 
-    class StronglyConnectedComponent():
+    class StronglyConnectedComponent:
         def __init__(self, n):
             self.n = n
             self.g = [[] for _ in range(n)]
@@ -61,7 +62,7 @@ def main():
 
     from collections import deque
 
-    class topologicalSort():
+    class topologicalSort:
         def __init__(self, n):
             self.n = n
             self.g = [[] for _ in range(n)]
@@ -75,11 +76,11 @@ def main():
             q = deque([])
             ans = []
             for i in range(self.n):
-                if (self.edgeNum[i] != 0):
+                if self.edgeNum[i] != 0:
                     continue
                 q.appendleft(i)
                 ans.append(i)
-            while (len(q) > 0):
+            while len(q) > 0:
                 cur = q.popleft()
                 for nxt in self.g[cur]:
                     self.edgeNum[nxt] -= 1

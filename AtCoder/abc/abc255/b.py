@@ -2,7 +2,7 @@ from math import inf, sqrt
 
 
 def dist(x, y):
-    return (x[0] - y[0])**2 + (x[1] - y[1])**2
+    return (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2
 
 
 def main():
@@ -18,5 +18,5 @@ def main():
     print(sqrt(ans))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

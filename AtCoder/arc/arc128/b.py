@@ -8,5 +8,5 @@ for _ in range(int(input())):
         ans.append(r[2])
     else:
         ans.append(-1)
-print(*ans, sep='\n')
+print(*ans, sep="\n")
 b()

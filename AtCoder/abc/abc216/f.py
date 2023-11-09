@@ -23,10 +23,10 @@ def main():
 
     ans = 0
     for i in range(N):
-        ans += sum(dp[i + 1][:AB[i][0] + 1])
+        ans += sum(dp[i + 1][: AB[i][0] + 1])
         ans %= MOD
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -19,5 +19,5 @@ def main():
         print(t2 + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

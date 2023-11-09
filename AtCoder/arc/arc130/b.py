@@ -17,14 +17,14 @@ for t, n, c in query[::-1]:
         used_col.add(n)
         C[c] += H
         C[c] -= row
-        #C[c] += len(c_row_cnt[c])
+        # C[c] += len(c_row_cnt[c])
         # c_col_cnt[c].add(n)
         col += 1
     elif t == 1 and n not in used_row:
         used_row.add(n)
         C[c] += W
         C[c] -= col
-        #C[c] += len(c_col_cnt[c])
+        # C[c] += len(c_col_cnt[c])
         # c_row_cnt[c].add(n)
         row += 1
     # print(*C)

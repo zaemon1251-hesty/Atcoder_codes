@@ -2,13 +2,13 @@ def main():
     def f(T):
         U = [c for c in reversed(T)]
         for i in range(len(U)):
-            U[i] = 'd' if U[i] == 'p' else 'p'
+            U[i] = "d" if U[i] == "p" else "p"
         return "".join(U)
 
     N = int(input())
     S = input()
     L = 0
-    while L != N and S[L] == 'd':
+    while L != N and S[L] == "d":
         L += 1
     ans = S
     for R in range(L + 1, N + 1):
@@ -16,5 +16,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

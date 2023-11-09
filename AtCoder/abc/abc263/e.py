@@ -2,7 +2,10 @@ n = int(input())
 a = list(map(int, input().split()))
 
 mod = 998244353
-def modinv(a): return pow(a, mod - 2, mod)
+
+
+def modinv(a):
+    return pow(a, mod - 2, mod)
 
 
 dp = [0] * (n + 1)

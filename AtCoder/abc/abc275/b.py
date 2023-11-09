@@ -20,5 +20,5 @@ def main():
     print((A * B * C - D * E * F) % MOD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

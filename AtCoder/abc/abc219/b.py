@@ -5,5 +5,5 @@ def main():
     print("".join(map(lambda t: mapping[t], T)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

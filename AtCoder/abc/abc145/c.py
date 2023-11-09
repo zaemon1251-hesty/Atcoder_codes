@@ -19,5 +19,6 @@ def main():
 
     print(sum(lengths) / len(lengths))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

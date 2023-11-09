@@ -1,5 +1,6 @@
 from collections import defaultdict
 import sys
+
 input = sys.stdin.buffer.readline
 
 
@@ -109,11 +110,7 @@ class VEBTree:
             return 1 if x == 0 and self.max == 1 else None
 
         hi, lo = self.split(x)
-        if (
-                hi in self.cluster
-                and self.cluster[hi].max is not None
-                and lo < self.cluster[hi].max
-        ):
+        if hi in self.cluster and self.cluster[hi].max is not None and lo < self.cluster[hi].max:
             i = hi
             j = self.cluster[hi].successor(lo)
         else:
@@ -136,11 +133,7 @@ class VEBTree:
             return 0 if x == 1 and self.min == 0 else None
 
         hi, lo = self.split(x)
-        if (
-                hi in self.cluster
-                and self.cluster[hi].min is not None
-                and lo > self.cluster[hi].min
-        ):
+        if hi in self.cluster and self.cluster[hi].min is not None and lo > self.cluster[hi].min:
             i = hi
             j = self.cluster[hi].predecessor(lo)
             if j is None:

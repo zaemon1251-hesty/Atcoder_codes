@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(2 * 10**6)
 
 
@@ -18,6 +19,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, M = mi()
 
     G = [[] for _ in range(N)]
@@ -41,9 +43,10 @@ def main():
             if nv not in pths:
                 dfs(nv)
         pths.remove(v)
+
     dfs(0)
     print(min(ans, 10**6))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

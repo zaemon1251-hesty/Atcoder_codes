@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     H, M = mi()
     now = 60 * H + M
     while True:
@@ -25,8 +26,8 @@ def main():
             print(f"{h:02d} {w:02d}")
             exit()
         now += 1
-        now %= (24 * 60)
+        now %= 24 * 60
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

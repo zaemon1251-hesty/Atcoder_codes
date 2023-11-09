@@ -6,5 +6,5 @@ def main():
     print("Yes" if ans == 0 else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

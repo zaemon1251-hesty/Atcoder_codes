@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
@@ -40,6 +41,7 @@ def main():
             if seen[nv]:
                 continue
             dfs(nv, x)
+
     dfs(0, -1)
 
     if all(seen[i] for i in range(N)):
@@ -48,5 +50,5 @@ def main():
         print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

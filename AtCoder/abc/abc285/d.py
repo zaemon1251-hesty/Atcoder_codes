@@ -3,7 +3,7 @@ from collections import defaultdict
 from itertools import combinations
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -48,8 +48,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def input():
@@ -67,7 +66,7 @@ def main():
         return int(input())
 
     N = ii()
-    ST = [input().split()for _ in range(N)]
+    ST = [input().split() for _ in range(N)]
     uf = UnionFind(N)
     name2i = defaultdict(list)
     for i, (s, t) in enumerate(ST):
@@ -85,5 +84,5 @@ def main():
     print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -30,7 +30,7 @@ def main():
                 dp[dgt + 1][isLess] += dp[dgt][isLess]
                 dp[dgt + 1][isLess] %= MOD
 
-            if (L[dgt] == "1" or isLess):
+            if L[dgt] == "1" or isLess:
                 dp[dgt + 1][isLess] += dp[dgt][isLess] * 2
                 dp[dgt + 1][isLess] %= MOD
 
@@ -38,5 +38,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

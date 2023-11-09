@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
@@ -17,7 +18,7 @@ def main():
         return int(input())
 
     N = ii()
-    G = [[]for _ in range(N)]
+    G = [[] for _ in range(N)]
     ans = [-1] * N
     for _ in range(N - 1):
         u, v, w = mi()
@@ -43,5 +44,5 @@ def main():
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

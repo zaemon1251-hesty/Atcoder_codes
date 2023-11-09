@@ -1,6 +1,6 @@
 N = int(input())
-ans=0
-i=0
+ans = 0
+i = 0
 while True:
     if ans >= N:
         print(i)

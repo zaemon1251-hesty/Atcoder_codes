@@ -25,8 +25,7 @@ def main():
         for j in range(W):
             Colors[A[i][j] - 1] += 1
             for k in range(N):
-                S[i + 1][j + 1][k] += S[i + 1][j][k] + \
-                    S[i][j + 1][k] - S[i][j][k] + (A[i][j] - 1 == k)
+                S[i + 1][j + 1][k] += S[i + 1][j][k] + S[i][j + 1][k] - S[i][j][k] + (A[i][j] - 1 == k)
 
     ans = [[0] * (W - w + 1) for _ in range(H - h + 1)]
 
@@ -34,17 +33,12 @@ def main():
         for j in range(W - w + 1):
             res = 0
             for k in range(N):
-                res += (
-                    S[i + h][j + w][k] -
-                    S[i][j + w][k] -
-                    S[i + h][j][k] +
-                    S[i][j][k]
-                ) != Colors[k]
+                res += (S[i + h][j + w][k] - S[i][j + w][k] - S[i + h][j][k] + S[i][j][k]) != Colors[k]
             ans[i][j] = res
 
     for a in ans:
         print(*a)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

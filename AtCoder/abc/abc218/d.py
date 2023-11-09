@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 N = int(input())
 S = defaultdict(set)
 for i in range(N):

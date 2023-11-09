@@ -19,5 +19,5 @@ def main():
     print(s.replace("1", "x").replace("0", "1").replace("x", "0"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

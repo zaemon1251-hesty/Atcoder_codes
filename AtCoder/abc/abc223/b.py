@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+
 x = deque(input())
 s = []
 for i in range(len(x)):

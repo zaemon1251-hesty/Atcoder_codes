@@ -1,4 +1,5 @@
 import bisect
+
 N, K = map(int, input().split())
 P = []
 S = []
@@ -11,5 +12,5 @@ ans = []
 for i in range(N):
     a = P[i]
     idx = N - bisect.bisect_left(S, a + 301)
-    ans.append('Yes' if K > idx else 'No')
+    ans.append("Yes" if K > idx else "No")
 print(*ans, sep="\n")

@@ -2,7 +2,7 @@ from collections import deque
 
 
 N, M = map(int, input().split())
-*H, = map(int, input().split())
+(*H,) = map(int, input().split())
 T = [tuple(map(int, input().split())) for _ in range(M)]
 G = [[] for _ in range(N)]
 inf = 1 << 60

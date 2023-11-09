@@ -31,7 +31,6 @@ chs.append((0, 1, 1))
 
 
 def main():
-
     n, p = map(int, input().split())
 
     # dp[i][j] := i本取り除いた状態で、j=0なら上下が連結、j=1なら非連結
@@ -58,5 +57,5 @@ def main():
     print(*ans[1:])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

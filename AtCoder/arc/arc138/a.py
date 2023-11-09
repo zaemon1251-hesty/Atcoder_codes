@@ -1,4 +1,5 @@
 from heapq import heappop, heappush
+
 inf = 1 << 60
 
 
@@ -20,5 +21,5 @@ def main():
     print(ans if ans < inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

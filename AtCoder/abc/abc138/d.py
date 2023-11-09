@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(1000000)
 
 n, m = map(int, input().split())
@@ -31,4 +32,4 @@ root = 0
 # 探索(-1はv[0]の親がいないことを表す）
 dfs(G, root, -1, 0)
 
-print(*counter, sep=' ')
+print(*counter, sep=" ")

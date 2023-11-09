@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     s = input()
 
     if len(s) != 8:
@@ -44,5 +45,5 @@ def main():
     print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

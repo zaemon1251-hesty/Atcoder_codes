@@ -17,7 +17,7 @@ def main():
         return int(input())
 
     N, M = mi()
-    E = [list(map(lambda x:x - 1, li())) for _ in range(M)]
+    E = [list(map(lambda x: x - 1, li())) for _ in range(M)]
     G = [[] for _ in range(N)]
 
     for u, v in E:
@@ -41,5 +41,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

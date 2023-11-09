@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     s = list(input())
     cnt = 0
     while s:
@@ -27,5 +28,5 @@ def main():
     print(cnt)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

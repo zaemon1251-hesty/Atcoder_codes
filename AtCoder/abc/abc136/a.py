@@ -3,5 +3,5 @@ def main():
     print(C - min(A - B, C))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

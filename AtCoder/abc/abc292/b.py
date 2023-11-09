@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, Q = mi()
     players = [0] * N
 
@@ -28,5 +29,5 @@ def main():
             print("Yes" if players[x] >= 2 else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

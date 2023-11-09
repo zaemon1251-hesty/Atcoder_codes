@@ -6,7 +6,7 @@ for i in range(N):
 Q = int(input())
 for _ in range(Q):
     T, X, Y = input().split()
-    if T == '1':
+    if T == "1":
         X = int(X) - 1
         Prev = S[X]
         Now = ord(Y) - 97

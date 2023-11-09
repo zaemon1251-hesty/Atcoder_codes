@@ -13,5 +13,3 @@ for i in range(Q):
     else:
         ans.append(dd[x][k - 1])
 print(*ans, sep="\n")
-        
-    

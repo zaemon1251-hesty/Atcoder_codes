@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     S = input()
     T = input()
     Ns = len(S)
@@ -45,5 +46,5 @@ def main():
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

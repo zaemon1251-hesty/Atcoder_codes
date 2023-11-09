@@ -3,13 +3,19 @@ from math import inf
 import sys
 
 
-def input(): return sys.stdin.readline().rstrip()
+def input():
+    return sys.stdin.readline().rstrip()
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, M = mi()
     E = [li() for _ in range(M)]
@@ -41,5 +47,5 @@ def main():
     print(dist[T][0] // 3 if dist[T][0] < inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -37,5 +37,5 @@ def main():
     print(*ans[1:], sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

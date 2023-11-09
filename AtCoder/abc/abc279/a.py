@@ -19,5 +19,5 @@ def main():
     print(2 * s.count("w") + s.count("v"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

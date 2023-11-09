@@ -10,12 +10,12 @@ def main():
     t = 0
     ans = []
     for i in range(N):
-        ans.append(t+_max)
+        ans.append(t + _max)
         t += S[i]
         _max = max(_max, S[i])
         ans.append(t)
     print(max(ans))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

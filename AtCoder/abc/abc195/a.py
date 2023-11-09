@@ -3,5 +3,5 @@ def main():
     print("Yes" if H % M == 0 else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

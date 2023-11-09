@@ -1,9 +1,9 @@
 def main():
     N, Q = map(int, input().split())
     queries = [list(map(int, input().split())) for _ in range(Q)]
-    b = [N]*(N+1)
-    a = [N]*(N+1)
-    ans = (N-2)*(N-2)
+    b = [N] * (N + 1)
+    a = [N] * (N + 1)
+    ans = (N - 2) * (N - 2)
     W, H = N, N
     for q, x in queries:
         if q == 1:
@@ -21,5 +21,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

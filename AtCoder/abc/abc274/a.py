@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     A, B = mi()
     if A == B:
         print("1.000")
@@ -22,5 +23,5 @@ def main():
         print("0." + "%03d" % (round(B * 1000 / A)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

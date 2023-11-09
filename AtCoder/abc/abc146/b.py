@@ -5,5 +5,5 @@ def main():
     print("".join(map(lambda x: chr(st + (ord(x) - st + N) % 26), S)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

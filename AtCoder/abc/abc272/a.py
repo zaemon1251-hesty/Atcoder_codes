@@ -14,9 +14,10 @@ def main():
 
     def ii():
         return int(input())
+
     _ = ii()
     print(sum(li()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

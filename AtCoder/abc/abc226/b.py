@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 ans = 0
 n = int(input())
 A = []

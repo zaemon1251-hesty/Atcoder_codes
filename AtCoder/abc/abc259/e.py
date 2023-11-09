@@ -19,7 +19,6 @@ def main():
 
     responsibles = set()
     for p, heap_p in prime_factorizations.items():
-
         maxcnt, idx = heappop(heap_p)
         if heap_p:
             secondcnt, _ = heappop(heap_p)
@@ -31,5 +30,5 @@ def main():
     print(min(len(responsibles) + 1, N))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -3,9 +3,9 @@ def cmb(n, r):
     a = 1
     b = 1
     for k in range(r):
-        a *= (n - r + 1 + k)
+        a *= n - r + 1 + k
 
-        b *= (k + 1)
+        b *= k + 1
 
     return a // b
 

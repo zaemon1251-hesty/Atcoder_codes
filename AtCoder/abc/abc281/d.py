@@ -26,10 +26,7 @@ def main():
         for i in range(N):
             a = A[i]
             for d in range(D):
-                dp[k][i + 1][d] = max(
-                    dp[k][i + 1][d],
-                    dp[k][i][d]
-                )
+                dp[k][i + 1][d] = max(dp[k][i + 1][d], dp[k][i][d])
             for d in range(D):
                 dp[k + 1][i + 1][(d + a) % D] = max(
                     dp[k + 1][i + 1][(d + a) % D],
@@ -41,5 +38,5 @@ def main():
     print(ans if ans > -inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

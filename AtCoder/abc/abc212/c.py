@@ -1,8 +1,8 @@
 mod = 998244353
 N, M, K = map(int, input().split())
-G = [[]for _ in range(N)]
+G = [[] for _ in range(N)]
 P = []
-dp = [0]*N
+dp = [0] * N
 dp[0] = 1
 for _ in range(M):
     u, v = map(int, input().split())
@@ -12,7 +12,7 @@ for _ in range(M):
     G[v].append(u)
     P.append((u, v))
 for i in range(K):
-    tmp = [sum(dp) % mod]*N
+    tmp = [sum(dp) % mod] * N
     for i in range(N):
         tmp[i] -= dp[i]
     for u, v in P:

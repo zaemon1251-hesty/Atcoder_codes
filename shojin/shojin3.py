@@ -94,8 +94,7 @@ class SegTree:
             if vr != a - 1:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+                return self.find_rightest_sub(a, b, x, 2 * k + 1, l, (l + r) // 2)
 
     def find_leftest_sub(self, a, b, x, k, l, r):
         """
@@ -112,15 +111,14 @@ class SegTree:
             if vr != b:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+                return self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
 
     def get_region(self, i):
         idx = i + self.num - 1
         return
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -165,8 +163,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def input():
@@ -285,11 +282,12 @@ def arc097_a():
 def caddi2018_b():
     N = int(input())
     a = [int(input()) for _ in range(N)]
-    print('second' if all(a[i] % 2 == 0 for i in range(N)) else 'first')
+    print("second" if all(a[i] % 2 == 0 for i in range(N)) else "first")
 
 
 def panasonic2020_d():
     import sys
+
     sys.setrecursionlimit(10**6)
 
     N = int(input())
@@ -339,6 +337,7 @@ def arc091_b():
 def abc099_c():
     import sys
     from functools import lru_cache
+
     sys.setrecursionlimit(10**6)
 
     def li():
@@ -400,11 +399,7 @@ def abc080_c():
 
         res = 0
         for shop_i in range(N):
-            with_cnt = sum(
-                joisino_on * shop_on
-                for joisino_on, shop_on
-                in zip(joisino, F[shop_i])
-            )
+            with_cnt = sum(joisino_on * shop_on for joisino_on, shop_on in zip(joisino, F[shop_i]))
             res += P[shop_i][with_cnt]
 
         ans = max(ans, res)
@@ -442,7 +437,6 @@ def agc058_a():
 
 
 def nikkei2019_qual_c():
-
     def li():
         return list(map(int, input().split()))
 
@@ -487,7 +481,7 @@ def abc124_d():
     N, K = mi()
     S = runLengthEncode(input())
     M = len(S)
-    S.append(('X', 1))
+    S.append(("X", 1))
     ans = 0
     R = 0
     cur = 0
@@ -633,10 +627,7 @@ def abc112_c():
         return max(h - abs(x - cx) - abs(y - cy), 0)
 
     def check(h_, cx, cy):
-        return all(
-            height(s[0], s[1], cx, cy, h_) >= s[2]
-            for s in S
-        )
+        return all(height(s[0], s[1], cx, cy, h_) >= s[2] for s in S)
 
     for cx in range(101):
         for cy in range(101):
@@ -648,10 +639,7 @@ def abc112_c():
                     ok = cen
                 else:
                     ng = cen
-            if all(
-                height(s[0], s[1], cx, cy, ok) == s[2]
-                for s in S
-            ):
+            if all(height(s[0], s[1], cx, cy, ok) == s[2] for s in S):
                 print(cx, cy, ok)
                 exit()
     print(-1)
@@ -692,7 +680,7 @@ def agc033_a():
                 # 0-indexで考える
                 if nx < 0 or nx >= H or ny < 0 or ny >= W:
                     continue
-                if A[nx][ny] == '#':
+                if A[nx][ny] == "#":
                     continue
                 if ans[nx][ny] < t + 1:
                     continue
@@ -702,6 +690,7 @@ def agc033_a():
 
 def arc121_b():
     import sys
+
     readline = sys.stdin.readline
 
     N = int(readline())
@@ -709,19 +698,20 @@ def arc121_b():
     for _ in range(2 * N):
         a, c = readline().rstrip().split()
         a = int(a)
-        if c == 'R':
+        if c == "R":
             R.append(a)
-        if c == 'B':
+        if c == "B":
             B.append(a)
-        if c == 'G':
+        if c == "G":
             G.append(a)
     r, g, b = len(R) % 2, len(G) % 2, len(B) % 2
     if r == g == b == 0:
         ans = 0
     else:
+
         def f(A, B):
             if not A or not B:
-                return float('inf')
+                return float("inf")
             a = len(A)
             b = len(B)
             i = 0
@@ -739,6 +729,7 @@ def arc121_b():
                         j += 1
                 ans = min(ans, abs(A[i] - B[j]))
             return ans
+
         if r == 0:
             R, B = B, R
         elif g == 0:
@@ -797,7 +788,7 @@ def arc109_c():
         ("S", "S"): "S",
         ("R", "S"): "R",
         ("S", "R"): "R",
-        ("R", "R"): "R"
+        ("R", "R"): "R",
     }
 
     for _ in range(k):
@@ -855,7 +846,6 @@ def tenka1_2018_c():
 
 
 def arc081_b():
-
     def li():
         return list(map(int, input().split()))
 
@@ -993,9 +983,7 @@ def abc125_c():
     for i in range(N):
         lft = st.query(0, i)
         rght = st.query(i + 1, N)
-        res = gcd(
-            lft, rght
-        )
+        res = gcd(lft, rght)
         ans = max(ans, res)
     print(ans)
 
@@ -1101,5 +1089,5 @@ def code_festival_2017_quala_c():
     print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     code_festival_2017_quala_c()

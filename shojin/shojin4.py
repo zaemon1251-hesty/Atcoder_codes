@@ -177,6 +177,7 @@ def agc003_b():
 
 def abc070_d():
     import sys
+
     sys.setrecursionlimit(10**6)
 
     N = int(input())
@@ -200,6 +201,7 @@ def abc070_d():
                 continue
             dist[w] = dist[v] + c
             dfs(w, v, d + 1)
+
     dist[K] == 0
     dfs(K, -1, 0)
 
@@ -396,8 +398,7 @@ class SegTree:
             if vr != a - 1:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 1, l, (l + r) // 2)
+                return self.find_rightest_sub(a, b, x, 2 * k + 1, l, (l + r) // 2)
 
     def find_leftest_sub(self, a, b, x, k, l, r):
         """
@@ -414,8 +415,7 @@ class SegTree:
             if vr != b:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 2, (l + r) // 2, r)
+                return self.find_rightest_sub(a, b, x, 2 * k + 2, (l + r) // 2, r)
 
 
 def sub():
@@ -426,6 +426,7 @@ def sub():
 def try_():
     from string import ascii_lowercase
     import sys
+
     sys.setrecursionlimit(10**6)
     s = input()
     n = len(s)
@@ -605,6 +606,7 @@ def aising2019_c():
 
     def ii():
         return int(input())
+
     H, W = mi()
     S = [input() for _ in range(H)]
     dx = [0, 1, -1, 0]
@@ -621,11 +623,11 @@ def aising2019_c():
             # 0-indexで考える
             if nx < 0 or nx >= h or ny < 0 or ny >= w:
                 continue
-            if G[nx][ny] == '#':
+            if G[nx][ny] == "#":
                 continue
             if seen[nx][ny]:
                 continue
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

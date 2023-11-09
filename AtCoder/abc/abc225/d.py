@@ -1,4 +1,5 @@
 from collections import deque
+
 N, Q = map(int, input().split())
 par = [-1] * N
 ch = [-1] * N
@@ -6,7 +7,7 @@ A = []
 for i in range(Q):
     t = input().split()
     if t[0] == "1":
-        x, y = int(t[1])-1, int(t[2]) - 1
+        x, y = int(t[1]) - 1, int(t[2]) - 1
         ch[x] = y
         par[y] = x
     elif t[0] == "2":

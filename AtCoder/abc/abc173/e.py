@@ -1,6 +1,6 @@
-MOD = 10**9+7
+MOD = 10**9 + 7
 N, K = map(int, input().split())
-*A, = map(int, input().split())
+(*A,) = map(int, input().split())
 A.sort(key=lambda x: abs(x), reverse=True)
 ans = 1
 cntm = 0
@@ -24,14 +24,14 @@ if cntm % 2 != 0:
     ok1 = m1 != MOD and p1 != MOD
     ok2 = m2 != MOD and p2 != MOD
     if ok1 and ok2:
-        if p1*p2 > m1*m2:
-            ans *= p1*pow(m1, MOD-2, MOD)
+        if p1 * p2 > m1 * m2:
+            ans *= p1 * pow(m1, MOD - 2, MOD)
         else:
-            ans *= m2*pow(p2, MOD-2, MOD)
+            ans *= m2 * pow(p2, MOD - 2, MOD)
     elif ok1:
-        ans *= p1*pow(m1, MOD-2, MOD)
+        ans *= p1 * pow(m1, MOD - 2, MOD)
     elif ok2:
-        ans *= m2*pow(p2, MOD-2, MOD)
+        ans *= m2 * pow(p2, MOD - 2, MOD)
     else:
         A.sort(reverse=True)
         ans = 1

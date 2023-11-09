@@ -43,8 +43,8 @@ def main():
 
     for i in range(1, M + 1):
         ans[i] += ans[i - 1]
-    print(*ans[1:M + 1])
+    print(*ans[1 : M + 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

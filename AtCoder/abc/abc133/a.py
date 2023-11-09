@@ -6,5 +6,5 @@ def main():
         print(N * A)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 from collections import deque
+
 S = deque(list(input()))
 Q = int(input())
 flg = 0

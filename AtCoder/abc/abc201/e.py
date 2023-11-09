@@ -3,8 +3,8 @@ from collections import deque
 
 def main():
     N = int(input())
-    edge = [[]for i in range(N + 1)]
-    weight = [[]for i in range(N + 1)]
+    edge = [[] for i in range(N + 1)]
+    weight = [[] for i in range(N + 1)]
     for i in range(1, N):
         u, v, w = map(int, input().split())
         edge[u].append(v)

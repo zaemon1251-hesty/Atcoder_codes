@@ -1,5 +1,6 @@
 from collections import defaultdict, Counter
 from itertools import accumulate
+
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 acc = list(accumulate(A))

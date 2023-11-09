@@ -25,15 +25,13 @@ def main():
         res1 = 0
         if i > 0:
             sj = S[i - 1][0]
-            while len(si) > res1 and len(sj) > res1 \
-                    and si[res1] == sj[res1]:
+            while len(si) > res1 and len(sj) > res1 and si[res1] == sj[res1]:
                 res1 += 1
 
         res2 = 0
         if i < N - 1:
             sj = S[i + 1][0]
-            while len(si) > res2 and len(sj) > res2 \
-                    and si[res2] == sj[res2]:
+            while len(si) > res2 and len(sj) > res2 and si[res2] == sj[res2]:
                 res2 += 1
 
         ans[idx] = max(res1, res2)
@@ -41,5 +39,5 @@ def main():
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

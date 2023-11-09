@@ -6,14 +6,14 @@ for _ in range(n):
     a = list(map(int, input().split()))
     ok = max(ok, max(a))
     A.append(a)
-#import numpy as np
-#print(np.array(A))
+# import numpy as np
+# print(np.array(A))
 while ok - ng > 1:
-    #print('--------------------')
+    # print('--------------------')
     cen = (ok + ng) // 2
-    #print(cen)
+    # print(cen)
     f = two_cumsum(A, cen)
-    #print(check(f, k, n))
+    # print(check(f, k, n))
     if check(f, k, n):
         ok = cen
     else:

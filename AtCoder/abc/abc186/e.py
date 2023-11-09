@@ -1,7 +1,8 @@
 def gcd(a, b):
     if b == 0:
         return a
-    return gcd(b, a%b)
+    return gcd(b, a % b)
+
 
 # return [g, x, y]
 # g = gcd(a, b)
@@ -9,8 +10,9 @@ def gcd(a, b):
 def extgcd(a, b):
     if b == 0:
         return [a, 1, 0]
-    g, x, y = extgcd(b, a%b)
-    return [g, y, x - a//b * y]
+    g, x, y = extgcd(b, a % b)
+    return [g, y, x - a // b * y]
+
 
 # eq0: x = a0 (mod m0)
 # eq1: x = a1 (mod m1)
@@ -34,14 +36,14 @@ def crt(eq0, eq1):
                 break
             m0 *= gt
             g //= gt
-        
+
         m1 *= g
 
         a0 %= m0
         a1 %= m1
 
     g, p, q = extgcd(m0, m1)
-    
+
     x = a0 * q * m1 + a1 * p * m0
     mod = m0 * m1
     x = x % mod
@@ -49,20 +51,18 @@ def crt(eq0, eq1):
     return [x, mod]
 
 
-
 def main():
     T = int(input())
     ans = []
     for _ in range(T):
-        n,s,k = map(int, input().split())
+        n, s, k = map(int, input().split())
         x, mod = crt((0, k), (-s, n))
-        if x==-1:
+        if x == -1:
             ans.append(-1)
         else:
-            ans.append(x//k)
+            ans.append(x // k)
     print(*ans, sep="\n")
-        
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

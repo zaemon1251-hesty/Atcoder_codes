@@ -15,5 +15,5 @@ while N:
     ans.append(ch[N % 26])
     N //= 26
 if len(ans) != times:
-    ans.append(ch[0]*(times - len(ans)))
+    ans.append(ch[0] * (times - len(ans)))
 print(*ans[::-1], sep="")

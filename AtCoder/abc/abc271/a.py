@@ -14,9 +14,10 @@ def main():
 
     def ii():
         return int(input())
+
     N = ii()
     print("%02x".upper() % N)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

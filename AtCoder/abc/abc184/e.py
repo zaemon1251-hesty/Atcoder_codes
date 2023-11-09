@@ -19,17 +19,17 @@ def main():
                 x[j] = "."
             elif x[j] == "G":
                 g = (i, j)
-            elif x[j] != '.' and x[j] != '#':
+            elif x[j] != "." and x[j] != "#":
                 dic[x[j]].append((i, j))
         grid.append(x)
 
     # テレポート名をセット型で保存
     alpha = set(dic.keys())
-    inf = 10e+7
+    inf = 10e7
     dx = [1, 0, 0, -1]
     dy = [0, 1, -1, 0]
 
-    dist = [[inf]*(w) for i in range(h)]
+    dist = [[inf] * (w) for i in range(h)]
 
     todo = deque([(s[0], s[1])])
     dist[s[0]][s[1]] = 0
@@ -50,17 +50,17 @@ def main():
                         todo.append((telx, tely))
             alpha.discard(grid[x][y])
         for i in range(4):
-            nx, ny = x+dx[i], y+dy[i]
+            nx, ny = x + dx[i], y + dy[i]
             # 0-indexで考える
             if nx < 0 or nx >= h or ny < 0 or ny >= w:
                 continue
-            if grid[nx][ny] == '#':
+            if grid[nx][ny] == "#":
                 continue
             if dist[nx][ny] != inf:
                 continue
             dist[nx][ny] = d
             todo.append((nx, ny))
-            if grid[nx][ny] == 'G':
+            if grid[nx][ny] == "G":
                 print(dist[nx][ny])
                 exit()
         d += 1
@@ -72,5 +72,5 @@ def main():
         print(-1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

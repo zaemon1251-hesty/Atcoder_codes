@@ -1,5 +1,3 @@
-
-
 def main():
     N, M = map(int, input().split())
     inf = 1 << 60
@@ -19,5 +17,5 @@ def main():
     p = 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

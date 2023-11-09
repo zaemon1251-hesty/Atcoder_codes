@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 # python の 再帰 では間に合わない
@@ -6,8 +7,7 @@ sys.setrecursionlimit(10**6)
 
 def main():
     N = int(input())
-    E = [list(map(lambda x: int(x) - 1, input().split()))
-         for _ in range(N - 1)]
+    E = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(N - 1)]
     Q = int(input())
     Qs = [list(map(int, input().split())) for _ in range(Q)]
 
@@ -33,6 +33,7 @@ def main():
             if next_v == p:
                 continue
             dfs_c(next_v, v, c[v])
+
     # dfs(0, -1, 0)
     todo = [0]
     d = 0
@@ -71,5 +72,5 @@ def main():
     print(*c, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

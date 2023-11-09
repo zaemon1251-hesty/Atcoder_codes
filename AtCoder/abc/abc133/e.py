@@ -7,14 +7,8 @@ sys.setrecursionlimit(10**6)
 def main():
     MOD = 10**9 + 7
     N, K = map(int, input().split())
-    E = [
-        list(map(lambda x: int(x) - 1, input().split()))
-        for _ in range(N - 1)
-    ]
-    G = [
-        []
-        for _ in range(N)
-    ]
+    E = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(N - 1)]
+    G = [[] for _ in range(N)]
     for u, v in E:
         G[u].append(v)
         G[v].append(u)
@@ -26,7 +20,7 @@ def main():
         used = 1
 
         # 親の色
-        if (p > -1):
+        if p > -1:
             used += 1
 
         for to in G[v]:
@@ -43,5 +37,5 @@ def main():
     print(dfs(0, -1, K))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 from math import log10, floor
+
 a, b, x = map(int, input().split())
 
 

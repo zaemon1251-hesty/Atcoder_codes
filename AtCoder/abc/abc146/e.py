@@ -25,11 +25,11 @@ def main():
         sup = (F[i] - i) % K
         ans += surplus[sup]
         surplus[sup] += 1
-        if (0 <= i - K + 1):
+        if 0 <= i - K + 1:
             y = (F[i - K + 1] - (i - K + 1)) % K
             surplus[y] -= 1
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

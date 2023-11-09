@@ -21,7 +21,7 @@ def main():
     B = newB
 
     Q = int(input())
-    S = [list(map(lambda x:int(x) - 1, input().split())) for _ in range(Q)]
+    S = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(Q)]
 
     commons = set()
     mp = {}
@@ -37,16 +37,8 @@ def main():
             commons.add(B[i])
         mp[i + 1] = len(commons) == 0
 
-    print(
-        *map(
-            lambda x: "Yes"
-            if (cntA[x[0]] == cntB[x[1]] and mp[cntA[x[0]]])
-            else "No",
-            S
-        ),
-        sep="\n"
-    )
+    print(*map(lambda x: "Yes" if (cntA[x[0]] == cntB[x[1]] and mp[cntA[x[0]]]) else "No", S), sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

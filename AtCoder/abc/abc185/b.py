@@ -5,19 +5,19 @@ def main():
     now = 0
     for i in range(M):
         a, b = A[i]
-        N -= a-now
+        N -= a - now
         if N <= 0:
             print("No")
             exit()
-        N += b-a
+        N += b - a
         N = min(N, lim)
         now = b
-    N -= T-now
+    N -= T - now
     if N <= 0:
         print("No")
         exit()
     print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

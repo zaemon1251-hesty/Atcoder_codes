@@ -2,7 +2,7 @@ def main():
     N, X = map(int, input().split())
     S = [i for i in range(1, N + 1) if i != X]
     n = len(S)
-    L, R = S[:n // 2], S[n // 2:]
+    L, R = S[: n // 2], S[n // 2 :]
     R = R[::-1]
 
     ans = []
@@ -18,5 +18,5 @@ def main():
     print(*ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

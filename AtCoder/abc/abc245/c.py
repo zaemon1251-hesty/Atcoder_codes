@@ -5,13 +5,11 @@ def main():
     pa, pb = True, True
     for i in range(1, N):
         tpa, tpb = True, True
-        if (pa and abs(A[i] - A[i - 1]) <= K) \
-                or (pb and abs(A[i] - B[i - 1]) <= K):
+        if (pa and abs(A[i] - A[i - 1]) <= K) or (pb and abs(A[i] - B[i - 1]) <= K):
             pass
         else:
             tpa = False
-        if (pa and abs(B[i] - A[i - 1]) <= K) \
-                or (pb and abs(B[i] - B[i - 1]) <= K):
+        if (pa and abs(B[i] - A[i - 1]) <= K) or (pb and abs(B[i] - B[i - 1]) <= K):
             pass
         else:
             tpb = False
@@ -19,5 +17,5 @@ def main():
     print("Yes" if (pa or pb) else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

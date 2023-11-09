@@ -42,5 +42,5 @@ def main():
         print(dist[s][g] - 1 if dist[s][g] < inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

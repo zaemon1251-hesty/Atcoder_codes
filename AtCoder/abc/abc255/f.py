@@ -1,4 +1,5 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
@@ -13,7 +14,7 @@ def main():
     def struct(s, t, S, T):
         r = P[s]
         p = posI[r]
-        if (p < S or T < p):
+        if p < S or T < p:
             return False
 
         if p > S:
@@ -35,5 +36,5 @@ def main():
             print(l + 1, r + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

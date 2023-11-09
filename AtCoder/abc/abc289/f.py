@@ -19,8 +19,9 @@ def main():
     tx, ty = mi()
     a, b, c, d = mi()
 
-    if max(a - 1 - sx, a - 1 - tx) <= min(b - 1 - sx, b - 1 - tx) and \
-            max(c - 1 - sy, a - 1 - ty) <= min(d - 1 - sy, d - 1 - ty):
+    if max(a - 1 - sx, a - 1 - tx) <= min(b - 1 - sx, b - 1 - tx) and max(c - 1 - sy, a - 1 - ty) <= min(
+        d - 1 - sy, d - 1 - ty
+    ):
         print("Yes")
         mx = (max(a - 1 - sx, a - 1 - tx) + min(b - 1 - sx, b - 1 - tx)) / 2
         my = (max(c - 1 - sy, a - 1 - ty) + min(d - 1 - sy, d - 1 - ty)) / 2
@@ -30,5 +31,5 @@ def main():
         print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

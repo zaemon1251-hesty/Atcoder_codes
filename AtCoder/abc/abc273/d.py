@@ -68,5 +68,5 @@ def main():
         cur = [r, c]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -49,10 +49,10 @@ ans = ["No"] * Q
 uf = UnionFind(N)
 for i in range(M):
     a, b, c = map(int, input().split())
-    E.append((a-1, b-1, c, -1))
+    E.append((a - 1, b - 1, c, -1))
 for i in range(Q):
     u, v, w = map(int, input().split())
-    E.append((u-1, v-1, w, i))
+    E.append((u - 1, v - 1, w, i))
 E.sort(key=lambda x: x[2])
 
 for i in range(M + Q):

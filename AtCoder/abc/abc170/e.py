@@ -1,17 +1,21 @@
 from Segtree import SegTree
 import sys
 from MultSet import HeapDict
-sys.path.append('../../../')
-def segfunc(x, y): return min(x, y)
+
+sys.path.append("../../../")
 
 
-ide_ele = float('inf')
-order = [ide_ele]*(1 << 18)
+def segfunc(x, y):
+    return min(x, y)
+
+
+ide_ele = float("inf")
+order = [ide_ele] * (1 << 18)
 st = SegTree(order, segfunc, ide_ele)
 N, Q = map(int, input().split())
-kinds = [HeapDict() for _ in range(2*10**5)]
-rate = [0]*N
-whereBaby = [0]*N
+kinds = [HeapDict() for _ in range(2 * 10**5)]
+rate = [0] * N
+whereBaby = [0] * N
 for i in range(N):
     a, b = map(int, input().split())
     b -= 1
@@ -29,5 +33,5 @@ for _ in range(Q):
     kinds[d].insert(-rate[c])
     st.update(prek, -kinds[prek].get_min(t=-ide_ele))
     st.update(d, -kinds[d].get_min())
-    ans = st.query(0, 2*10**5)
+    ans = st.query(0, 2 * 10**5)
     print(ans)

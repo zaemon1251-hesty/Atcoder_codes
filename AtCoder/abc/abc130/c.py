@@ -20,5 +20,5 @@ def main():
     print(H * W / 2, ans_dup)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

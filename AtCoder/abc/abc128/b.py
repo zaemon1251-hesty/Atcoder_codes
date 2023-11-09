@@ -24,5 +24,5 @@ def main():
     print(*[i for (_, _, i) in restaurants], sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

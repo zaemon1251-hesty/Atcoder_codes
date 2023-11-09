@@ -1,11 +1,11 @@
 X, K, D = map(int, input().split())
 X = abs(X)
 
-if X//D >= K:
-    print(X-D*K)
+if X // D >= K:
+    print(X - D * K)
     exit()
 
-K -= X//D
+K -= X // D
 rp = X % D
 rm = D - rp
 

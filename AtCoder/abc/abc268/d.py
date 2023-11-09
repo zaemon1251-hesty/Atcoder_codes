@@ -36,9 +36,14 @@ def main():
 
 
 def sub():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, M = mi()
 
@@ -55,15 +60,15 @@ def sub():
                 exit()
             return
         for i in range(len(S)):  # 残りのうち1つを選ぶ
-            SS = S[:i] + S[i + 1:]
+            SS = S[:i] + S[i + 1 :]
             for c in range(1, margin + 1):
                 dfs(X + "_" * c + S[i], SS, margin - c)
 
     margin = 16 - sum(map(len, S))
     for i in range(len(S)):
-        dfs(S[i], S[:i] + S[i + 1:], margin)
+        dfs(S[i], S[:i] + S[i + 1 :], margin)
     print(-1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sub()

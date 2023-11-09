@@ -1,5 +1,6 @@
 import math
 from numba import njit
+
 N = int(input())
 count = 0
 

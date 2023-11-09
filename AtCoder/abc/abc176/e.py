@@ -1,5 +1,5 @@
 H, W, M = map(int, input().split())
-BOM = list(tuple(map(lambda x: int(x)-1, input().split())) for _ in range(M))
+BOM = list(tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(M))
 ans = 0
 
 Hs = [0] * H

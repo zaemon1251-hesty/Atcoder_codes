@@ -10,7 +10,7 @@ else:
     S = nS + "a" * al
 flg = True
 N = len(S)
-for i in range(N//2):
+for i in range(N // 2):
     if S[i] != S[N - 1 - i]:
         flg = False
 print("Yes" if flg else "No")

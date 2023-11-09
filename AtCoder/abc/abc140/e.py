@@ -3,6 +3,7 @@
 # Pi = X_L,R になる (L,R)の組
 # Ci : Piが成り立つ範囲の組合せ
 
+
 class BIT:
     def __init__(self, n):
         self.n = n
@@ -26,13 +27,13 @@ class BIT:
         ans = 0
         while i > 0:
             ans += self.data[i]
-            i -= (i & -i)
+            i -= i & -i
         return ans
 
     def add(self, i, x=1):  # ★ i > 0
         while i <= self.n:
             self.data[i] += x
-            i += (i & -i)
+            i += i & -i
             # i == 5  101b+1b → 110b+10b → 1000b
 
     def get(self, l, r=None):

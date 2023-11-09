@@ -63,7 +63,7 @@ def getCount(x):
 
 
 ok = 10**18
-ng = -10**18
+ng = -(10**18)
 while ok - ng > 1:
     cen = (ok + ng) // 2
     if getCount(cen) >= K:

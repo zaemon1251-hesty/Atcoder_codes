@@ -18,7 +18,7 @@ def main():
         print(1)
         exit()
 
-    if (len(nums) == 1 and nums[0] > M):
+    if len(nums) == 1 and nums[0] > M:
         print(0)
         exit()
 
@@ -32,5 +32,5 @@ def main():
     print(ok - max(nums))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

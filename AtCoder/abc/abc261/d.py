@@ -17,10 +17,9 @@ def main():
         dp[i + 1][0] = dp[i][0]
         for cnt in range(1, N + 1):
             dp[i + 1][0] = max(dp[i][cnt], dp[i + 1][0])
-            dp[i + 1][cnt] = max(
-                dp[i][cnt - 1] + bonus[cnt] + X[i], dp[i + 1][cnt])
+            dp[i + 1][cnt] = max(dp[i][cnt - 1] + bonus[cnt] + X[i], dp[i + 1][cnt])
     print(max(dp[N]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

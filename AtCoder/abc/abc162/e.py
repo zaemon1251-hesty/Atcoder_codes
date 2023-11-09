@@ -1,6 +1,6 @@
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 N, K = map(int, input().split())
-A = [0] * (K+1)
+A = [0] * (K + 1)
 for i in range(2, K + 1)[::-1]:
     if A[i]:
         continue

@@ -1,5 +1,6 @@
 import sys
 from itertools import accumulate
+
 inf = 1 << 32
 
 
@@ -16,6 +17,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, M, K = mi()
     S = input()
     sumS = [0] + list(accumulate(map(lambda x: 1 if x == "x" else 0, S)))
@@ -57,5 +59,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

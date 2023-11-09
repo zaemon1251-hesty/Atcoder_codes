@@ -1,5 +1,5 @@
 a, b, c = map(int, input().split())
-if len(set([a,b,c])) == 3:
+if len(set([a, b, c])) == 3:
     print(0)
     exit()
 if a == b:

@@ -2,9 +2,14 @@ from collections import Counter
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     S = input()
     c = Counter(S)
@@ -14,5 +19,5 @@ def main():
         print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

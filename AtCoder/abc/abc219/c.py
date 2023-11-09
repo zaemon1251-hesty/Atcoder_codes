@@ -7,14 +7,14 @@ S = []
 ans = []
 for i in range(N):
     s = list(input())
-    encode = ''
+    encode = ""
     for v in s:
         encode += x_r[v]
     S.append(encode)
 S.sort()
 for p in S:
-    decode = ''
+    decode = ""
     for v in p:
         decode += r_x[v]
     ans.append(decode)
-print(*ans, sep='\n')
+print(*ans, sep="\n")

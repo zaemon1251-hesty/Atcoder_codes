@@ -2,7 +2,6 @@ inf = 1 << 60
 
 
 def main():
-
     N, M = map(int, input().split())
     es = []
     for _ in range(M):
@@ -30,5 +29,5 @@ def main():
     print(answer)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

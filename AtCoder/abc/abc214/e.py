@@ -24,4 +24,4 @@ for _ in range(T):
             if now > r:
                 flag = 0
             now += 1
-    print('Yes' if flag else 'No')
+    print("Yes" if flag else "No")

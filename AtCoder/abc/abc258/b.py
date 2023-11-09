@@ -3,8 +3,12 @@ from bisect import bisect, bisect_left, bisect_right
 from collections import defaultdict, deque
 import math
 import sys
+
 sys.setrecursionlimit(4100000)
-def error(*args, end="\n"): print("[stderr]", *args, end=end, file=sys.stderr)
+
+
+def error(*args, end="\n"):
+    print("[stderr]", *args, end=end, file=sys.stderr)
 
 
 MOD = 998244353

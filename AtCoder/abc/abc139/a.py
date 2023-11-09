@@ -4,5 +4,5 @@ def main():
     print(sum(s == t for s, t in zip(S, T)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

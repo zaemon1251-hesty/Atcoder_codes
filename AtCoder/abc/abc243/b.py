@@ -10,10 +10,10 @@ def main():
         for j in range(N):
             if i == j:
                 continue
-            ans2 += (A[i] == B[j])
+            ans2 += A[i] == B[j]
     print(ans1)
     print(ans2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

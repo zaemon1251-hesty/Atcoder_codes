@@ -25,5 +25,5 @@ def main():
     print(pow(2, N, MOD) * fact[2 * N] * factinv[N + 1] % MOD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

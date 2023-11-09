@@ -1,12 +1,17 @@
 from copy import copy
+
 n = int(input())
 P = list(map(int, input().split()))
 inf = 1 << 69
 ans = inf
+
+
 def same(arr):
     if arr == list(range(n)):
         return 1
     return inf
+
+
 for i in range(4):
     rev1 = i >> 1 & 1
     R = copy(P)

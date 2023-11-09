@@ -22,9 +22,9 @@ def main():
     def f(t):
         return B * t + A / sqrt(t + 1)
 
-    t = (A / 2 / B)**(2 / 3) - 1
+    t = (A / 2 / B) ** (2 / 3) - 1
     print(min(f(max(floor(t), 0)), f(ceil(t))))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

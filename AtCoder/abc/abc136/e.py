@@ -1,5 +1,6 @@
 from itertools import accumulate
 import sys
+
 input = sys.stdin.readline
 
 

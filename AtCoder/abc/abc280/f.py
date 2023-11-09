@@ -9,13 +9,20 @@ from functools import lru_cache, cmp_to_key
 
 input = sys.stdin.readline
 
-if __file__ != 'prog.py':
-    sys.setrecursionlimit(10 ** 6)
+if __file__ != "prog.py":
+    sys.setrecursionlimit(10**6)
 
 
-def readints(): return map(int, input().split())
-def readlist(): return list(readints())
-def readstr(): return input()[:-1]
+def readints():
+    return map(int, input().split())
+
+
+def readlist():
+    return list(readints())
+
+
+def readstr():
+    return input()[:-1]
 
 
 class WeightedUnionFind:
@@ -80,8 +87,8 @@ for _ in range(Q):
     y -= 1
     diff = uf.diff(x, y)
     if diff is None:
-        print('nan')
+        print("nan")
     elif flag[uf.find(x)]:
-        print('inf')
+        print("inf")
     else:
         print(diff)

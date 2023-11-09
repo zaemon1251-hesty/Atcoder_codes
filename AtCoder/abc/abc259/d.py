@@ -1,7 +1,7 @@
 from itertools import combinations
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -46,8 +46,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def main():
@@ -59,15 +58,13 @@ def main():
     uf = UnionFind(N)
 
     def onTheCircle(x, y, a, b, r):
-        return (x - a) ** 2 + (y - b)**2 == r**2
+        return (x - a) ** 2 + (y - b) ** 2 == r**2
 
     def distanceBetween(i, j):
-        return (circles[i][0] - circles[j][0])**2 + \
-            (circles[i][1] - circles[j][1])**2
+        return (circles[i][0] - circles[j][0]) ** 2 + (circles[i][1] - circles[j][1]) ** 2
 
     def hasCommonPoint(i, j):
-        return (circles[i][2] - circles[j][2])**2 <= \
-            distanceBetween(i, j) <= (circles[i][2] + circles[j][2])**2
+        return (circles[i][2] - circles[j][2]) ** 2 <= distanceBetween(i, j) <= (circles[i][2] + circles[j][2]) ** 2
 
     for i, j in combinations(range(N), 2):
         if hasCommonPoint(i, j):
@@ -88,5 +85,5 @@ def main():
     print("Yes" if uf.same(st_idx, en_idx) else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

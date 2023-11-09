@@ -26,5 +26,5 @@ def main():
         print(n32 + n113 + n221 + n2111 + n11111)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

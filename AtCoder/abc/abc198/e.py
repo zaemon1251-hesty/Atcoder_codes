@@ -1,11 +1,12 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
 def main():
     N = int(input())
     C = list(map(int, input().split()))
-    G = [[]for _ in range(N)]
+    G = [[] for _ in range(N)]
     for _ in range(N - 1):
         a, b = map(int, input().split())
         a -= 1
@@ -33,5 +34,5 @@ def main():
     print(*sorted(ans), sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

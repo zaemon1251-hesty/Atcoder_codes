@@ -1,8 +1,7 @@
 n, m = map(int, input().split())
 mod = 998244353
 
-DP = [[[[0 for _ in range(m + 1)] for _ in range(m + 1)]
-       for _ in range(m + 1)] for _ in range(n + 1)]
+DP = [[[[0 for _ in range(m + 1)] for _ in range(m + 1)] for _ in range(m + 1)] for _ in range(n + 1)]
 DP[0][m][m][m] = 1
 for i in range(n):
     for j in range(m + 1):

@@ -1,4 +1,5 @@
 from collections import deque
+
 inf = 1 << 60
 
 
@@ -18,8 +19,7 @@ def main():
     dist_st, dist_en = [inf] * N, [inf] * N
     min_st, min_en = [inf], [inf]
 
-    for dist, src, min_v in zip(
-            [dist_st, dist_en], [0, N - 1], [min_st, min_en]):
+    for dist, src, min_v in zip([dist_st, dist_en], [0, N - 1], [min_st, min_en]):
         dist[src] = 0
         todo = deque([src])
         while todo:
@@ -47,5 +47,5 @@ def main():
     print(*anses)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

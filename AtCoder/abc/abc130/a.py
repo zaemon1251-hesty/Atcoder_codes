@@ -19,5 +19,5 @@ def main():
     print((X >= A) * 10)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

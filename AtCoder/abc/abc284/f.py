@@ -1,4 +1,4 @@
-class Hash():
+class Hash:
     def __init__(self, st, base, mod):
         self.mod = mod
 
@@ -17,6 +17,7 @@ class Hash():
     def get_hash(self, l, r):
         return (self.h[r] - (self.pw[r - l + 1] * self.h[l - 1])) % self.mod
 
+
 # base = 100, mod = 2147483647
 
 
@@ -27,9 +28,8 @@ S = Hash(X, 100, 2147483647)
 T = Hash(Y, 100, 2147483647)
 
 for i in range(1, N + 1):
-    if (S.get_hash(1, i) == T.get_hash(N - i + 1, N) and
-            S.get_hash(i + N + 1, 2 * N) == T.get_hash(N + 1, 2 * N - i)):
-        print(X[:i] + X[i + N:])
+    if S.get_hash(1, i) == T.get_hash(N - i + 1, N) and S.get_hash(i + N + 1, 2 * N) == T.get_hash(N + 1, 2 * N - i):
+        print(X[:i] + X[i + N :])
         print(i)
         exit()
 

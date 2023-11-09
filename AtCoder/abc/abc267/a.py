@@ -5,5 +5,5 @@ def main():
     print(week.index(tgday) - week.index(s))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

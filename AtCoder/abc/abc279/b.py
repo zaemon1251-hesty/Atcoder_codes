@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     t = input()
     s = input()
     ns = len(s)
@@ -27,5 +28,5 @@ def main():
     print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

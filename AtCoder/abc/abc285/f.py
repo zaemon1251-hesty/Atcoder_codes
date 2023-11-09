@@ -23,7 +23,7 @@ class Fenwick_Tree:
 
 
 N = int(input())
-S = [ord(x) - ord('a') for x in input()]  # アルファベット番号で受け取る
+S = [ord(x) - ord("a") for x in input()]  # アルファベット番号で受け取る
 Q = int(input())
 cmp = Fenwick_Tree(N)  # ソート済かを判定する、idxiとi+1の間がソート済でなければcmp[i]に1が立つ
 cnt = [Fenwick_Tree(N) for _ in range(26)]  # それぞれのアルファベットについての位置
@@ -35,10 +35,10 @@ for i in range(N - 1):
 
 
 def update(i, x):
-    '''
+    """
     cntやcmpに対して
     場所iに関するデータをxだけ増やす(x=1なら増やす、-1なら減らす)
-    '''
+    """
     cnt[S[i]].add(i, x)
     if i >= 1 and S[i - 1] > S[i]:
         cmp.add(i - 1, x)
@@ -48,10 +48,10 @@ def update(i, x):
 
 for qi in range(Q):
     q = input().split()
-    if q[0] == '1':
+    if q[0] == "1":
         i = int(q[1])
         i -= 1
-        c = ord(q[2]) - ord('a')
+        c = ord(q[2]) - ord("a")
         # x文字目をcに置き換える
         update(i, -1)
         S[i] = c
@@ -68,6 +68,6 @@ for qi in range(Q):
             if cnt[char].sum(l, r) != cnt[char].sum(0, N):
                 ok = False
         if ok:
-            print('Yes')
+            print("Yes")
         else:
-            print('No')
+            print("No")

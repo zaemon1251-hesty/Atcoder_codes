@@ -1,11 +1,19 @@
 import sys
-def input(): return sys.stdin.readline().rstrip()
+
+
+def input():
+    return sys.stdin.readline().rstrip()
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     S = [input() for _ in range(10)]
 
@@ -29,5 +37,5 @@ def main():
     print(c + 1, d + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

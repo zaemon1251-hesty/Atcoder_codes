@@ -1,8 +1,9 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -47,8 +48,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def input():
@@ -115,5 +115,5 @@ def main():
     print(ans1 - M + ans2 // 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

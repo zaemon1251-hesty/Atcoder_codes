@@ -19,14 +19,8 @@ def main():
     for i, k in enumerate(keys[1:], start=1):
         prev_k = keys[i - 1]
 
-        diff_l = min(
-            abs(cols[k][-1] - cols[prev_k][0]) + ans_l,
-            abs(cols[k][-1] - cols[prev_k][-1]) + ans_r
-        )
-        diff_r = min(
-            abs(cols[k][0] - cols[prev_k][0]) + ans_l,
-            abs(cols[k][0] - cols[prev_k][-1]) + ans_r
-        )
+        diff_l = min(abs(cols[k][-1] - cols[prev_k][0]) + ans_l, abs(cols[k][-1] - cols[prev_k][-1]) + ans_r)
+        diff_r = min(abs(cols[k][0] - cols[prev_k][0]) + ans_l, abs(cols[k][0] - cols[prev_k][-1]) + ans_r)
 
         dist = abs(cols[k][-1] - cols[k][0])
         ans_l = diff_l + dist
@@ -35,5 +29,5 @@ def main():
     print(min(ans_r, ans_l))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

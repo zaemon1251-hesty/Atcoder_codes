@@ -11,4 +11,4 @@ for s in S:
         sm = True
     else:
         lg = True
-print("Yes" if (flg and lg and sm)else "No")
+print("Yes" if (flg and lg and sm) else "No")

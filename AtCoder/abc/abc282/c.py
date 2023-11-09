@@ -24,8 +24,8 @@ def main():
         else:
             if cnt % 2 == 0 and S[i] == ",":
                 S[i] = "."
-    print(''.join(S))
+    print("".join(S))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

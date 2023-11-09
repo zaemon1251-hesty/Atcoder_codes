@@ -2,7 +2,8 @@ import sys
 
 
 def main():
-    def input(): return sys.stdin.readline().rstrip()
+    def input():
+        return sys.stdin.readline().rstrip()
 
     n = int(input())
     A = [int(i) for i in input().split()]
@@ -30,5 +31,5 @@ def main():
         print(*B)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

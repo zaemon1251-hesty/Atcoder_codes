@@ -3,10 +3,10 @@ from math import gcd
 
 
 def get_prime(n, get_sieve=False):
-    prime = [False] * 2 + [True] * (n-2)
+    prime = [False] * 2 + [True] * (n - 2)
     for i in range(2, n):
         if prime[i]:
-            for j in range(i*2, n, i):
+            for j in range(i * 2, n, i):
                 prime[j] = False
     if get_sieve:
         return {i: False for i in range(2, n) if prime[i]}
@@ -16,7 +16,7 @@ def get_prime(n, get_sieve=False):
 
 def main():
     N = int(input())
-    *A, = map(int, input().split())
+    (*A,) = map(int, input().split())
     primes = get_prime(10**6, get_sieve=True)
 
     def prime_factorize(n):

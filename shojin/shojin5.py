@@ -96,8 +96,7 @@ class SegTree:
             if vr != a - 1:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 1, ll, (ll + r) // 2)
+                return self.find_rightest_sub(a, b, x, 2 * k + 1, ll, (ll + r) // 2)
 
     def find_leftest_sub(self, a, b, x, k, ll, r):
         """
@@ -114,15 +113,14 @@ class SegTree:
             if vr != b:
                 return vr
             else:
-                return self.find_rightest_sub(
-                    a, b, x, 2 * k + 2, (ll + r) // 2, r)
+                return self.find_rightest_sub(a, b, x, 2 * k + 2, (ll + r) // 2, r)
 
     def get_region(self, i):
         _ = i + self.num - 1
         return
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -167,8 +165,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def main():
@@ -193,6 +190,7 @@ def aising2019_c():
 
     def ii():
         return int(input())
+
     H, W = mi()
     S = [input() for _ in range(H)]
     dx = [0, 1, -1, 0]
@@ -280,6 +278,7 @@ def arc097_b():
 
 def arc125_b():
     from math import sqrt
+
     MOD = 998244353
 
     def li():
@@ -302,6 +301,7 @@ def arc125_b():
 
 def m_solutions2019_d():
     import sys
+
     sys.setrecursionlimit(10**6)
 
     def li():
@@ -403,7 +403,6 @@ def arc061_a():
 
 
 def arc100_a():
-
     def li():
         return list(map(int, input().split()))
 
@@ -424,19 +423,13 @@ def arc100_a():
         b = diff[N // 2]
         ans = sum(abs(a - b - i) for i, a in enumerate(A, start=1))
         for eps in [-2, -1, 0, 1, 2]:
-            ans = min(
-                ans,
-                sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1))
-            )
+            ans = min(ans, sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1)))
         print(ans)
     else:
         b = (diff[N // 2 - 1] + diff[N // 2]) // 2
         ans = sum(abs(a - b - i) for i, a in enumerate(A, start=1))
         for eps in [-2, -1, 0, 1, 2]:
-            ans = min(
-                ans,
-                sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1))
-            )
+            ans = min(ans, sum(abs(a - b - eps - i) for i, a in enumerate(A, start=1)))
         print(ans)
 
 
@@ -449,6 +442,7 @@ def arc153_a():
 
     def ii():
         return int(input())
+
     N = ii()
     i = 10**5
     N += i - 1
@@ -487,7 +481,7 @@ def arc153_b():
             ws[(W0 + W - i) % W] = i
     for i in range(H):
         for j in range(W):
-            print(S[hs[i]][ws[j]], end='')
+            print(S[hs[i]][ws[j]], end="")
         print()
 
 
@@ -546,9 +540,10 @@ def abl_d():
 
     def ii():
         return int(input())
+
     N, K = mi()
     A = [ii() for _ in range(N)]
-    st = SegTree([0] * 300020, max, -float('inf'))
+    st = SegTree([0] * 300020, max, -float("inf"))
 
     for a in A:
         ma = st.query(max(0, a - K), min(a + K + 1, 300020))
@@ -705,5 +700,5 @@ def abc106_d():
         print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     abc106_d()

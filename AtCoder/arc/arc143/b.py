@@ -1,6 +1,5 @@
 class ModCmb:
-    """calc combinations on the conditions of a certain mod
-    """
+    """calc combinations on the conditions of a certain mod"""
 
     def __init__(self, N, mod=10**9 + 7):
         # 二項係数テーブル
@@ -24,8 +23,7 @@ class ModCmb:
             return 0
         if n < 0 or k < 0:
             return 0
-        return self.fact[n] * \
-            (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+        return self.fact[n] * (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
 
 
 def main():
@@ -34,12 +32,12 @@ def main():
     bitable = ModCmb(N**2, MOD)
     sub = N**2 * bitable.cmb(N**2, 2 * N - 1)
     sub %= MOD
-    sub *= bitable.fact[N - 1] * bitable.fact[N - 1] * bitable.fact[(N - 1)**2]
+    sub *= bitable.fact[N - 1] * bitable.fact[N - 1] * bitable.fact[(N - 1) ** 2]
     sub %= MOD
 
     ans = (bitable.fact[N**2] - sub + MOD) % MOD
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

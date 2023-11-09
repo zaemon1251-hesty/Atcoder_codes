@@ -3,5 +3,5 @@ def main():
     print(r**2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

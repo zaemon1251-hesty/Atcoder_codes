@@ -26,5 +26,5 @@ def main():
         print(len(towns[i]), *sorted(towns[i]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

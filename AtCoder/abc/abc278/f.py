@@ -4,8 +4,7 @@ from functools import lru_cache
 @lru_cache(None)
 def f(mask, last):
     for i in range(n):
-        if not (mask & (1 << i)) and ll[i][0] == last and not f(
-                mask | (1 << i), ll[i][1]):
+        if not (mask & (1 << i)) and ll[i][0] == last and not f(mask | (1 << i), ll[i][1]):
             return True
     return False
 

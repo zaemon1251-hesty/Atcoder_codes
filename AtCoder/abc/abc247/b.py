@@ -1,4 +1,3 @@
-
 from collections import defaultdict
 
 
@@ -24,8 +23,8 @@ def main():
             print("No")
             exit()
 
-    print('Yes')
+    print("Yes")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

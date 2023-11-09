@@ -1,6 +1,7 @@
 from math import ceil
+
 N = int(input())
-inf = float('inf')
+inf = float("inf")
 r = inf
 l = -inf
 ans = []
@@ -12,4 +13,4 @@ for i in range(N):
         ans.append(0)
     else:
         ans.append(ceil((l - r) / 2))
-print(*ans, sep='\n')
+print(*ans, sep="\n")

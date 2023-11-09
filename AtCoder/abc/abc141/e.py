@@ -2,10 +2,11 @@ from itertools import combinations
 from collections import defaultdict
 
 
-class RollingHash():
+class RollingHash:
     """get substring hash
     In ordet to prevent relatively frequently collision of word's hashes, two different hash value are used.
     """
+
     mod = 10**9 + 7
     base = 1007
 
@@ -24,8 +25,7 @@ class RollingHash():
         v_sub = 0
         for i in range(l):
             h[i + 1] = v = (v * self.base + ord(s[i])) % self.mod
-            h_sub[i + 1] = v_sub = (v_sub * self.base_sub +
-                                    ord(s[i])) % self.mod_sub
+            h_sub[i + 1] = v_sub = (v_sub * self.base_sub + ord(s[i])) % self.mod_sub
         v = 1
         v_sub = 1
         for i in range(l):
@@ -43,8 +43,7 @@ class RollingHash():
             Tuple[int]: redundantized hash value
         """
         hs = (self.h[r] - self.h[l] * self.pw[r - l]) % self.mod
-        hs_sub = (self.h_sub[r] - self.h_sub[l] *
-                  self.pw_sub[r - l]) % self.mod_sub
+        hs_sub = (self.h_sub[r] - self.h_sub[l] * self.pw_sub[r - l]) % self.mod_sub
         return hs, hs_sub
 
 
@@ -76,5 +75,5 @@ def main():
     print(ok)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

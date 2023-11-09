@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, Q = mi()
 
     que = [li() for _ in range(Q)]
@@ -31,5 +32,5 @@ def main():
                 print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

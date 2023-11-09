@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, M = mi()
     cnt = [[0] * N for _ in range(N)]
     for _ in range(M):
@@ -28,5 +29,5 @@ def main():
         print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

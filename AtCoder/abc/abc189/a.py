@@ -3,5 +3,5 @@ def main():
     print("Won" if len(A) == 1 else "Lost")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -11,7 +11,6 @@ N = int(stdin.readline())
 A = deque(map(int, stdin.readline().split()))
 
 for i in range(N + 1):
-
     b = i % 2
 
     if A[0] != b:

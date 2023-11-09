@@ -1,9 +1,11 @@
 import sys
+
 # import math
 
 
 def input():
     return sys.stdin.readline().rstrip()
+
 
 # 素数列挙
 
@@ -35,7 +37,7 @@ def main():
     for _ in range(T):
         buf.append(ii())
 
-    primes = get_prime(int((max(buf))**(1 / 3)) + 20, True)
+    primes = get_prime(int((max(buf)) ** (1 / 3)) + 20, True)
 
     for N in buf:
         for p in primes[::-1]:
@@ -43,11 +45,11 @@ def main():
                 print(p, N // p**2)
                 break
             if N % p == 0:
-                print(int((N // p)**(1 / 2)), p)
+                print(int((N // p) ** (1 / 2)), p)
                 break
         else:
             raise RuntimeError
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

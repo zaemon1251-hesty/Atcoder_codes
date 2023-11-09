@@ -3,8 +3,8 @@ from collections import defaultdict
 
 def main():
     N, M = map(int, input().split())
-    G = [[]for _ in range(N)]
-    dists = [defaultdict(lambda:N) for _ in range(N)]
+    G = [[] for _ in range(N)]
+    dists = [defaultdict(lambda: N) for _ in range(N)]
 
     for i in range(M):
         a, b = map(int, input().split())
@@ -30,5 +30,5 @@ def main():
         print(sum(i + 1 for i, d in dists[x - 1].items() if d <= k))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

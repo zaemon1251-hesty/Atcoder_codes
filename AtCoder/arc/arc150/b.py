@@ -24,6 +24,7 @@ def main():
 
     def ii():
         return int(input())
+
     T = ii()
 
     for _ in range(T):
@@ -37,13 +38,10 @@ def main():
         ans = inf
         for q in q_set:
             k = floor(B - 1, q + 1) + 1
-            ans = min(
-                (k + 1) * max(0, q + 1 - A) + k * A - B,
-                ans
-            )
+            ans = min((k + 1) * max(0, q + 1 - A) + k * A - B, ans)
 
         print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

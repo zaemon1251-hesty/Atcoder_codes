@@ -9,7 +9,7 @@ for r, c in rc:
     t2 = max(R[r], C[c])
     if t1 + t2 > n:
         ans.append("#")
-    elif n % 2 != 0 and t1 == t2 == (n + 1)//2:
+    elif n % 2 != 0 and t1 == t2 == (n + 1) // 2:
         ans.append("#")
     else:
         ans.append(".")

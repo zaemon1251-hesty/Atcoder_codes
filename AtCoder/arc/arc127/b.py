@@ -1,8 +1,6 @@
-
-
 def main():
     N, L = map(int, input().split())
-    t = 2 * 3**(L - 1) + N - 1
+    t = 2 * 3 ** (L - 1) + N - 1
     s1m = {i: j for i, j in zip("012", "120")}
     s2m = {i: j for i, j in zip("012", "201")}
     s = []
@@ -20,5 +18,5 @@ def main():
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

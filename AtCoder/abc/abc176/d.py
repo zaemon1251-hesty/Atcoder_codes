@@ -4,8 +4,8 @@ from collections import deque
 
 
 H, W = map(int, input().split())
-C = tuple(map(lambda x: int(x)-1, input().split()))
-D = tuple(map(lambda x: int(x)-1, input().split()))
+C = tuple(map(lambda x: int(x) - 1, input().split()))
+D = tuple(map(lambda x: int(x) - 1, input().split()))
 G = [list(input()) for _ in range(H)]
 
 
@@ -26,13 +26,13 @@ my = [1, 0, -1, 0]
 while todo:
     x, y = todo.popleft()
     for dx, dy in zip(mx, my):
-        nx, ny = x+dx, y+dy
+        nx, ny = x + dx, y + dy
         if movable(nx, ny) and dp[nx][ny] > dp[x][y]:
             dp[nx][ny] = dp[x][y]
             todo.appendleft((nx, ny))
     for dx in range(-2, 3):
         for dy in range(-2, 3):
-            nx, ny = x+dx, y+dy
+            nx, ny = x + dx, y + dy
             if movable(nx, ny) and dp[nx][ny] > dp[x][y] + 1:
                 dp[nx][ny] = dp[x][y] + 1
                 todo.append((nx, ny))

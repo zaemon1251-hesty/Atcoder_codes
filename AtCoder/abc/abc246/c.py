@@ -14,5 +14,5 @@ def main():
     print(sum(A))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

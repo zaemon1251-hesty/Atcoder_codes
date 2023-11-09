@@ -38,5 +38,5 @@ def main():
     print("Yes" if (x in xws and y in yws) else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

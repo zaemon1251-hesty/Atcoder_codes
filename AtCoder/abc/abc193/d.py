@@ -32,7 +32,7 @@ def main():
                     continue
                 match = rst[tkhs] * (rst[tkhs] - 1)
             else:
-                if (rst[tkhs] < 1 or rst[aok] < 1):
+                if rst[tkhs] < 1 or rst[aok] < 1:
                     continue
                 match = rst[tkhs] * rst[aok]
             S[tkhs] += 1
@@ -44,5 +44,5 @@ def main():
     print(ans / total)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

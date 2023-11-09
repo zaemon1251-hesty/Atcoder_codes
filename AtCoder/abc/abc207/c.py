@@ -11,7 +11,7 @@ for i in range(N):
     else:
         l += 0.1
         r -= 0.1
-    C.append([l,r])
+    C.append([l, r])
 ans = 0
 for i in range(N - 1):
     for j in range(i + 1, N):

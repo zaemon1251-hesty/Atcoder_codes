@@ -27,5 +27,5 @@ def main():
         print(A[s - 1][t - 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

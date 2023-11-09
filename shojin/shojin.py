@@ -3,7 +3,7 @@ from itertools import accumulate
 from math import inf
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -48,8 +48,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def main():
@@ -81,6 +80,7 @@ def sub():
 
 def sub2():
     import numpy as np
+
     N, M, C = map(int, input().split())
     B = list(map(int, input().split())) + [C]
     A = [list(map(int, input().split())) + [1] for _ in range(N)]
@@ -178,6 +178,7 @@ def abc066_b():
 
 def abc075_b():
     from itertools import product
+
     H, W = map(int, input().split())
     S = [list(input()) for _ in range(H)]
     G = [[0] * W for _ in range(H)]
@@ -211,8 +212,7 @@ def abc064_c():
     from collections import Counter
 
     N = int(input())
-    C = Counter(map(lambda x: int(x) // 400 if (int(x) // 400)
-                < 8 else 8, input().split()))
+    C = Counter(map(lambda x: int(x) // 400 if (int(x) // 400) < 8 else 8, input().split()))
     zero = sum((i not in C) for i in range(8))
     free = C[8]
     fixed = 8 - zero
@@ -279,10 +279,10 @@ def agc043_a():
         for y in range(W):
             res = dp[x][y]
             if x > 0:
-                f = (S[x - 1][y] == "." and S[x][y] == "#")
+                f = S[x - 1][y] == "." and S[x][y] == "#"
                 res = min(res, dp[x - 1][y] + f)
             if y > 0:
-                f = (S[x][y - 1] == "." and S[x][y] == "#")
+                f = S[x][y - 1] == "." and S[x][y] == "#"
                 res = min(res, dp[x][y - 1] + f)
             dp[x][y] = res
     print(dp[-1][-1])
@@ -334,6 +334,7 @@ def abc139_d():
 
 def abc060_b():
     from math import gcd
+
     A, B, C = map(int, input().split())
     d = gcd(A, B)
     A //= d
@@ -353,11 +354,15 @@ def abc060_b():
 
 def abc057_b():
     from math import inf
+
     N, M = map(int, input().split())
     gakusei = [list(map(int, input().split())) for _ in range(N)]
     checkp = [list(map(int, input().split())) for _ in range(M)]
     ans = []
-    def diff(x, y): return abs(x[0] - y[0]) + abs(x[1] - y[1])
+
+    def diff(x, y):
+        return abs(x[0] - y[0]) + abs(x[1] - y[1])
+
     for g in gakusei:
         res = inf
         cand = -1
@@ -423,9 +428,9 @@ def abc076_c():
         return True, q_cnt
 
     for i in range(S_len - T_len, -1, -1):
-        f, q = match(S_[i:i + T_len])
+        f, q = match(S_[i : i + T_len])
         if f:
-            S_[i:i + T_len] = T
+            S_[i : i + T_len] = T
             for j in range(S_len):
                 if S_[j] == "?":
                     S_[j] = "a"
@@ -440,7 +445,8 @@ def arc089_a():
     S.append([0, 0, 0])
     S.sort(key=lambda x: x[0])
 
-    def diff(x, y): return abs(x[0] - y[0]) + abs(x[1] - y[1])
+    def diff(x, y):
+        return abs(x[0] - y[0]) + abs(x[1] - y[1])
 
     for i in range(N):
         dist = diff(S[i][1:], S[i + 1][1:])
@@ -486,6 +492,7 @@ def keyence2019_b():
 
 def nikkei2019_2_qual_b():
     from collections import Counter
+
     MOD = 998244353
     N = int(input())
     D = list(map(int, input().split()))
@@ -509,6 +516,7 @@ def nikkei2019_2_qual_b():
 
 def abc127_d():
     from collections import defaultdict
+
     numtable = defaultdict(int)
     N, M = map(int, input().split())
     A = list(map(int, input().split()))
@@ -519,9 +527,7 @@ def abc127_d():
     for b, c in BC:
         numtable[c] += b
 
-    ordered = sorted(
-        [(v, t) for v, t in numtable.items()],
-        key=lambda x: x[0])
+    ordered = sorted([(v, t) for v, t in numtable.items()], key=lambda x: x[0])
 
     ans = 0
     cur = 0
@@ -564,10 +570,7 @@ def abc088_c():
     for i in range(2, -1, -1):
         for j in range(3):
             C[i][j] -= C[0][j]
-    if all(
-        all(C[i][j] == C[i][1] for j in range(3))
-        for i in range(3)
-    ):
+    if all(all(C[i][j] == C[i][1] for j in range(3)) for i in range(3)):
         print("Yes")
     else:
         print("No")
@@ -575,6 +578,7 @@ def abc088_c():
 
 def abc054_b():
     from itertools import product
+
     N, M = map(int, input().split())
     A = [list(input()) for _ in range(N)]
     B = [list(input()) for _ in range(M)]
@@ -608,6 +612,7 @@ def abc130_d():
                 ans += N - right + 1
             _sum -= A[left]
         return ans
+
     print(interval(A, K))
 
 
@@ -756,6 +761,7 @@ def arc080_b():
 
 def abc113_c():
     from heapq import heappop, heappush
+
     N, M = map(int, input().split())
     pref = [[] for _ in range(N + 1)]
     ans = [-1] * M
@@ -776,6 +782,7 @@ def abc113_c():
 
 def arc095_b():
     from bisect import bisect_left
+
     N = int(input())
     A = sorted(map(int, input().split()))
 
@@ -791,6 +798,7 @@ def arc095_b():
 
 def abc110_c():
     from collections import defaultdict
+
     S, T = input(), input()
     N = len(S)
     base = ord("a")
@@ -827,8 +835,7 @@ def abc110_d():
         return a
 
     class ModCmb:
-        """calc combinations on the conditions of a certain mod
-        """
+        """calc combinations on the conditions of a certain mod"""
 
         def __init__(self, N, mod=10**9 + 7):
             # 二項係数テーブル
@@ -852,8 +859,7 @@ def abc110_d():
                 return 0
             if n < 0 or k < 0:
                 return 0
-            return self.fact[n] * \
-                (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+            return self.fact[n] * (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
 
     N, M = map(int, input().split())
     MOD = 10**9 + 7
@@ -889,6 +895,7 @@ def keyence2020_b():
 def abc084_c():
     def ceil(x, y):
         return (x + y - 1) // y
+
     N = int(input())
     G = [list(map(int, input().split())) for _ in range(N - 1)]
     ans = [0] * (N)
@@ -923,9 +930,15 @@ def agc015_a():
 def arc086_a():
     from collections import Counter
     from heapq import heapify, heappop
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, K = mi()
     A = li()
@@ -943,9 +956,14 @@ def arc086_a():
 
 
 def agc013_a():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N = ii()
     A = li()
@@ -971,9 +989,15 @@ def agc013_a():
 
 
 def agc006_a():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
+
     N = ii()
     s = input()
     t = input()
@@ -987,9 +1011,14 @@ def agc006_a():
 
 
 def arc101_a():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, K = mi()
     X = li()
@@ -1022,15 +1051,20 @@ def arc101_a():
 
 
 def agc011_b():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N = ii()
     A = sorted(li())
 
     def check(x):
-        K = sum(A[:x + 1])
+        K = sum(A[: x + 1])
         for enem in range(x + 1, N):
             if A[enem] <= 2 * K:
                 K += A[enem]
@@ -1056,9 +1090,14 @@ def agc018_a():
     def gcd2(A):
         return reduce(gcd, A)
 
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, K = mi()
     A = li()
@@ -1070,5 +1109,5 @@ def agc018_a():
         print("IMPOSSIBLE")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     agc018_a()

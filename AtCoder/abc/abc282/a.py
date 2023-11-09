@@ -16,9 +16,10 @@ def main():
 
     def ii():
         return int(input())
+
     K = ii()
     print(ascii_uppercase[:K])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

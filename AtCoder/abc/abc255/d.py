@@ -14,5 +14,5 @@ def main():
         print((2 * idx - N) * x + total - 2 * S[idx])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -36,7 +36,7 @@ def main():
             y = BOX[j - N] if j >= N else TOWN[j]
         else:
             y = [0, 0]
-        return sqrt(sum((yi - xi)**2 for xi, yi in zip(x, y)))
+        return sqrt(sum((yi - xi) ** 2 for xi, yi in zip(x, y)))
 
     for i, j in combinations(range(N + M), 2):
         D[i, j] = D[j, i] = distance(i, j)
@@ -52,21 +52,20 @@ def main():
 
     # 町と宝箱
     for s in range(1, 1 << (N + M)):
-        coef = 0.5**popcount[s >> N]
+        coef = 0.5 ** popcount[s >> N]
         for i in range(N + M):
             if not (s >> i) & 1:
                 continue
             for j in range(N + M):
                 if (s >> j) & 1:
                     continue
-                dp[j][s ^ (1 << j)] = min(dp[j][s ^ (1 << j)],
-                                          dp[i][s] + D[i, j] * coef)
+                dp[j][s ^ (1 << j)] = min(dp[j][s ^ (1 << j)], dp[i][s] + D[i, j] * coef)
 
     # 原点へ
     alltowns = sum(1 << y for y in range(N))
     ans = inf
     for s in range(1 << (N + M)):
-        coef = 0.5**popcount[s >> N]
+        coef = 0.5 ** popcount[s >> N]
         if s & alltowns != alltowns:
             continue
         for i in range(N + M):
@@ -75,5 +74,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

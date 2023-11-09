@@ -3,7 +3,7 @@ from collections import deque
 
 def main():
     N = int(input())
-    Q = [deque(map(lambda x:int(x) - 1, input().split())) for _ in range(N)]
+    Q = [deque(map(lambda x: int(x) - 1, input().split())) for _ in range(N)]
     buf = set()
     for cu in range(N):
         to = Q[cu][0]
@@ -35,5 +35,5 @@ def main():
         print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

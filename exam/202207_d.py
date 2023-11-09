@@ -227,7 +227,7 @@ def main():
     runner()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for l in sys.stdin:
-        q.append(l.rstrip('\r\n'))
+        q.append(l.rstrip("\r\n"))
     main()

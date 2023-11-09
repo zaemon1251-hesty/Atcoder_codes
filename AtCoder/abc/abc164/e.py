@@ -1,4 +1,5 @@
 import heapq
+
 Z = 2500
 N, M, S = map(int, input().split())
 S = min(S, Z)
@@ -13,7 +14,7 @@ for _ in range(M):
 P = [tuple(map(int, input().split())) for _ in range(N)]
 
 inf = float("inf")
-visited = [[inf]*(Z+1) for _ in range(N)]
+visited = [[inf] * (Z + 1) for _ in range(N)]
 visited[0][S] = 0
 hq = [(0, 0, S)]
 while hq:

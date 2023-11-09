@@ -1,9 +1,11 @@
 from functools import lru_cache
 import sys
+
 input = sys.stdin.readline
 
 
-def int2zidx(x): return int(x) - 1
+def int2zidx(x):
+    return int(x) - 1
 
 
 def main():
@@ -47,12 +49,15 @@ def main():
     # print(cycles)
     # print(divides)
     for x, y in QUERIES:
-        if ((divides[x] == divides[y]) and (divides[x] != -1)) or (
-                divides[x] == -1 and divides[y] == x) or (divides[y] == -1 and divides[x] == y):
+        if (
+            ((divides[x] == divides[y]) and (divides[x] != -1))
+            or (divides[x] == -1 and divides[y] == x)
+            or (divides[y] == -1 and divides[x] == y)
+        ):
             print("Yes")
         else:
             print("No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -4,7 +4,7 @@ from collections import defaultdict
 class Fenwick:
     def __init__(self, n):
         self.n = n
-        self.n0 = 2**(n - 1).bit_length()
+        self.n0 = 2 ** (n - 1).bit_length()
         self.data = [0] * (n + 1)
         self.el = [0] * (n + 1)
 

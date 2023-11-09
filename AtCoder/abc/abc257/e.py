@@ -17,7 +17,7 @@ for j in range(8, min_j, -1):
         cost += c[j] - min_c
 cnt[min_j] = max_k
 
-ans = ''
+ans = ""
 for j in range(8, min_j - 1, -1):
     ans += str(j + 1) * cnt[j]
 print(ans)

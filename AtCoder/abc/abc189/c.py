@@ -1,4 +1,3 @@
-
 from collections import Counter
 
 
@@ -16,5 +15,5 @@ def main():
     print(maxx)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

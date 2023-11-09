@@ -32,5 +32,5 @@ def main():
     print(-1 if dp[-1] == inf else dp[-1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

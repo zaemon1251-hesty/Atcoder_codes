@@ -139,8 +139,12 @@ class BalancingTree:
 
     def debug(self):
         def debug_info(nd_):
-            return (nd_.value - 1, nd_.pivot - 1, nd_.left.value -
-                    1 if nd_.left else -1, nd_.right.value - 1 if nd_.right else -1)
+            return (
+                nd_.value - 1,
+                nd_.pivot - 1,
+                nd_.left.value - 1 if nd_.left else -1,
+                nd_.right.value - 1 if nd_.right else -1,
+            )
 
         def debug_node(nd):
             re = []
@@ -151,8 +155,8 @@ class BalancingTree:
             if nd.right:
                 re += debug_node(nd.right)
             return re
-        print("Debug - root =", self.root.value -
-              1, debug_node(self.root)[:50])
+
+        print("Debug - root =", self.root.value - 1, debug_node(self.root)[:50])
 
     def debug_list(self):
         def debug_node(nd):
@@ -164,6 +168,7 @@ class BalancingTree:
             if nd.right:
                 re += debug_node(nd.right)
             return re
+
         return debug_node(self.root)[:-1]
 
 

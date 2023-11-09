@@ -14,10 +14,11 @@ def main():
 
     def ii():
         return int(input())
+
     N, A, B = mi()
     C = li()
-    print(C.index(A+B) + 1)
+    print(C.index(A + B) + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

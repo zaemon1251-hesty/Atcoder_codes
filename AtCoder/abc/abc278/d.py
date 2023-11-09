@@ -44,5 +44,5 @@ def main():
                 print(cur_v)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

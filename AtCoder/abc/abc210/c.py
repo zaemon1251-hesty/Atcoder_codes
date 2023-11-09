@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 mod = 10**9 + 7
 N, K = map(int, input().split())
 C = list(map(int, input().split()))

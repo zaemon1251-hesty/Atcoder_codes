@@ -1,5 +1,4 @@
 def main():
-
     def make_divisors(n):
         lower_divisors, upper_divisors = [], []
         i = 1
@@ -25,5 +24,5 @@ def main():
         print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

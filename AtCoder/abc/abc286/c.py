@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, A, B = mi()
     S = deque(list(input()))
     ans = 1 << 60
@@ -28,5 +29,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,5 +1,6 @@
 from bisect import bisect_left
 import sys
+
 input = sys.stdin.readline
 
 
@@ -64,9 +65,7 @@ for i in range(M):
 ans = []
 for i in range(N - M + 1):
     x = ft_cnt.lower_bound(K)
-    ans.append(
-        ft_sum.prefix_sum(x) - comp.decompress(x) * (ft_cnt.prefix_sum(x) - K)
-    )
+    ans.append(ft_sum.prefix_sum(x) - comp.decompress(x) * (ft_cnt.prefix_sum(x) - K))
 
     ft_cnt.add(B[i], -1)
     ft_sum.add(B[i], -A[i])

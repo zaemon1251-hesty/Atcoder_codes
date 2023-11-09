@@ -4,7 +4,7 @@ import sys
 
 
 def dist(x, y):
-    return (y[0] - x[0])**2 + (y[1] - x[1])**2
+    return (y[0] - x[0]) ** 2 + (y[1] - x[1]) ** 2
 
 
 def input():
@@ -37,7 +37,7 @@ def main():
             dist(divmod(c, 9), divmod(d, 9)),
             dist(divmod(d, 9), divmod(a, 9)),
             dist(divmod(a, 9), divmod(c, 9)),
-            dist(divmod(b, 9), divmod(d, 9))
+            dist(divmod(b, 9), divmod(d, 9)),
         ]
         cnts = Counter(s)
         if len(cnts) == 2 and sorted(cnts.values()) == [2, 4]:
@@ -52,5 +52,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

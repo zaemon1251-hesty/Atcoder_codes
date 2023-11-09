@@ -12,12 +12,12 @@ def main():
         t = int(t)
         if a in origins:
             continue
-        if (max_ < t):
+        if max_ < t:
             ans = i
             max_ = t
         origins.add(a)
     print(ans + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

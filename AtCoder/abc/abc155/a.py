@@ -3,5 +3,5 @@ def main():
     print("Yes" if len(set(A)) == 2 else "No")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -13,4 +13,4 @@ for keta in reversed(dp):
     ans.append(keta % 10)
 if carry > 0:
     ans.append(carry)
-print(''.join(map(str, ans[::-1])))
+print("".join(map(str, ans[::-1])))

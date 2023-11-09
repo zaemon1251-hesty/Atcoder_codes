@@ -5,7 +5,7 @@ from typing import List
 Vertex: List[int]
 Graph: List[List[int]]
 
-inf = 10e+9
+inf = 10e9
 v, e, r = map(int, input().split())
 G: Graph = [[] for _ in range(v)]
 
@@ -30,4 +30,4 @@ for i in range(v):
     if short[i] != inf:
         print(short[i])
     else:
-        print('INF')
+        print("INF")

@@ -34,5 +34,5 @@ def main():
     print(N + ANS_B)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -6,4 +6,4 @@ for a in range(2, 10**5):
     while pow(a, i) <= N:
         s.add(pow(a, i))
         i += 1
-print(ans- len(s))
+print(ans - len(s))

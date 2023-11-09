@@ -1,4 +1,5 @@
 from collections import deque
+
 N, M = map(int, input().split())
 C = [[] for _ in range(N)]
 block = [0] * M
@@ -15,7 +16,7 @@ while C:
     if rest:
         C.append(rest)
     if max(x[1], y[1]) > height:
-        print('No')
+        print("No")
         exit()
     if x[1] - block[x[0]] == y[1] - block[y[0]] == 0:
         rest = None
@@ -25,4 +26,4 @@ while C:
     else:
         rest = [x, y]
 else:
-    print('Yes')
+    print("Yes")

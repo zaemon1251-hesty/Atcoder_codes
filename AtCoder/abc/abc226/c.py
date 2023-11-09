@@ -1,5 +1,6 @@
 from heapq import heappush, heappop
 from collections import deque
+
 inf = 1 << 60
 N = int(input())
 G = [[] for _ in range(N)]

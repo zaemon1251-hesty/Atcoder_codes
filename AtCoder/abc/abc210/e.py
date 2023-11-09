@@ -1,4 +1,5 @@
 from math import gcd
+
 N, M = map(int, input().split())
 D = []
 for i in range(M):
@@ -7,7 +8,7 @@ for i in range(M):
 D.sort(key=lambda x: x[1])
 ans = 0
 X = N
-#sdgs = N
+# sdgs = N
 for i in range(M):
     a, c = D[i][0], D[i][1]
     tmp = gcd(X, a)

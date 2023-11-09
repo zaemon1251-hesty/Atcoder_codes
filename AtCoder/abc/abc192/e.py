@@ -7,7 +7,7 @@ def main():
     inf = 1 << 60
     X -= 1
     Y -= 1
-    G = [[]for _ in range(N)]
+    G = [[] for _ in range(N)]
     dist = [inf] * N
     E = [list(map(int, input().split())) for _ in range(M)]
     E = list(set(E))
@@ -33,5 +33,5 @@ def main():
     print(dist[Y] if dist[Y] < inf else -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

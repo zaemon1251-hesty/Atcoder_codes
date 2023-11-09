@@ -11,5 +11,5 @@ def main():
             print(S[(head + x - 1) % N])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

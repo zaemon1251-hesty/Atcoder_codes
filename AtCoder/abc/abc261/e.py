@@ -1,6 +1,7 @@
 from functools import lru_cache
 import sys
 from typing import List, Tuple, Callable
+
 sys.setrecursionlimit(10**6)
 
 buf: List[Tuple[Callable, int]]
@@ -44,10 +45,7 @@ def main():
         for i in range(N):
             bit = (buf[i][1] >> k) & 1
             # calc f[i](f[i-1](...(f[1](x)))), {x in [0,1]}
-            synsfunc = [
-                buf[i][0](synsfunc[0], bit),
-                buf[i][0](synsfunc[1], bit)
-            ]
+            synsfunc = [buf[i][0](synsfunc[0], bit), buf[i][0](synsfunc[1], bit)]
             ck = synsfunc[ck]
             res[i] |= ck << k
 
@@ -55,5 +53,5 @@ def main():
         print(d)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

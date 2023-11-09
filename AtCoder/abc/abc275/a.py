@@ -20,5 +20,5 @@ def main():
     print(H.index(max(H)) + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

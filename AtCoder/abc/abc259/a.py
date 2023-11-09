@@ -4,5 +4,5 @@ def main():
     print(min(T, U + D * M))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

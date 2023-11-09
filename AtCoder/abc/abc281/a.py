@@ -14,10 +14,11 @@ def main():
 
     def ii():
         return int(input())
+
     N = ii()
     for i in range(N, -1, -1):
         print(i)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

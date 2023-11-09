@@ -8,7 +8,7 @@ class BIT:
         self.n = n
         self.ele = ele
         self.func = func
-        self.bit = [ele]*(n+1)
+        self.bit = [ele] * (n + 1)
 
     def add(self, i, x) -> None:
         while i <= self.n:
@@ -26,23 +26,23 @@ class BIT:
 
 N, Q = map(int, input().split())
 C = [0] + list(map(int, input().split()))
-col = [0]*(N+1)
-cnum = BIT(N, lambda x, y: x+y, 0)
-ql = [[] for _ in range(N+1)]
-pos = [[] for _ in range(N+1)]
+col = [0] * (N + 1)
+cnum = BIT(N, lambda x, y: x + y, 0)
+ql = [[] for _ in range(N + 1)]
+pos = [[] for _ in range(N + 1)]
 for i in range(Q):
     l, r = map(int, input().split())
     ql[r].append(l)
     pos[r].append(i)
-ans = [0]*Q
+ans = [0] * Q
 
-for r in range(1, N+1):
+for r in range(1, N + 1):
     # cnum は 1-indexed
     if col[C[r]] > 0:
         cnum.add(col[C[r]], -1)
     cnum.add(r, 1)
     col[C[r]] = r
     for l in range(len(pos[r])):
-        ans[pos[r][l]] = cnum.sum(r) - cnum.sum(ql[r][l]-1)
+        ans[pos[r][l]] = cnum.sum(r) - cnum.sum(ql[r][l] - 1)
 
-print(*ans, sep='\n')
+print(*ans, sep="\n")

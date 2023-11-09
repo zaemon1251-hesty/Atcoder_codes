@@ -1,15 +1,24 @@
 from math import gcd
 import sys
-def input(): return sys.stdin.readline().rstrip()
 
 
-def ceil(x, y): return (x + y - 1) // y
+def input():
+    return sys.stdin.readline().rstrip()
+
+
+def ceil(x, y):
+    return (x + y - 1) // y
 
 
 def main():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     A, B, C, D = mi()
     CD = C * D // gcd(C, D)
@@ -21,5 +30,5 @@ def main():
     print(TOTAL - DIVC - DIVD + DIVCD)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

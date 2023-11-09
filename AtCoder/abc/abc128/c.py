@@ -12,7 +12,7 @@ for i in range(2**n):
     on = []
     lamp = [False] * m
     for j in range(n):
-        if ((i >> j) & 1):
+        if (i >> j) & 1:
             on.append(j)
 
     for la in range(m):

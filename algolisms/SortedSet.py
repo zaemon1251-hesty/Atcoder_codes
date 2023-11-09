@@ -3,7 +3,8 @@ from collections import defaultdict
 import math
 from bisect import bisect_left, bisect_right
 from typing import Generic, Iterable, Iterator, TypeVar, Union, List
-T = TypeVar('T')
+
+T = TypeVar("T")
 
 
 class SortedSet(Generic[T]):
@@ -16,8 +17,7 @@ class SortedSet(Generic[T]):
             a = list(self)
         size = self.size = len(a)
         bucket_size = int(math.ceil(math.sqrt(size / self.BUCKET_RATIO)))
-        self.a = [a[size * i // bucket_size: size *
-                    (i + 1) // bucket_size] for i in range(bucket_size)]
+        self.a = [a[size * i // bucket_size : size * (i + 1) // bucket_size] for i in range(bucket_size)]
 
     def __init__(self, a: Iterable[T] = []) -> None:
         "Make a new SortedSet from iterable. / O(N) if sorted and unique / O(N log N)"
@@ -44,7 +44,7 @@ class SortedSet(Generic[T]):
 
     def __str__(self) -> str:
         s = str(list(self))
-        return "{" + s[1: len(s) - 1] + "}"
+        return "{" + s[1 : len(s) - 1] + "}"
 
     def _find_bucket(self, x: T) -> List[T]:
         "Find the bucket which should contain x. self must not be empty."
@@ -143,6 +143,7 @@ class SortedSet(Generic[T]):
                 return ans + bisect_right(a, x)
             ans += len(a)
         return ans
+
 
 ################################
 

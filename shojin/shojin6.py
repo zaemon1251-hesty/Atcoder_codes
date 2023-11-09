@@ -5,7 +5,7 @@ from collections import defaultdict
 from operator import itemgetter
 
 
-class UnionFind():
+class UnionFind:
     def __init__(self, n):
         self.n = n
         self.parents = [-1] * n
@@ -50,8 +50,7 @@ class UnionFind():
         return {r: self.members(r) for r in self.roots()}
 
     def __str__(self):
-        return '\n'.join('{}: {}'.format(r, self.members(r))
-                         for r in self.roots())
+        return "\n".join("{}: {}".format(r, self.members(r)) for r in self.roots())
 
 
 def arc107_c():
@@ -65,6 +64,7 @@ def arc107_c():
 
     def ii():
         return int(input())
+
     N, K = mi()
 
     @lru_cache(None)
@@ -159,7 +159,7 @@ def abc100_d():
             X += x
             Y += y
             Z += z
-        return (abs(X) + abs(Y) + abs(Z))
+        return abs(X) + abs(Y) + abs(Z)
 
     print(max(solve(f) for f in product([-1, 1], repeat=3)))
 
@@ -218,8 +218,12 @@ def arc096_b():
     ans = 0
     n, c = map(int, input().split())
     XV = [tuple(map(int, input().split())) for _ in range(n)]
-    R = [0, ]
-    RR = [0, ]
+    R = [
+        0,
+    ]
+    RR = [
+        0,
+    ]
     tmp = 0
     pre = 0
 
@@ -252,6 +256,7 @@ def arc159_a():
 
     def ii():
         return int(input())
+
     N, K = mi()
     A = [li() for _ in range(N)]
     cost = [[inf] * N for _ in range(N)]
@@ -279,7 +284,7 @@ def arc159_a():
 def prime(n):
     prime_list = []
     # 素数で割り切れるかの判定
-    for p in range(2, int(n ** 0.5) + 1):
+    for p in range(2, int(n**0.5) + 1):
         if n % p == 0:
             prime_list.append(p)
             while n % p == 0:
@@ -298,7 +303,7 @@ def arc159_b():
         print(1)
         return
     ans = 0
-    while (A > 0 and B > 0):
+    while A > 0 and B > 0:
         if A - B == 1:
             ans += min(A, B)
             break

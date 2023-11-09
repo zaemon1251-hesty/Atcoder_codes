@@ -14,6 +14,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, M = mi()
     A = li()
     A = list(map(lambda x: x - 1, A))
@@ -35,5 +36,5 @@ def main():
         C[a], C[a + 1] = C[a + 1], C[a]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

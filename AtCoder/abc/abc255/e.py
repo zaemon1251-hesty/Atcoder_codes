@@ -20,5 +20,5 @@ def main():
     print(max(res.values()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

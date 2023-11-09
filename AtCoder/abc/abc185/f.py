@@ -7,7 +7,7 @@ class BIT:
         self.n = n
         self.ele = ele
         self.func = func
-        self.bit = [ele]*(n+1)
+        self.bit = [ele] * (n + 1)
 
     def add(self, i, x) -> None:
         i += 1
@@ -41,9 +41,9 @@ def main():
         else:
             x -= 1
             y -= 1
-            ans.append(bt.sum(y) ^ (bt.sum(x-1) if x > 0 else 0))
+            ans.append(bt.sum(y) ^ (bt.sum(x - 1) if x > 0 else 0))
     print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

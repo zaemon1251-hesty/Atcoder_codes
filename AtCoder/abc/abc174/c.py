@@ -1,4 +1,5 @@
 from math import ceil, log10
+
 K = int(input())
 a = 7
 ans = 1

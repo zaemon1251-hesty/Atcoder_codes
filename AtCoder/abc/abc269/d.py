@@ -1,16 +1,25 @@
 from copy import copy
 import sys
+
 sys.setrecursionlimit(10**6)
-def input(): return sys.stdin.readline().rstrip()
+
+
+def input():
+    return sys.stdin.readline().rstrip()
 
 
 seen = set()
 
 
 def main():
-    def li(): return tuple(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return tuple(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N = ii()
     A = set([li() for _ in range(N)])
@@ -35,5 +44,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

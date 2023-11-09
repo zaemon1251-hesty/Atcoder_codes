@@ -8,7 +8,6 @@ def input():
 
 
 def main():
-
     def li():
         return list(map(int, input().split()))
 
@@ -17,6 +16,7 @@ def main():
 
     def ii():
         return int(input())
+
     N = ii()
     A = li()
     S = [input() for _ in range(N)]
@@ -54,5 +54,5 @@ def main():
             print("Impossible")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

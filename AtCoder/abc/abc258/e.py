@@ -52,5 +52,5 @@ def main():
             print(dist[path[chain + k]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

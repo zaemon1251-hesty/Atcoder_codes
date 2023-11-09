@@ -1,6 +1,5 @@
 class ModCmb:
-    """calc combinations on the conditions of a certain mod
-    """
+    """calc combinations on the conditions of a certain mod"""
 
     def __init__(self, N, mod=10**9 + 7):
         # 二項係数テーブル
@@ -24,15 +23,14 @@ class ModCmb:
             return 0
         if n < 0 or k < 0:
             return 0
-        return self.fact[n] * \
-            (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
+        return self.fact[n] * (self.factinv[k] * self.factinv[n - k] % self.MOD) % self.MOD
 
 
 def main():
     MOD = 998244353
     N, M, K = map(int, input().split())
     E = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(M)]
-    G = [[]for _ in range(N)]
+    G = [[] for _ in range(N)]
     for u, v in E:
         G[u].append(v)
         G[v].append(u)
@@ -51,5 +49,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

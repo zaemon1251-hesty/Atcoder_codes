@@ -9,4 +9,4 @@ if K < B:
     print(ans)
     exit()
 K -= B
-print(ans-K)
+print(ans - K)

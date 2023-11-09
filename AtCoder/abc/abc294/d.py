@@ -15,6 +15,7 @@ def main():
 
     def ii():
         return int(input())
+
     N, Q = mi()
     patients = [0] * N
     que = list(range(N - 1, -1, -1))
@@ -36,8 +37,8 @@ def main():
                 tmp.append(x)
             ans.append(x + 1)
             heappush(called, x)
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

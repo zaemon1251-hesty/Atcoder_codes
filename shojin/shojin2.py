@@ -2,13 +2,19 @@ from cgitb import reset
 
 
 def agc014_a():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     def divs(*args):
         a, b, c = args
         return (b // 2 + c // 2, c // 2 + a // 2, a // 2 + b // 2)
+
     A, B, C = mi()
     arg = (A, B, C)
     ans = 0
@@ -25,11 +31,18 @@ def agc014_a():
 
 def abc094_b():
     import sys
-    def input(): return sys.stdin.readline().rstrip()
 
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def input():
+        return sys.stdin.readline().rstrip()
+
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, M, X = mi()
     A = li()
@@ -40,9 +53,14 @@ def abc094_b():
 
 
 def abc116_b():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     s = ii()
     Set = set()
@@ -55,9 +73,14 @@ def abc116_b():
 
 
 def agc027_a():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, x = mi()
     A = sorted(li(), reverse=True)
@@ -95,7 +118,7 @@ def arc067_a():
         t = 1
         res = 0
         while p <= N:
-            res += (N // p)
+            res += N // p
             p *= i
             t += 1
         facts.append(res + 1)
@@ -111,9 +134,14 @@ def arc067_a():
 def arc066_a():
     from collections import Counter
 
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N = ii()
     A = li()
@@ -133,9 +161,14 @@ def arc066_a():
 
 
 def abc085_d():
-    def li(): return list(map(int, input().split()))
-    def mi(): return map(int, input().split())
-    def ii(): return int(input())
+    def li():
+        return list(map(int, input().split()))
+
+    def mi():
+        return map(int, input().split())
+
+    def ii():
+        return int(input())
 
     N, H = mi()
     S = [li() for _ in range(N)]
@@ -184,8 +217,8 @@ def mergecount(A):
     cnt = 0
     n = len(A)
     if n > 1:
-        A1 = A[:n >> 1]
-        A2 = A[n >> 1:]
+        A1 = A[: n >> 1]
+        A2 = A[n >> 1 :]
         cnt += mergecount(A1)
         cnt += mergecount(A2)
         i1 = 0
@@ -209,6 +242,7 @@ def mergecount(A):
 
 def arc136_b():
     from collections import Counter
+
     _ = int(input())
     A = list(map(int, input().split()))
     B = list(map(int, input().split()))
@@ -244,6 +278,7 @@ def abc092_b():
 
 def hitachi2020_b():
     from math import inf
+
     A, B, M = map(int, input().split())
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
@@ -259,11 +294,12 @@ def hitachi2020_b():
 
 def abc114_b():
     from math import inf
+
     s = input()
     n = len(s)
     ans = inf
     for i in range(n - 2):
-        ans = min(ans, abs(int(s[i:i + 3]) - 753))
+        ans = min(ans, abs(int(s[i : i + 3]) - 753))
     print(ans)
 
 
@@ -283,6 +319,7 @@ def abc063_b():
 
 def abc052_b():
     from itertools import accumulate
+
     N = int(input())
     S = map(lambda x: 1 if x == "I" else -1, input())
     S = accumulate([0] + list(S))
@@ -301,6 +338,7 @@ def abc084_b():
 
 def abc087_b():
     from itertools import product
+
     ans = 0
     A, B, C, X = int(input()), int(input()), int(input()), int(input())
     for a, b, c in product(range(A + 1), range(B + 1), range(C + 1)):
@@ -311,6 +349,7 @@ def abc087_b():
 
 def abc071_b():
     from string import ascii_lowercase
+
     cnt = {a: 0 for a in ascii_lowercase}
     s = input()
     for w in s:
@@ -394,5 +433,5 @@ def ddcc2020_qual_c():
         print(*row)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ddcc2020_qual_c()

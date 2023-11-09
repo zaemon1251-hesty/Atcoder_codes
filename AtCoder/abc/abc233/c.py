@@ -1,5 +1,6 @@
 from itertools import product
 from functools import reduce
+
 N, X = map(int, input().split())
 La = [list(map(int, input().split())) for _ in range(N)]
 L = [i[0] for i in La]

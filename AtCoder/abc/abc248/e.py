@@ -14,8 +14,7 @@ def getPrimeFrac(a, b):
 
 
 def fracSame(t1, t2, t3):
-    return (t1[0] - t3[0]) * (t2[1] - t3[1]) \
-        == (t1[1] - t3[1]) * (t2[0] - t3[0])
+    return (t1[0] - t3[0]) * (t2[1] - t3[1]) == (t1[1] - t3[1]) * (t2[0] - t3[0])
 
 
 def main():
@@ -44,5 +43,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

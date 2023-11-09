@@ -15,5 +15,5 @@ def main():
     print(cusum(N) - A * cusum(p) - B * cusum(q) + AB * cusum(pq))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

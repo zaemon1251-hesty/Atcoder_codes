@@ -1,7 +1,7 @@
 def main():
     H, W, N, M = map(int, input().split())
-    light = [list(map(lambda x:int(x)-1, input().split())) for _ in range(N)]
-    block = [list(map(lambda x:int(x)-1, input().split())) for _ in range(M)]
+    light = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(N)]
+    block = [list(map(lambda x: int(x) - 1, input().split())) for _ in range(M)]
     hlighten = [[0] * W for _ in range(H)]
     wlighten = [[0] * W for _ in range(H)]
     for c, d in block:
@@ -33,5 +33,5 @@ def main():
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
